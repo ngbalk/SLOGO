@@ -25,7 +25,7 @@ public class View {
 	 * @param errorString
 	 */
 			
-	public void displayErrors(String errorString){
+	public void displayError(String errorString){
 		
 	}
 
