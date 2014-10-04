@@ -5,16 +5,16 @@
  */
 package application.slogonode.MathOperations;
 
-public class SumNode extends MathOperations {
+public class DifferenceNode extends MathOperations {
 
-	public SumNode() {
+	public DifferenceNode() {
 		myType = "MathOperation";
-		myOperation = "SUM";
+		myOperation = "DIFFERENCE";
 	}
 
 	@Override
 	public int evaluate() {
-		return myChildren.get(0).evaluate() + myChildren.get(1).evaluate();
+		return myChildren.get(0).evaluate() - myChildren.get(1).evaluate();
 	}
 
 }
