@@ -9,6 +9,8 @@ public class View {
 	public View() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 	/**
 	 * Pass in a List of Actions, which the API will apply to the current Turtle.  These Actions need to take in a Turtle
 	 * as a parameter and must know how to call Turtle.move(double distance) and Turtle.rotate(double degrees);
@@ -24,7 +26,6 @@ public class View {
 	 * nicely to the user.
 	 * @param errorString
 	 */
-			
 	public void displayError(String errorString){
 		
 	}
