@@ -18,5 +18,4 @@ public abstract class MathOperations extends SLogoNode {
 		return super.toString() + " Operation:" + myOperation;
 	}
 	
-	
 }
