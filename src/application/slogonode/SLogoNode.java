@@ -12,18 +12,35 @@ public abstract class SLogoNode {
 	
 	protected int myValue;
 	protected String myType;
-	protected List<SLogoNode> myChildren;
+	public List<SLogoNode> myChildren;
 	
 	/**
 	 * 
 	 * @return
 	 */
 	public abstract int evaluate();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public List<SLogoNode> getChildren() {
+		return myChildren;
+	}
 	
+	/**
+	 * 
+	 * @param slnode
+	 */
+	public void addChild(SLogoNode slnode) {
+		myChildren.add(slnode);
+	}
+
 	/**
 	 * 
 	 */
 	public String toString() {
 		return "SLogoNode. " + "Type:" + myType + " myValue:" + myValue;
 	}
+	
 }
