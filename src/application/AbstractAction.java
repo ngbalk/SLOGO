@@ -12,9 +12,12 @@ public abstract class AbstractAction {
 	
 	// TODO: Not really sure what to put in this class
 	
-	public Turtle myTurtle;
+	public AbstractDrawer myDrawer;
 	public Point2D nextPoint;
-	
+	/**
+	 * update takes in an AbstractDrawer and updates it according to the specifications of this type of Action.
+	 * @param currentDrawer
+	 */
 	public abstract void update();
 	
 	

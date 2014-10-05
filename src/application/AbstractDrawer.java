@@ -1,5 +1,7 @@
 package application;
 
+import javafx.geometry.Point2D;
+
 public class AbstractDrawer {
 
 	public AbstractDrawer() {
@@ -31,6 +33,28 @@ public class AbstractDrawer {
 	 */
 	public void penDown(){
 		
+	}
+	/**
+	 * check if the pen is in down position.
+	 * @return
+	 */
+	public boolean isPenDown(){
+		return false;
+	}
+	/**
+	 * return the current location of the drawer.
+	 * @return
+	 */
+	public Point2D getLocation(){
+		return null;
+		
+	}
+	/**
+	 * return the orientation (in degrees) of the drawer.
+	 * @return
+	 */
+	public double getOrientation(){
+		return 0.0;
 	}
 
 

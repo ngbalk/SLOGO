@@ -15,7 +15,7 @@ public class Workspace {
 	 * and Turtle.rotate(double degrees);
 	 * @param actionChain a List<Action> of Actions which will be applied in succession to our current Turtle.
 	 */
-	public void updateTurtle(List<Action> actionChain){
+	public void updateTurtle(List<AbstractAction> actionChain){
 		
 	}
 	/**
