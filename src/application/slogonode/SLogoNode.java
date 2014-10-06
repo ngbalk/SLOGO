@@ -42,5 +42,4 @@ public abstract class SLogoNode {
 	public String toString() {
 		return "SLogoNode. " + "Type:" + myType + " myValue:" + myValue;
 	}
-	
 }
