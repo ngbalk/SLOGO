@@ -13,14 +13,14 @@
     <top>
         <ToolBar>
             <Region styleClass="spacer" />
-            <HBox styleClass="segmented-button-bar" style="-fx-spacing: 750.0">
+            <HBox id = "workspace-bar" styleClass="segmented-button-bar" style="-fx-spacing: 750.0">
                 <Text text="SLogo" />
             </HBox>
         </ToolBar>
     </top>
     <left>
              <VBox styleClass="segmented-button-bar" style="-fx-background-color: #CCFF99; -fx-spacing: 3.0">
-                <Button id="newTurtle" style="-fx-base: Blue"  text="Play" styleClass="first" />   
+                <Button id="newTurtle" style="-fx-base: Blue"  text="Add Turtle" styleClass="first" />   
             </VBox>
     </left>
 </BorderPane>

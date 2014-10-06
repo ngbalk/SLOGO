@@ -1,13 +1,20 @@
 package application;
 
+import java.io.IOException;
 import java.util.List;
-
-
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 public class View {
+	private Stage myStage;
+	private Scene myScene;
 
-	public View() {
-		// TODO Auto-generated constructor stub
+	public View(Stage stage){
+		myStage = stage;
+		this.initializeStage();
 	}
 	
 	/**
@@ -18,6 +25,24 @@ public class View {
 	 */
 	public void displayError(String errorString){
 		
+	}
+	/**
+	 * Initialize the application's stage.
+	 * @param stage
+	 */
+	private void initializeStage(){
+		 	Parent root;
+			try {
+				root = FXMLLoader.load(getClass().getResource(Constants.UI.ROOT_LAYOUT_FXML_LOCATION));
+			} catch (IOException e) {
+				System.out.println("Could not load FXML file" + "\n" + e.getMessage());
+				root = new Group();
+			}
+	        Scene scene = new Scene(root, Constants.UI.STAGE_HEIGHT, Constants.UI.STAGE_WIDTH);
+	        this.myScene = scene;
+	        myStage.setTitle("SLogo");
+	        myStage.setScene(scene);
+	        myStage.show();
 	}
 
 }
