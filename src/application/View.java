@@ -46,7 +46,7 @@ public class View {
 	 * Update the currentWorkspace's turtle with the actionChain returned by Model.parseInput().
 	 * @param actionChain
 	 */
-	private void updateTurtle(List<Action> actionChain){
+	private void updateTurtle(List<AbstractAction> actionChain){
 		
 	}
 	/**
@@ -78,7 +78,7 @@ public class View {
 	        submitTextForParsing.setOnAction(new EventHandler<ActionEvent>(){
 				@Override
 				public void handle(ActionEvent arg0) {
-					myModel.parseInput(textInput.getText());
+					updateTurtle(myModel.parseInput(textInput.getText()));
 					textInput.clear();
 				}
 	        });
