@@ -1,15 +1,24 @@
 package application;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javafx.scene.Group;
 
 public class Workspace {
 	
 	Turtle myCurrentTurtle;
+	SLogoCanvas myCanvas;
+	List<AbstractAction> myHistory;
+	Map myCommands;
+	Group myRoot;
 
-	public Workspace() {
-		// TODO Auto-generated constructor stub
+	public Workspace(int width, int height) {
+		myCurrentTurtle = new Turtle(width/2, height/2);
+		myCanvas = new SLogoCanvas(width, height);
+		myHistory = new ArrayList<AbstractAction>();
+		myRoot = new Group();
 	}
 	/**
 	 * pass the Workspace the List<Action> of Actions, and the Workspace will handle applying these Actions to the member
@@ -20,6 +29,7 @@ public class Workspace {
 	public void updateTurtle(List<AbstractAction> actionChain){
 		for (AbstractAction action : actionChain){
 			//action.update(myCurrentTurtle);
+			myHistory.add(action);
 		}
 	}
 	/**
@@ -28,7 +38,10 @@ public class Workspace {
 	 * @return
 	 */
 	public Group display(){
-		return new Group();
+		myRoot.getChildren().add(myCurrentTurtle.display());
+		myRoot.getChildren().add(myCanvas.display());
+		
+		return myRoot;
 	}
 	/**
 	 * This method hides this specific Workspace, pushing it to the back and make the next Workspace in the Queue the current 
@@ -36,7 +49,7 @@ public class Workspace {
 	 * @return
 	 */
 	public void hide(){
-		
+		myRoot.getChildren().clear();
 	}
 
 }
