@@ -5,6 +5,8 @@ import java.util.List;
 import javafx.scene.Group;
 
 public class Workspace {
+	
+	Turtle myCurrentTurtle;
 
 	public Workspace() {
 		// TODO Auto-generated constructor stub
@@ -16,7 +18,9 @@ public class Workspace {
 	 * @param actionChain a List<Action> of Actions which will be applied in succession to our current Turtle.
 	 */
 	public void updateTurtle(List<AbstractAction> actionChain){
-		
+		for (AbstractAction action : actionChain){
+			//action.update(myCurrentTurtle);
+		}
 	}
 	/**
 	 * This method handles displaying this specific Workspace, pushing it to the front of the display and making it the current 
