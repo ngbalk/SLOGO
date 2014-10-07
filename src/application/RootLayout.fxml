@@ -14,7 +14,9 @@
 <BorderPane id="background" prefWidth="1000.0" prefHeight="1000.0" xmlns:fx="http://javafx.com/fxml">
     <top>
         <ToolBar>
+            <HBox>
                 <Button id="newWorkspace" style="-fx-base: Blue"  text="New Workspace" styleClass="first" /> 
+            </HBox>
                 <TabPane id="workspaceTabs"  style="-fx-spacing: 750.0">
                 </TabPane>
         </ToolBar>

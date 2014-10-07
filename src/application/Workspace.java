@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import Constants.UI;
 import javafx.scene.Group;
 
 public class Workspace {
@@ -16,6 +17,7 @@ public class Workspace {
 
 	public Workspace(int width, int height) {
 		myCurrentTurtle = new Turtle(width/2, height/2);
+		myCurrentTurtle.setImage(UI.DEFUALT_TURTLE_IMAGE);
 		myCanvas = new SLogoCanvas(width, height);
 		myHistory = new ArrayList<AbstractAction>();
 		myRoot = new Group();

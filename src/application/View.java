@@ -66,7 +66,7 @@ public class View {
 	        this.myStage.setScene(scene);
 	        this.myStage.show();
 	        this.myWorkspaceTabs = (TabPane) this.myScene.lookup("#workspaceTabs");
-	        this.bindButtonToHandler("#newWorkspace", event -> addWorkspace(new Workspace()));
+	        this.bindButtonToHandler("#newWorkspace", event -> addWorkspace(new Workspace(UI.DEFAULT_WORKSPACE_WIDTH, UI.DEFUALT_WORKSPACE_HEIGHT)));
 	        this.bindButtonToHandler("#submitText", event -> {
 	        	TextArea textInput = (TextArea) this.myScene.lookup("#textInput");
 	        	this.updateTurtle(myModel.parseInput(textInput.getText()));

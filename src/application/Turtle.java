@@ -1,5 +1,6 @@
 package application;
 
+import Constants.UI;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -9,6 +10,7 @@ public class Turtle extends AbstractDrawer{
 	
 	public Turtle(double x, double y) {
 		super(x, y);
+		myImage = new ImageView();
 	
 	}
 	
@@ -25,7 +27,18 @@ public class Turtle extends AbstractDrawer{
 	}
 	
 	public void setImage(String imageFileName){
-		myImage.setImage(new Image(imageFileName));
+		try{
+			myImage.setImage(new Image(this.getClass().getResource(imageFileName).toExternalForm()));
+		}
+		catch(IllegalArgumentException e){
+			System.out.println("Turtle image not found.\n" + e.getMessage());
+			e.printStackTrace();
+		}
+		catch(NullPointerException e){
+			System.out.println("Turtle image not found.\n" + e.getMessage());
+			e.printStackTrace();	
+		}
+		
 	}
 	
 	
