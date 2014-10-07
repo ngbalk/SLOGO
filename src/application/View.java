@@ -3,7 +3,6 @@ package application;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import Constants.UI;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -47,7 +46,7 @@ public class View {
 	 * @param actionChain
 	 */
 	private void updateTurtle(List<AbstractAction> actionChain){
-		
+		this.myActiveWorkspace.updateTurtle(actionChain);
 	}
 	/**
 	 * Initialize the application's stage.
@@ -59,7 +58,7 @@ public class View {
 				root = FXMLLoader.load(getClass().getResource(Constants.UI.ROOT_LAYOUT_FXML_LOCATION));
 			} catch (IOException e) {
 				System.out.println("Could not load FXML file" + "\n" + e.getMessage());
-				root = new Group();
+				return;
 			}
 	        Scene scene = new Scene(root, Constants.UI.STAGE_HEIGHT, Constants.UI.STAGE_WIDTH);
 	        this.myScene = scene;
@@ -67,22 +66,27 @@ public class View {
 	        this.myStage.setScene(scene);
 	        this.myStage.show();
 	        this.myWorkspaceTabs = (TabPane) this.myScene.lookup("#workspaceTabs");
-	        Button newTab = (Button) this.myScene.lookup("#newWorkspace");
-	        newTab.setOnAction(new EventHandler<ActionEvent>() {
-				@Override public void handle(ActionEvent e) {
-						addWorkspace(new Workspace());
-				}
-			});
-	        Button submitTextForParsing = (Button) this.myScene.lookup("#submitText");
-	        TextArea textInput = (TextArea) this.myScene.lookup("#textInput");
-	        submitTextForParsing.setOnAction(new EventHandler<ActionEvent>(){
-				@Override
-				public void handle(ActionEvent arg0) {
-					updateTurtle(myModel.parseInput(textInput.getText()));
-					textInput.clear();
-				}
+	        this.bindButtonToHandler("#newWorkspace", event -> addWorkspace(new Workspace()));
+	        this.bindButtonToHandler("#submitText", event -> {
+	        	TextArea textInput = (TextArea) this.myScene.lookup("#textInput");
+	        	this.updateTurtle(myModel.parseInput(textInput.getText()));
+				textInput.clear();
 	        });
 	}
+	
+	/**
+	 * Bind a button created in the FXML file to an event handler.
+	 * @param buttonId
+	 * @param handler
+	 * @return
+	 */
+	private Button bindButtonToHandler(String buttonId, EventHandler<ActionEvent> handler){
+		Button buttonToBind = (Button) this.myScene.lookup(buttonId);
+		buttonToBind.setOnAction(handler);
+		return buttonToBind;
+	}
+	
+	
 	/**
 	 * Add a workspace, adding it to both the TabPane and the List of workspaces.
 	 * @param workspace
@@ -106,6 +110,7 @@ public class View {
 		});
 		this.myWorkspaceTabs.getTabs().add(newTab);
 	}
+
 
 
 }
