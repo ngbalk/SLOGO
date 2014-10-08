@@ -13,10 +13,13 @@ public abstract class BooleanOperations extends SLogoNode{
 	protected final String[] AVAILABLE_OPERATIONS = {"LESS", "GREATER", "EQUAL", "NOTEQUAL", "AND", "OR", "NOT"};
 	protected String myOperation;
 	
+	public BooleanOperations() {
+		myType = "BooleanOperation";
+	}
+	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return super.toString() + " Operation:" + myOperation;
 	}
-
 }
