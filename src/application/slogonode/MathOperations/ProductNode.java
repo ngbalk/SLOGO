@@ -8,7 +8,6 @@ package application.slogonode.MathOperations;
 public class ProductNode extends MathOperations {
 
 	public ProductNode() {
-		myType = "MathOperation";
 		myOperation = "PRODUCT";
 	}
 

@@ -10,7 +10,6 @@ import java.util.Random;
 public class RandomNode extends MathOperations {
 
 	public RandomNode() {
-		myType = "MathOperation";
 		myOperation = "RANDOM";
 	}
 

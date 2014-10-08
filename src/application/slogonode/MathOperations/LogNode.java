@@ -8,7 +8,6 @@ package application.slogonode.MathOperations;
 public class LogNode extends MathOperations {
 
 	public LogNode() {
-		myType = "MathOperation";
 		myOperation = "LOG";
 	}
 

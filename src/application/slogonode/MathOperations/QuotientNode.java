@@ -8,7 +8,6 @@ package application.slogonode.MathOperations;
 public class QuotientNode extends MathOperations {
 
 	public QuotientNode() {
-		myType = "MathOperation";
 		myOperation = "QUOTIENT";
 	}
 

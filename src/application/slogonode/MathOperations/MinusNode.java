@@ -8,7 +8,6 @@ package application.slogonode.MathOperations;
 public class MinusNode extends MathOperations {
 
 	public MinusNode() {
-		myType = "MathOperation";
 		myOperation = "MINUS";
 	}
 

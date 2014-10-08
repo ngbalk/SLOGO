@@ -8,7 +8,6 @@ package application.slogonode.MathOperations;
 public class PowNode extends MathOperations {
 
 	public PowNode() {
-		myType = "MathOperation";
 		myOperation = "POW";
 	}
 

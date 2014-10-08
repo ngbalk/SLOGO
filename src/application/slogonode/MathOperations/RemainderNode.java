@@ -8,7 +8,6 @@ package application.slogonode.MathOperations;
 public class RemainderNode extends MathOperations {
 
 	public RemainderNode() {
-		myType = "MathOperation";
 		myOperation = "REMAINDER";
 	}
 

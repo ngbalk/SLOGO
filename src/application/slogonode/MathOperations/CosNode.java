@@ -8,7 +8,6 @@ package application.slogonode.MathOperations;
 public class CosNode extends MathOperations {
 
 	public CosNode() {
-		myType = "MathOperation";
 		myOperation = "COS";
 	}
 

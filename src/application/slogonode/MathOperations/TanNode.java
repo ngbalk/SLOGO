@@ -8,7 +8,6 @@ package application.slogonode.MathOperations;
 public class TanNode extends MathOperations {
 
 	public TanNode() {
-		myType = "MathOperation";
 		myOperation = "TAN";
 	}
 

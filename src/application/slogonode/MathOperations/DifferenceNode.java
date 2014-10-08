@@ -8,7 +8,6 @@ package application.slogonode.MathOperations;
 public class DifferenceNode extends MathOperations {
 
 	public DifferenceNode() {
-		myType = "MathOperation";
 		myOperation = "DIFFERENCE";
 	}
 

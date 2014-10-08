@@ -8,7 +8,6 @@ package application.slogonode.MathOperations;
 public class AtanNode extends MathOperations {
 
 	public AtanNode() {
-		myType = "MathOperation";
 		myOperation = "ATAN";
 	}
 

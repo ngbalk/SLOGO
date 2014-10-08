@@ -8,7 +8,6 @@ package application.slogonode.MathOperations;
 public class SumNode extends MathOperations {
 
 	public SumNode() {
-		myType = "MathOperation";
 		myOperation = "SUM";
 	}
 

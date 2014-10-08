@@ -8,7 +8,6 @@ package application.slogonode.MathOperations;
 public class SinNode extends MathOperations {
 
 	public SinNode() {
-		myType = "MathOperation";
 		myOperation = "SIN";
 	}
 
