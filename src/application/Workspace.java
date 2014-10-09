@@ -6,6 +6,7 @@ import java.util.Map;
 
 import application.Actions.AbstractAction;
 import application.Constants.UI;
+import javafx.geometry.Point2D;
 import javafx.scene.Group;
 
 public class Workspace {

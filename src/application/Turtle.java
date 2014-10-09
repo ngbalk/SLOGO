@@ -11,9 +11,13 @@ public class Turtle extends AbstractDrawer{
 	public Turtle(double x, double y) {
 		super(x, y);
 		myImage = new ImageView();
-		myImage.setRotate(90);
-	
-
+		this.myImage.setX(x);
+		this.myImage.setY(y);
+	}
+	public void move(double distance){
+		super.move(distance);
+		this.myImage.setX(this.myXLocation);
+		this.myImage.setY(this.myYLocation);
 	}
 	
 	

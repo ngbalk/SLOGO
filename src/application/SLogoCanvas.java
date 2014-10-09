@@ -1,6 +1,7 @@
 package application;
 
-import com.sun.javafx.geom.Point2D;
+
+import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 
 
@@ -17,7 +18,7 @@ public class SLogoCanvas{
 	 * @param end Point2D
 	 */
 	public void draw(Point2D start, Point2D end){
-		myCanvas.getGraphicsContext2D().strokeLine(start.x, start.y, end.x, end.y);
+		myCanvas.getGraphicsContext2D().strokeLine(start.getX(), start.getY(), end.getX(), end.getY());
 	}
 	/**
 	 * Clear the current canvas of any drawings
