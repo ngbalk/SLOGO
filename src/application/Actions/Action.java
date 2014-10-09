@@ -1,4 +1,7 @@
-package application;
+package application.Actions;
+
+import application.SLogoCanvas;
+import application.Turtle;
 
 public class Action extends AbstractAction {
 

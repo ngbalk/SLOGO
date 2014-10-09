@@ -1,6 +1,6 @@
 package application;
 
-import Constants.UI;
+import application.Constants.UI;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 

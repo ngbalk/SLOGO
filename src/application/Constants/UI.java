@@ -1,4 +1,4 @@
-package Constants;
+package application.Constants;
 
 public final class UI {
 	public static final String ROOT_LAYOUT_FXML_LOCATION = "RootLayout.fxml";

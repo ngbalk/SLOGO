@@ -10,6 +10,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.util.*;
 
+import application.Actions.AbstractAction;
 import javafx.geometry.Point2D;
 
 
@@ -46,7 +47,7 @@ public class Model {
 	 * @return
 	 */
 	public List<AbstractAction> parseFile(File inputFile){
-		Scanner myScanner;
+		Scanner myScanner = null;
 		String inputString = "";
 		try {
 			myScanner = new Scanner(inputFile);

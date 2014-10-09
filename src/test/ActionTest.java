@@ -5,10 +5,10 @@ import javafx.scene.canvas.Canvas;
 
 import org.junit.Test;
 
-import Actions.LftAction;
-import Actions.RtAction;
 import application.SLogoCanvas;
 import application.Turtle;
+import application.Actions.LftAction;
+import application.Actions.RtAction;
 
 public class ActionTest {
 	

@@ -1,6 +1,5 @@
-package Actions;
+package application.Actions;
 
-import application.AbstractAction;
 import application.AbstractDrawer;
 import application.SLogoCanvas;
 import application.Turtle;

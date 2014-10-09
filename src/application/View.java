@@ -3,7 +3,9 @@ package application;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import Constants.UI;
+
+import application.Actions.AbstractAction;
+import application.Constants.UI;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -55,12 +57,12 @@ public class View {
 	private void initializeStage(){
 		 	Parent root;
 			try {
-				root = FXMLLoader.load(getClass().getResource(Constants.UI.ROOT_LAYOUT_FXML_LOCATION));
+				root = FXMLLoader.load(getClass().getResource(application.Constants.UI.ROOT_LAYOUT_FXML_LOCATION));
 			} catch (IOException e) {
 				System.out.println("Could not load FXML file" + "\n" + e.getMessage());
 				return;
 			}
-	        Scene scene = new Scene(root, Constants.UI.STAGE_HEIGHT, Constants.UI.STAGE_WIDTH);
+	        Scene scene = new Scene(root, application.Constants.UI.STAGE_HEIGHT, application.Constants.UI.STAGE_WIDTH);
 	        this.myScene = scene;
 	        this.myStage.setTitle(UI.STAGE_TITLE);
 	        this.myStage.setScene(scene);
