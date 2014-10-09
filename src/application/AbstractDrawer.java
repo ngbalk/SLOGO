@@ -6,7 +6,7 @@ public class AbstractDrawer {
 	
 	private double myXLocation;
 	private double myYLocation;
-	private double myOrientation;
+	protected double myOrientation;
 	private boolean myIsPenDown;
 
 	public AbstractDrawer(double x, double y) {
@@ -72,6 +72,5 @@ public class AbstractDrawer {
 	public double getOrientation(){
 		return myOrientation;
 	}
-
-
+	
 }

@@ -7,9 +7,9 @@ public class Action extends AbstractAction {
 	}
 
 	@Override
-	public void update() {
+	public void update(Turtle turt, SLogoCanvas canvas) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 }
