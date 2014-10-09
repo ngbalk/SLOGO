@@ -1,22 +1,67 @@
 /**
  *  @author Pranava Raparla
  *  Created: October 4th, 2014
- *  Modified: October 4th, 2014
+ *  Modified: October 9th, 2014
  */
 
 package application;
 
-import java.io.File;
+import java.io.*;
 import java.util.*;
 
+import application.Actions.AbstractAction;
 import javafx.geometry.Point2D;
-
 
 
 public class Model {
 	
-	public Model(){
+	public List<Workspace> workspaces;
+	public Map<String,List<String>> myCommands;
+	
+	public Model() throws IOException {
+		System.out.println("Starting constructor");
+		PropertiesFactory factory = new PropertiesFactory();
+		System.out.println("Initialized Factory");
+		try {
+		myCommands = factory.getPropertyValues("/src/resources/languages/English.properties");
+		//loadCommandsbyLanguage("/src/resources/languages/English.properties");
+		System.out.println("Factory loaded");
+		System.out.println(myCommands);
+		}
+		catch (Exception e) {
+			System.out.println("An Error occured in the loading of the properties File!");
+		}
+	}
+	
+	public void loadCommandsbyLanguage(String fileName) {
+		Properties languageProperties = new Properties();
 		
+		Scanner myScanner = null;
+		try {
+			InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
+			languageProperties.load(inputStream);
+			myScanner = new Scanner(fileName);
+			while(myScanner.hasNextLine()) {
+				String str = myScanner.nextLine();
+				if(str.substring(0,1).equalsIgnoreCase("#"))
+					continue;
+				else if(str.substring(0,1).equalsIgnoreCase("//s+"))
+					continue;
+				else {
+					String keyword = myScanner.next();
+					String equalsSign = myScanner.next();
+					List<String> commandReference = new ArrayList<String>();
+					commandReference.add(0,myScanner.next());
+					commandReference.add(1,myScanner.next());
+					myCommands.put(keyword, commandReference);
+				}
+			}
+		} catch (Exception e) {
+			
+		} finally {
+			if(myScanner != null)
+				myScanner.close();
+		}
 	}
 	
 	/**
@@ -28,9 +73,14 @@ public class Model {
 	 */
 	
 	public List<AbstractAction> parseInput(String inputString){
-		return null;
+		List<AbstractAction> listOfActions = new ArrayList<AbstractAction>();
+		String[] inputStringArray = inputString.split("//s+");
 		
+		for(String str: inputStringArray) {
+			
+		}
 		
+		return listOfActions;
 	}
 	
 	/**
@@ -40,8 +90,19 @@ public class Model {
 	 * @return
 	 */
 	public List<AbstractAction> parseFile(File inputFile){
-		return null;
-		
+		Scanner myScanner = null;
+		String inputString = "";
+		try {
+			myScanner = new Scanner(inputFile);
+			inputString = myScanner.useDelimiter("\\Z").next();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if(myScanner != null)
+				myScanner.close();
+		}
+		return parseInput(inputString);
 	}
 	
 	

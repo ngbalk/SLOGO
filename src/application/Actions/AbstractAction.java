@@ -4,8 +4,11 @@
  *  Modified: October 4th, 2014
  */
 
-package application;
+package application.Actions;
 
+import application.AbstractDrawer;
+import application.SLogoCanvas;
+import application.Turtle;
 import javafx.geometry.Point2D;
 
 public abstract class AbstractAction {
@@ -18,7 +21,7 @@ public abstract class AbstractAction {
 	 * update takes in an AbstractDrawer and updates it according to the specifications of this type of Action.
 	 * @param currentDrawer
 	 */
-	public abstract void update();
+	public abstract void update(Turtle turt, SLogoCanvas canvas);
 	
 	
 }

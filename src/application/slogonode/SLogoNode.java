@@ -1,18 +1,21 @@
 /**
  *  @author Pranava Raparla
  *  Created: October 3rd, 2014
- *  Modified: October 3rd, 2014
+ *  Modified: October 9th, 2014
  */
 
 package application.slogonode;
 
 import java.util.*;
 
+import application.Actions.AbstractAction;
+
 public abstract class SLogoNode {	
 	
 	protected int myValue;
 	protected String myType;
 	public List<SLogoNode> myChildren;
+	public List<AbstractAction> myActions;
 	
 	/**
 	 * 

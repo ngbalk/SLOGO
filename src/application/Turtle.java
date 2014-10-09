@@ -1,6 +1,6 @@
 package application;
 
-import Constants.UI;
+import application.Constants.UI;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -11,16 +11,25 @@ public class Turtle extends AbstractDrawer{
 	public Turtle(double x, double y) {
 		super(x, y);
 		myImage = new ImageView();
-		
+		myImage.setRotate(90);
+	
+
 	}
 	
 	
 	public void rotateLeft(double rotation){
 		this.rotate(rotation);
+		myImage.setRotate(myImage.getRotate() - rotation);
 	}
 	
 	public void rotateRight(double rotation){
 		this.rotate(-rotation);
+		myImage.setRotate(myImage.getRotate() + rotation);
+	}
+	
+	public void setDirection(double degree){
+		myOrientation = degree;
+		myImage.setRotate(-degree + 90);
 	}
 	
 	public ImageView display(){

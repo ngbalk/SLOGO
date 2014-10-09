@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import Constants.UI;
+import application.Actions.AbstractAction;
+import application.Constants.UI;
 import javafx.scene.Group;
 
 public class Workspace {
