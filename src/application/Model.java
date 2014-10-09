@@ -23,7 +23,7 @@ public class Model {
 		PropertiesFactory factory = new PropertiesFactory();
 		System.out.println("Initialized Factory");
 		try {
-		myCommands = factory.getPropertyValues("/src/resources/languages/English.properties");
+		myCommands = factory.getPropertyValues("resources/languages/English.properties");
 		//loadCommandsbyLanguage("/src/resources/languages/English.properties");
 		System.out.println("Factory loaded");
 		System.out.println(myCommands);
@@ -33,6 +33,7 @@ public class Model {
 		}
 	}
 	
+	//For commands in different languages 
 	public void loadCommandsbyLanguage(String fileName) {
 		Properties languageProperties = new Properties();
 		

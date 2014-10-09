@@ -16,7 +16,7 @@ public class PropertiesFactory {
 		System.out.println("Properties created.");
 		InputStream inputStream = null;
 		try {
-			inputStream = this.getClass().getClassLoader().getResourceAsStream(fileName);
+			inputStream = this.getClass().getClassLoader().getResourceAsStream(fileName); 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
