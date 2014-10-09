@@ -27,7 +27,7 @@ public class View {
 	private Workspace myActiveWorkspace;
 	private List<Workspace> myWorkspaces;
 
-	public View(Stage stage){
+	public View(Stage stage) throws IOException{
 		this.myModel = new Model();
 		this.myWorkspaces = new ArrayList<Workspace>();
 		myStage = stage;

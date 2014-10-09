@@ -1,7 +1,7 @@
 /**
  *  @author Pranava Raparla
  *  Created: October 4th, 2014
- *  Modified: October 4th, 2014
+ *  Modified: October 9th, 2014
  */
 
 package application;
@@ -13,14 +13,24 @@ import application.Actions.AbstractAction;
 import javafx.geometry.Point2D;
 
 
-
 public class Model {
 	
 	public List<Workspace> workspaces;
 	public Map<String,List<String>> myCommands;
 	
-	public Model() {
-		loadCommandsbyLanguage("/src/resources/languages/English.properties");
+	public Model() throws IOException {
+		System.out.println("Starting constructor");
+		PropertiesFactory factory = new PropertiesFactory();
+		System.out.println("Initialized Factory");
+		try {
+		myCommands = factory.getPropertyValues("/src/resources/languages/English.properties");
+		//loadCommandsbyLanguage("/src/resources/languages/English.properties");
+		System.out.println("Factory loaded");
+		System.out.println(myCommands);
+		}
+		catch (Exception e) {
+			System.out.println("An Error occured in the loading of the properties File!");
+		}
 	}
 	
 	public void loadCommandsbyLanguage(String fileName) {
@@ -52,7 +62,6 @@ public class Model {
 			if(myScanner != null)
 				myScanner.close();
 		}
-		System.out.println(myCommands);
 	}
 	
 	/**

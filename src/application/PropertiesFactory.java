@@ -10,18 +10,20 @@ import java.util.*;
 
 public class PropertiesFactory {
 	
-	public Map<String,List<String>> getPropertyValues(String fileName) {
+	public Map<String,List<String>> getPropertyValues(String fileName) throws IOException  {
 		Map<String,List<String>> propertiesMap = new HashMap<String,List<String>>();
 		Properties myProperties = new Properties();		
-		InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
-
+		System.out.println("Properties created.");
+		InputStream inputStream = null;
 		try {
-			myProperties.load(inputStream);
-		} catch (IOException e) {
-			if (inputStream == null)
-			System.out.println("property file '" + fileName + "' not found in the classpath");
+			inputStream = this.getClass().getClassLoader().getResourceAsStream(fileName);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		//System.out.println("Input Stream: " + inputStream);
+		System.out.println("Got through basic property set up.");
+		myProperties.load(inputStream);
+		System.out.println("InputStream" + inputStream);
 		
 		String[] turtleCommands = {"Forward","Backward","Left","Right","SetHeading","SetTowards","SetPosition","PenDown","PenUp","ShowTurtle","HideTurtle","Home","ClearScreen"};
 		String[] turtleQueries = {"XCoordinate","YCoordinate","Heading","IsPenDown","IsShowing"};
