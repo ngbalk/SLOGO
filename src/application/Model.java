@@ -7,7 +7,6 @@
 package application;
 
 import java.io.*;
-import java.nio.file.Files;
 import java.util.*;
 
 import application.Actions.AbstractAction;
@@ -17,7 +16,38 @@ import javafx.geometry.Point2D;
 
 public class Model {
 	
-	public Model(){
+	public List<Workspace> workspaces;
+	public Map<String,List<String>> myCommands;
+	
+	public Model() throws FileNotFoundException {
+		loadCommandsbyLanguage("/src/resources/languages/English.properties");
+	}
+	
+	public void loadCommandsbyLanguage(String fileName) throws FileNotFoundException {
+		Scanner myScanner = null;
+		try {
+			myScanner = new Scanner(fileName);
+			while(myScanner.hasNextLine()) {
+				String str = myScanner.nextLine();
+				if(str.substring(0,1).equalsIgnoreCase("#"))
+					continue;
+				else if(str.substring(0,1).equalsIgnoreCase("//s+"))
+					continue;
+				else {
+					String keyword = myScanner.next();
+					String equalsSign = myScanner.next();
+					List<String> commandReference = new ArrayList<String>();
+					commandReference.add(0,myScanner.next());
+					commandReference.add(1,myScanner.next());
+					myCommands.put(keyword, commandReference);
+				}
+			}
+		} catch (Exception e) {
+			
+		} finally {
+			if(myScanner != null)
+				myScanner.close();
+		}
 		
 	}
 	
