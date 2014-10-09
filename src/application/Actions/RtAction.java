@@ -4,19 +4,15 @@ import application.AbstractDrawer;
 import application.SLogoCanvas;
 import application.Turtle;
 
-public class RtAction extends AbstractAction {
-	
-	private double myDegreesToTurn;
+public class RtAction extends RotateAction {
 
 	public RtAction (double degrees){
-		myDegreesToTurn = degrees;
+		super(degrees);
 	}
 	
 	@Override
 	public void update(Turtle turt, SLogoCanvas canvas) {
 		turt.rotateRight(myDegreesToTurn);
 	}
-
-	
 	
 }
