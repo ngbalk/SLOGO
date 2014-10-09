@@ -6,7 +6,8 @@
 
 package application;
 
-import java.io.File;
+import java.io.*;
+import java.nio.file.Files;
 import java.util.*;
 
 import javafx.geometry.Point2D;
@@ -28,9 +29,14 @@ public class Model {
 	 */
 	
 	public List<AbstractAction> parseInput(String inputString){
-		return null;
+		List<AbstractAction> listOfActions = new ArrayList<AbstractAction>();
+		String[] inputStringArray = inputString.split("//s+");
 		
+		for(String str: inputStringArray) {
+			
+		}
 		
+		return listOfActions;
 	}
 	
 	/**
@@ -40,8 +46,19 @@ public class Model {
 	 * @return
 	 */
 	public List<AbstractAction> parseFile(File inputFile){
-		return null;
-		
+		Scanner myScanner;
+		String inputString = "";
+		try {
+			myScanner = new Scanner(inputFile);
+			inputString = myScanner.useDelimiter("\\Z").next();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if(myScanner != null)
+				myScanner.close();
+		}
+		return parseInput(inputString);
 	}
 	
 	
