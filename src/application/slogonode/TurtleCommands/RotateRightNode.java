@@ -9,18 +9,13 @@ import application.Actions.AbstractAction;
 import application.Actions.RtAction;
 import application.slogonode.SLogoNode;
 
-public abstract class RotateNode extends TurtleCommandsNode {
+public class RotateRightNode extends RotateNode {
 	
-	public RotateNode() {
+	public RotateRightNode() {
 		super();
-		myCommand = "Rotate";
+		myCommand = "RotateRight";
 	}
-	
-	@Override
-	public String toString() {
-		return super.toString();
-	}
-	
+
 	@Override
 	public int evaluate() {
 		myValue = myChildren.get(0).evaluate();
@@ -29,4 +24,5 @@ public abstract class RotateNode extends TurtleCommandsNode {
 		myChildren.get(1).evaluate();
 		return myValue;
 	}
+	
 }

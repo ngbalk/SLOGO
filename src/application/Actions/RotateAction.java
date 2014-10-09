@@ -3,7 +3,6 @@
  *  Created: October 9th, 2014
  *  Modified: October 9th, 2014
  */
-
 package application.Actions;
 
 import application.AbstractDrawer;
