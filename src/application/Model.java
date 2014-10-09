@@ -23,10 +23,10 @@ public class Model {
 		PropertiesFactory factory = new PropertiesFactory();
 		System.out.println("Initialized Factory");
 		try {
-		myCommands = factory.getPropertyValues("resources/languages/English.properties");
-		//loadCommandsbyLanguage("/src/resources/languages/English.properties");
-		System.out.println("Factory loaded");
-		System.out.println(myCommands);
+			myCommands = factory.getPropertyValues("resources/languages/English.properties");
+			//loadCommandsbyLanguage("/src/resources/languages/English.properties");
+			System.out.println("Factory loaded");
+			System.out.println(myCommands);
 		}
 		catch (Exception e) {
 			System.out.println("An Error occured in the loading of the properties File!");
@@ -112,7 +112,11 @@ public class Model {
 	 * @param workspace
 	 */
 	public void storeWorkspace(Workspace workspace){
-		
+		for(Workspace wk: workspaces)
+			if(wk.equals(workspace))
+				return;
+			else
+				workspaces.add(workspace);
 	}
 	
 	/**
