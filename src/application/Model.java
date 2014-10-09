@@ -19,13 +19,17 @@ public class Model {
 	public List<Workspace> workspaces;
 	public Map<String,List<String>> myCommands;
 	
-	public Model() throws FileNotFoundException {
+	public Model() {
 		loadCommandsbyLanguage("/src/resources/languages/English.properties");
 	}
 	
-	public void loadCommandsbyLanguage(String fileName) throws FileNotFoundException {
+	public void loadCommandsbyLanguage(String fileName) {
+		Properties languageProperties = new Properties();
+		
 		Scanner myScanner = null;
 		try {
+			InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
+			languageProperties.load(inputStream);
 			myScanner = new Scanner(fileName);
 			while(myScanner.hasNextLine()) {
 				String str = myScanner.nextLine();
@@ -48,7 +52,7 @@ public class Model {
 			if(myScanner != null)
 				myScanner.close();
 		}
-		
+		System.out.println(myCommands);
 	}
 	
 	/**
