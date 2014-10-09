@@ -11,8 +11,9 @@ public class Turtle extends AbstractDrawer{
 	public Turtle(double x, double y) {
 		super(x, y);
 		myImage = new ImageView();
-	
+		
 	}
+	
 	
 	public void rotateLeft(double rotation){
 		this.rotate(rotation);
@@ -23,8 +24,10 @@ public class Turtle extends AbstractDrawer{
 	}
 	
 	public ImageView display(){
+
 		return myImage;
 	}
+
 	
 	public void setImage(String imageFileName){
 		try{

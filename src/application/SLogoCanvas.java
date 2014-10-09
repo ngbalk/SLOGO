@@ -9,6 +9,7 @@ public class SLogoCanvas{
 
 	public SLogoCanvas(double x, double y) {
 		myCanvas = new Canvas(x, y);
+
 	}
 	/**
 	 * Draw on the Canvas from the starting Point2D "start" to the ending Point2D "end"

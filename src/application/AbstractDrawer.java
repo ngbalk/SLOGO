@@ -4,10 +4,10 @@ import javafx.geometry.Point2D;
 
 public class AbstractDrawer {
 	
-	private double myXLocation;
-	private double myYLocation;
-	private double myOrientation;
-	private boolean myIsPenDown;
+	protected double myXLocation;
+	protected double myYLocation;
+	protected double myOrientation;
+	protected boolean myIsPenDown;
 
 	public AbstractDrawer(double x, double y) {
 		myXLocation = x;
