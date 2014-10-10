@@ -121,8 +121,12 @@ public class Model {
 	 * 
 	 * @param workspace
 	 */
-	public void storeWorkspace(Workspace workspace) {
-
+	public void storeWorkspace(Workspace workspace){
+		for(Workspace wk: workspaces)
+			if(wk.equals(workspace))
+				return;
+			else
+				workspaces.add(workspace);
 	}
 
 	/**
