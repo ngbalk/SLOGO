@@ -5,9 +5,9 @@ import application.SLogoCanvas;
 import application.Turtle;
 
 public class FwdAction extends AbstractAction {
-	double myDistance;
+	int myDistance;
 
-	public FwdAction(double distance) {
+	public FwdAction(int distance) {
 		myDistance = distance;
 	}
 	
