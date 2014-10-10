@@ -20,10 +20,8 @@ public class PropertiesFactory {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		//System.out.println("Input Stream: " + inputStream);
 		System.out.println("Got through basic property set up.");
 		myProperties.load(inputStream);
-		System.out.println("InputStream" + inputStream);
 		
 		String[] turtleCommands = {"Forward","Backward","Left","Right","SetHeading","SetTowards","SetPosition","PenDown","PenUp","ShowTurtle","HideTurtle","Home","ClearScreen"};
 		String[] turtleQueries = {"XCoordinate","YCoordinate","Heading","IsPenDown","IsShowing"};
