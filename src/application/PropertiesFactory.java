@@ -1,7 +1,7 @@
 /**
  *  @author Pranava Raparla
  *  @author Monica Choe
- *  Created: October 4th, 2014
+ *  Created: October 9th, 2014
  *  Modified: October 9th, 2014
  */
 package application;
@@ -11,6 +11,12 @@ import java.util.*;
 
 public class PropertiesFactory {
 	
+	/**
+	 * 
+	 * @param fileName
+	 * @return
+	 * @throws IOException
+	 */
 	public Map<String,List<String>> getPropertyValues(String fileName) throws IOException  {
 		Map<String,List<String>> propertiesMap = new HashMap<String,List<String>>();
 		Properties myProperties = new Properties();		
@@ -53,6 +59,12 @@ public class PropertiesFactory {
 		return propertiesMap;
 	}
 	
+	/**
+	 * 
+	 * @param command
+	 * @param myProperties
+	 * @return
+	 */
 	public List<String> getPropertyValuesHelper(String command, Properties myProperties) {
 		return new ArrayList<String>(Arrays.asList(myProperties.getProperty(command).split(",")));
 	}

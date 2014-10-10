@@ -1,10 +1,5 @@
 package application.Actions;
 
-
-
-
-
-
 import javafx.geometry.Point2D;
 import application.SLogoCanvas;
 import application.Turtle;
@@ -15,7 +10,7 @@ public class FwdAction extends AbstractAction {
 	public FwdAction(double distance) {
 		myDistance = distance;
 	}
-
+	
 	@Override
 	public void update(Turtle turt, SLogoCanvas canvas) {
 		Point2D prevLoc = turt.getLocation();
