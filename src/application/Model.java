@@ -26,7 +26,6 @@ public class Model {
 		try {
 			myCommands = factory
 					.getPropertyValues("resources/languages/English.properties");
-			// loadCommandsbyLanguage("Chinese.properties");
 			System.out.println("Factory loaded");
 			System.out.println(myCommands);
 		} catch (Exception e) {
@@ -95,8 +94,7 @@ public class Model {
 			listOfNodes.add(node);
 		}
 		listOfNodes.get(0).addChild(listOfNodes.get(1));
-		
-		
+
 		return listOfActions;
 	}
 
