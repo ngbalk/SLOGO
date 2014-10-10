@@ -1,5 +1,5 @@
 /**
- *  @author Pranava Raparla
+ *  @author Pranava Raparla, Monica Choe
  *  Created: October 4th, 2014
  *  Modified: October 9th, 2014
  */
@@ -10,6 +10,7 @@ import java.io.*;
 import java.util.*;
 
 import application.Actions.AbstractAction;
+import application.slogonode.SLogoNode;
 import javafx.geometry.Point2D;
 
 public class Model {
@@ -22,7 +23,8 @@ public class Model {
 		PropertiesFactory factory = new PropertiesFactory();
 		System.out.println("Initialized Factory");
 		try {
-			myCommands = factory.getPropertyValues("resources/languages/English.properties");
+			myCommands = factory
+					.getPropertyValues("resources/languages/English.properties");
 			// loadCommandsbyLanguage("Chinese.properties");
 			System.out.println("Factory loaded");
 			System.out.println(myCommands);
@@ -78,10 +80,20 @@ public class Model {
 
 	public List<AbstractAction> parseInput(String inputString) {
 		List<AbstractAction> listOfActions = new ArrayList<AbstractAction>();
+		List<SLogoNode> listOfNodes = new ArrayList<SLogoNode>();
 		String[] inputStringArray = inputString.split("//s+");
+		SLogoNodeFactory nodeFactory = new SLogoNodeFactory();
+
+		if (inputString.isEmpty())
+			return listOfActions;
 
 		for (String str : inputStringArray) {
-			
+			SLogoNode node = nodeFactory.getSLogoNodeFromString(str);
+			listOfNodes.add(node);
+		}
+
+		for (int i = 0; i < listOfNodes.size(); i++) {
+			listOfNodes.get(i).addChild(listOfNodes.get(i + 1));
 		}
 
 		return listOfActions;
