@@ -12,8 +12,7 @@ public class ActionFactory {
 	 * @return
 	 */
 	public AbstractAction generateAction(String actionToBuild){
-		return null;
-		
+		return null;		
 	}
 
 }
