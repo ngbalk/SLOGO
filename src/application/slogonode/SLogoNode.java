@@ -17,6 +17,14 @@ public abstract class SLogoNode {
 	public List<SLogoNode> myChildren;
 	public List<AbstractAction> myActions;
 	
+	public SLogoNode() {
+		super();
+	}
+	
+	public SLogoNode(List<AbstractAction> actions) {
+		myActions = actions;
+	}
+	
 	/**
 	 * 
 	 * @return
