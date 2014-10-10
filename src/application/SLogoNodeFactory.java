@@ -13,6 +13,11 @@ import application.slogonode.SLogoNode;
 
 public class SLogoNodeFactory {
 	
+	/**
+	 * 
+	 * @param nodeName
+	 * @return
+	 */
 	public SLogoNode getSLogoNodeFromString(String nodeName)  {
 		SLogoNode myNode = null;
 		

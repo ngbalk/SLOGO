@@ -17,8 +17,8 @@ public class PropertiesFactory {
 	 * @return
 	 * @throws IOException
 	 */
-	public Map<String,List<String>> getPropertyValues(String fileName) throws IOException  {
-		Map<String,List<String>> propertiesMap = new HashMap<String,List<String>>();
+	public Map<String,String> getPropertyValues(String fileName) throws IOException  {
+		Map<String,String> propertiesMap = new HashMap<String,String>();
 		Properties myProperties = new Properties();		
 		System.out.println("Properties created.");
 		InputStream inputStream = null;
@@ -39,22 +39,22 @@ public class PropertiesFactory {
 		String[] multipleTurtleCommands = {"ID","Tell","Ask","AskWith"};
 		String[] LanguageSyntax = {"Comment","Constant","Variable","Command","ListStart","ListEnd","GroupStart","GroupEnd"};
 		
-		for(String str: turtleCommands)
-			propertiesMap.put(str,getPropertyValuesHelper(str,myProperties));
-		for(String str: turtleQueries)
-			propertiesMap.put(str,getPropertyValuesHelper(str,myProperties));
-		for(String str: mathOperations)
-			propertiesMap.put(str,getPropertyValuesHelper(str,myProperties));
-		for(String str: variables)
-			propertiesMap.put(str,getPropertyValuesHelper(str,myProperties));
-		for(String str: control)
-			propertiesMap.put(str,getPropertyValuesHelper(str,myProperties));
-		for(String str: displayCommands)
-			propertiesMap.put(str,getPropertyValuesHelper(str,myProperties));
-		for(String str: multipleTurtleCommands)
-			propertiesMap.put(str,getPropertyValuesHelper(str,myProperties));
-		for(String str: LanguageSyntax)
-			propertiesMap.put(str,getPropertyValuesHelper(str,myProperties));
+		for(String command: turtleCommands)
+			getPropertyValuesHelper(propertiesMap, command, myProperties);
+		for(String command: turtleQueries)
+			getPropertyValuesHelper(propertiesMap, command, myProperties);
+		for(String command: mathOperations)
+			getPropertyValuesHelper(propertiesMap, command, myProperties);
+		for(String command: variables)
+			getPropertyValuesHelper(propertiesMap, command, myProperties);
+		for(String command: control)
+			getPropertyValuesHelper(propertiesMap, command, myProperties);
+		for(String command: displayCommands)
+			getPropertyValuesHelper(propertiesMap, command, myProperties);
+		for(String command: multipleTurtleCommands)
+			getPropertyValuesHelper(propertiesMap, command, myProperties);
+		for(String command: LanguageSyntax)
+			getPropertyValuesHelper(propertiesMap, command, myProperties);
 		
 		return propertiesMap;
 	}
@@ -65,8 +65,10 @@ public class PropertiesFactory {
 	 * @param myProperties
 	 * @return
 	 */
-	public List<String> getPropertyValuesHelper(String command, Properties myProperties) {
-		return new ArrayList<String>(Arrays.asList(myProperties.getProperty(command).split(",")));
+	public void getPropertyValuesHelper(Map<String,String> map, String command, Properties myProperties) {
+		String[] commandsInSpecificLanguage = myProperties.getProperty(command).split(",");
+		map.put(commandsInSpecificLanguage[0], command);
+		map.put(commandsInSpecificLanguage[1], command); 
 	}
 	
 }

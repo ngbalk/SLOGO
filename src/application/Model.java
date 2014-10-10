@@ -86,7 +86,7 @@ public class Model {
 		String[] inputStringArray = inputString.split("//s+");
 
 		for (String str : inputStringArray) {
-
+			
 		}
 
 		return listOfActions;
