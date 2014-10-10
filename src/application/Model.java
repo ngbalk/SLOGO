@@ -15,15 +15,14 @@ import javafx.geometry.Point2D;
 public class Model {
 
 	public List<Workspace> workspaces;
-	public Map<String, List<String>> myCommands;
+	public Map<String, String> myCommands;
 
 	public Model() throws IOException {
 		System.out.println("Starting constructor");
 		PropertiesFactory factory = new PropertiesFactory();
 		System.out.println("Initialized Factory");
 		try {
-			myCommands = factory
-					.getPropertyValues("resources/languages/English.properties");
+			myCommands = factory.getPropertyValues("resources/languages/English.properties");
 			loadCommandsbyLanguage("Chinese.properties");
 			System.out.println("Factory loaded");
 			System.out.println(myCommands);
@@ -56,10 +55,10 @@ public class Model {
 					System.out.println("Adding?");
 					String keyword = myScanner.next();
 					String equalsSign = myScanner.next();
-					List<String> commandReference = new ArrayList<String>();
-					commandReference.add(0, myScanner.next());
-					commandReference.add(1, myScanner.next());
-					myCommands.put(keyword, commandReference);
+					String commandReference1 = myScanner.next();
+					String commandReference2 = myScanner.next();
+					myCommands.put(commandReference1, keyword);
+					myCommands.put(commandReference2, keyword);
 				}
 			}
 			System.out.println("Done loading new language");
