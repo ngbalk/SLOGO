@@ -1,7 +1,8 @@
 /**
- *  @author Pranava Raparla, Monica Choe
+ *  @author Pranava Raparla
+ *  @author Monica Choe
  *  Created: October 4th, 2014
- *  Modified: October 9th, 2014
+ *  Modified: October 10th, 2014
  */
 
 package application;
@@ -29,7 +30,8 @@ public class Model {
 			System.out.println("Factory loaded");
 			System.out.println(myCommands);
 		} catch (Exception e) {
-			System.out.println("An Error occured in the loading of the properties File!");
+			System.out
+					.println("An Error occured in the loading of the properties File!");
 		}
 	}
 
@@ -38,7 +40,8 @@ public class Model {
 		Scanner myScanner = null;
 		try {
 			System.out.println("Loading another language");
-			InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
+			InputStream inputStream = getClass().getClassLoader()
+					.getResourceAsStream(fileName);
 			languageProperties.load(inputStream);
 			myScanner = new Scanner(new File(fileName));
 			System.out.println(myScanner);
@@ -91,11 +94,9 @@ public class Model {
 			SLogoNode node = nodeFactory.getSLogoNodeFromString(str);
 			listOfNodes.add(node);
 		}
-
-		for (int i = 0; i < listOfNodes.size(); i++) {
-			listOfNodes.get(i).addChild(listOfNodes.get(i + 1));
-		}
-
+		listOfNodes.get(0).addChild(listOfNodes.get(1));
+		
+		
 		return listOfActions;
 	}
 
