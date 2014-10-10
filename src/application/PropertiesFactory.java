@@ -31,7 +31,6 @@ public class PropertiesFactory {
 		}
 		System.out.println("Got through basic property set up.");
 		myProperties.load(inputStream);
-		System.out.println(myProperties);
 
 		String[] turtleCommands = { "Forward", "Backward", "Left", "Right",
 				"SetHeading", "SetTowards", "SetPosition", "PenDown", "PenUp",
@@ -52,11 +51,8 @@ public class PropertiesFactory {
 		String[] LanguageSyntax = { "Comment", "Constant", "Variable",
 				"Command", "ListStart", "ListEnd", "GroupStart", "GroupEnd" };
 
-		for (String command : turtleCommands) {
-			System.out.println(command);
+		for (String command : turtleCommands)
 			getPropertyValuesHelper(propertiesMap, command, myProperties);
-			System.out.println(propertiesMap);
-		}
 		for (String command : turtleQueries)
 			getPropertyValuesHelper(propertiesMap, command, myProperties);
 		for (String command : mathOperations)
@@ -72,8 +68,6 @@ public class PropertiesFactory {
 		for (String command : LanguageSyntax)
 			getPropertyValuesHelper(propertiesMap, command, myProperties);
 
-		System.out.println(propertiesMap);
-
 		return propertiesMap;
 	}
 
@@ -88,7 +82,9 @@ public class PropertiesFactory {
 		String[] commandsInSpecificLanguage = myProperties.getProperty(command)
 				.split(",");
 		map.put(commandsInSpecificLanguage[0], command);
-		map.put(commandsInSpecificLanguage[1], command);
+		if (commandsInSpecificLanguage.length > 1) {
+			map.put(commandsInSpecificLanguage[1], command);
+		}
 	}
 
 }
