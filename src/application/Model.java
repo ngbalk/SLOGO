@@ -27,8 +27,7 @@ public class Model {
 			System.out.println("Factory loaded");
 			System.out.println(myCommands);
 		} catch (Exception e) {
-			System.out
-					.println("An Error occured in the loading of the properties File!");
+			System.out.println("An Error occured in the loading of the properties File!");
 		}
 	}
 
@@ -37,8 +36,7 @@ public class Model {
 		Scanner myScanner = null;
 		try {
 			System.out.println("Loading another language");
-			InputStream inputStream = getClass().getClassLoader()
-					.getResourceAsStream(fileName);
+			InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
 			languageProperties.load(inputStream);
 			myScanner = new Scanner(new File(fileName));
 			System.out.println(myScanner);
