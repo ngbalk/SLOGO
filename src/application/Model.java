@@ -23,7 +23,7 @@ public class Model {
 		System.out.println("Initialized Factory");
 		try {
 			myCommands = factory.getPropertyValues("resources/languages/English.properties");
-			loadCommandsbyLanguage("Chinese.properties");
+			// loadCommandsbyLanguage("Chinese.properties");
 			System.out.println("Factory loaded");
 			System.out.println(myCommands);
 		} catch (Exception e) {
@@ -49,8 +49,6 @@ public class Model {
 					continue;
 				else if (str.startsWith("//s+"))
 					continue;
-				// else if(str.substring(0,1).equalsIgnoreCase("//s+"))
-				// continue;
 				else {
 					System.out.println("Adding?");
 					String keyword = myScanner.next();
@@ -120,9 +118,9 @@ public class Model {
 	 * 
 	 * @param workspace
 	 */
-	public void storeWorkspace(Workspace workspace){
-		for(Workspace wk: workspaces)
-			if(wk.equals(workspace))
+	public void storeWorkspace(Workspace workspace) {
+		for (Workspace wk : workspaces)
+			if (wk.equals(workspace))
 				return;
 			else
 				workspaces.add(workspace);
