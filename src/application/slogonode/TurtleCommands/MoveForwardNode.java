@@ -18,13 +18,15 @@ public class MoveForwardNode extends TurtleCommandsNode {
 	
 	@Override
 	public int evaluate() {
-		if(myChildren.get(0)!=null) {
-			myValue = myChildren.get(0).evaluate();
-			AbstractAction action = new FwdAction(myValue);
-			myActions.add(action);
+		for(int i=0; i<myChildren.size(); i++) {
+			if(myChildren.get(0)!=null) {
+				myValue = myChildren.get(0).evaluate();
+				AbstractAction action = new FwdAction(myValue);
+				myActions.add(action);
+			}
+			if(myChildren.get(1)!=null)
+				myChildren.get(1).evaluate();
 		}
-		if(myChildren.get(1)!=null)
-			myChildren.get(1).evaluate();
 		return myValue;
 	}
 }

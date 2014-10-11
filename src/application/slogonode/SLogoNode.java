@@ -19,6 +19,8 @@ public abstract class SLogoNode {
 	
 	public SLogoNode() {
 		super();
+		myChildren = new ArrayList<SLogoNode>();
+		myActions = new ArrayList<AbstractAction>();
 	}
 	
 	public SLogoNode(List<AbstractAction> actions) {
