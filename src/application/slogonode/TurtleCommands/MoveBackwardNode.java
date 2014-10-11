@@ -9,9 +9,9 @@ import application.Actions.AbstractAction;
 import application.Actions.BwdAction;
 import application.slogonode.SLogoNode;
 
-public class MoveForwardNode extends TurtleCommandsNode {
+public class MoveBackwardNode extends TurtleCommandsNode {
 	
-	public MoveForwardNode() {
+	public MoveBackwardNode() {
 		super();
 		myCommand = "MoveBackward";
 	}
