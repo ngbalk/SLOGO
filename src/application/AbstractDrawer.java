@@ -22,7 +22,7 @@ public class AbstractDrawer {
 	 * @param distance
 	 */
 	public void move(double distance){
-		myXLocation += distance * -1 * Math.sin(myOrientation);
+		myXLocation += distance * Math.sin(myOrientation);
 		myYLocation += distance * Math.cos(myOrientation);
 	}
 	/**

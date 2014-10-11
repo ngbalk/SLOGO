@@ -14,7 +14,7 @@ public class FwdAction extends AbstractAction {
 	@Override
 	public void update(Turtle turt, SLogoCanvas canvas) {
 		Point2D prevLoc = turt.getLocation();
-		turt.move(myDistance);
+		turt.move(-1 * myDistance);
 		canvas.draw(prevLoc, turt.getLocation());
 		System.out.println("***Prior Location: " + prevLoc);
 		System.out.println("***Prior Location: " + turt.getLocation());
