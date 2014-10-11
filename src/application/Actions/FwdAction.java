@@ -16,6 +16,8 @@ public class FwdAction extends AbstractAction {
 		Point2D prevLoc = turt.getLocation();
 		turt.move(myDistance);
 		canvas.draw(prevLoc, turt.getLocation());
+		System.out.println("***Prior Location: " + prevLoc);
+		System.out.println("***Prior Location: " + turt.getLocation());
 	}
 
 }

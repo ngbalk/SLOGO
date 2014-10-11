@@ -26,7 +26,7 @@ public class Workspace {
 	}
 	/**
 	 * pass the Workspace the List<Action> of Actions, and the Workspace will handle applying these Actions to the member
-	 * Turtle.These Actions need to take in a Turtle as a parameter and must know how to call Turtle.move(double distance) 
+	 * Turtle.Tshese Actions need to take in a Turtle as a parameter and must know how to call Turtle.move(double distance) 
 	 * and Turtle.rotate(double degrees);
 	 * @param actionChain a List<Action> of Actions which will be applied in succession to our current Turtle.
 	 */
