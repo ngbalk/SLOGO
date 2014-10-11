@@ -90,9 +90,12 @@ public class Model {
 			return listOfActions;
 
 		for (String str : inputStringArray) {
-			SLogoNode node = nodeFactory.getSLogoNodeFromString(str);
+			String command = myCommands.get(str);
+			SLogoNode node = nodeFactory.getSLogoNodeFromString(command);
+
 			listOfNodes.add(node);
 		}
+		
 		listOfNodes.get(0).addChild(listOfNodes.get(1));
 
 		return listOfActions;
