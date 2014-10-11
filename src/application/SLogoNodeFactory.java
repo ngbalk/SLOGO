@@ -171,7 +171,7 @@ public class SLogoNodeFactory {
 	
 			}
 		}
-
+		
 		return myNode;
 	}
 

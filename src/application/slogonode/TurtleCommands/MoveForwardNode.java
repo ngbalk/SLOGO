@@ -25,6 +25,7 @@ public class MoveForwardNode extends TurtleCommandsNode {
 				myValue = myChildren.get(0).evaluate();
 				AbstractAction action = new FwdAction(myValue);
 				myActions.add(action);
+				System.out.println("ACTION ADDED: " + myCommand + " " + myValue);
 			}
 			if(i==1)
 				myChildren.get(1).evaluate();

@@ -29,6 +29,14 @@ public abstract class SLogoNode {
 	
 	/**
 	 * 
+	 * @param actions
+	 */
+	public void setActionList(List<AbstractAction> actions) {
+		myActions = actions;
+	}
+
+	/**
+	 * 
 	 * @return
 	 */
 	public abstract int evaluate();
