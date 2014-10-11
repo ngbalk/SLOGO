@@ -82,23 +82,35 @@ public class Model {
 
 	public List<AbstractAction> parseInput(String inputString) {
 		List<AbstractAction> listOfActions = new ArrayList<AbstractAction>();
-		List<SLogoNode> listOfNodes = new ArrayList<SLogoNode>();
-		String[] inputStringArray = inputString.split("//s+");
+		SLogoNode root = null;
+		String[] inputStringArray = inputString.split("\\s+");
 		SLogoNodeFactory nodeFactory = new SLogoNodeFactory();
-
-		if (inputString.isEmpty())
+		
+		System.out.println("Input String: " + inputString);
+		System.out.println("Split input: " + inputStringArray);
+		System.out.println("My Commands: " + myCommands);
+		if(inputString.isEmpty())
 			return listOfActions;
 
-		for (String str : inputStringArray) {
+		for(String str : inputStringArray) {
+			System.out.println("\tSTR: " + str);
 			String command = myCommands.get(str);
-			SLogoNode node = nodeFactory.getSLogoNodeFromString(command);
-
-			listOfNodes.add(node);
+			SLogoNode node = null;
+			if(command == null)
+				node = nodeFactory.getSLogoNodeFromString(str);
+			else
+				node = nodeFactory.getSLogoNodeFromString(command);
+			
+			System.out.println("Node: " + node);
+			if(root == null)
+				root = node;
+			else
+				root.addChild(node);
 		}
 		
-		listOfNodes.get(0).addChild(listOfNodes.get(1));
-
-		return listOfActions;
+		System.out.println("Root: " + root);
+		int result = root.evaluate();
+		return root.myActions;
 	}
 
 	/**
