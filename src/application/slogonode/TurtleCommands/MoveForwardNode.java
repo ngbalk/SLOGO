@@ -9,7 +9,7 @@ import application.Actions.AbstractAction;
 import application.Actions.FwdAction;
 import application.slogonode.SLogoNode;
 
-public abstract class MoveForwardNode extends TurtleCommandsNode {
+public class MoveForwardNode extends TurtleCommandsNode {
 	
 	public MoveForwardNode() {
 		super();
