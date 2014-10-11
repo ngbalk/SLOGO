@@ -48,6 +48,7 @@ public class View {
 	 * @param actionChain
 	 */
 	private void updateTurtle(List<AbstractAction> actionChain){
+		System.out.println("### Updating Turtle. Workspace: " + myActiveWorkspace);
 		this.myActiveWorkspace.updateTurtle(actionChain);
 	}
 	/**
