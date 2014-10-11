@@ -2,7 +2,7 @@
  *  @author Pranava Raparla
  *  @author Monica Choe
  *  Created: October 9th, 2014
- *  Modified: October 9th, 2014
+ *  Modified: October 11th, 2014
  */
 package application;
 
@@ -35,8 +35,8 @@ public class SLogoNodeFactory {
 			try {
 				if (nodeName.equalsIgnoreCase("Forward"))
 					myNode = new MoveForwardNode();
-	//			else if (nodeName.equalsIgnoreCase("Backward"))
-	//				myNode = new MoveBackwardNode();
+				else if (nodeName.equalsIgnoreCase("Backward"))
+					myNode = new MoveBackwardNode();
 				else if (nodeName.equalsIgnoreCase("Left"))
 					myNode = new RotateLeftNode();
 				else if (nodeName.equalsIgnoreCase("Right"))
