@@ -30,13 +30,13 @@ public class SLogoNodeFactory {
 		try {
 			if (nodeName.equalsIgnoreCase("Forward"))
 				myNode = new MoveForwardNode();
-			else if (nodeName.equalsIgnoreCase("Backward"))
-				myNode = new MoveBackwardNode();
+//			else if (nodeName.equalsIgnoreCase("Backward"))
+//				myNode = new MoveBackwardNode();
 			else if (nodeName.equalsIgnoreCase("Left"))
 				myNode = new RotateLeftNode();
 			else if (nodeName.equalsIgnoreCase("Right"))
 				myNode = new RotateRightNode();
-			else if (nodeName.equalsIgnoreCase("SetHeading"))
+/*			else if (nodeName.equalsIgnoreCase("SetHeading"))
 				myNode = new SetHeadingNode();
 			else if (nodeName.equalsIgnoreCase("SetTowards"))
 				myNode = new SetTowardsNode();
@@ -160,7 +160,7 @@ public class SLogoNodeFactory {
 				myNode = new GroupStartNode();
 			else if (nodeName.equalsIgnoreCase("GroupEnd"))
 				myNode = new GroupEndNode();
-			else
+*/			else
 				myNode = new MoveForwardNode();
 		} catch (Exception e) {
 
