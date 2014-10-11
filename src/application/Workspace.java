@@ -32,7 +32,8 @@ public class Workspace {
 	 */
 	public void updateTurtle(List<AbstractAction> actionChain){
 		for (AbstractAction action : actionChain){
-			//action.update(myCurrentTurtle);
+			System.out.println("Updating");
+			action.update(myCurrentTurtle, myCanvas);
 			myHistory.add(action);
 		}
 	}
