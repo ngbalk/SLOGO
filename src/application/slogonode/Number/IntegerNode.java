@@ -12,6 +12,11 @@ public class IntegerNode extends NumberNode {
 		myOperation = "INTEGER";
 	}
 	
+	public IntegerNode(int value) {
+		this();
+		myValue = value;
+	}
+	
 	@Override
 	public int evaluate() {
 		return myValue;

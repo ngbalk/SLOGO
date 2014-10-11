@@ -29,7 +29,7 @@ public class SLogoNodeFactory {
 		SLogoNode myNode = null;
 		try {
 			int value = Integer.parseInt(nodeName);
-			myNode = new IntegerNode();
+			myNode = new IntegerNode(value);
 		}
 		catch (Exception e) {
 			try {
