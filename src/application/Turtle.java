@@ -20,7 +20,6 @@ public class Turtle extends AbstractDrawer{
 		this.myImage.setY(this.myYLocation);
 	}
 	
-	
 	public void rotateLeft(double rotation){
 		this.rotate(rotation);
 		myImage.setRotate(myImage.getRotate() - rotation);
@@ -29,6 +28,14 @@ public class Turtle extends AbstractDrawer{
 	public void rotateRight(double rotation){
 		this.rotate(-rotation);
 		myImage.setRotate(myImage.getRotate() + rotation);
+	}
+	
+	public double getSizeX(){
+		return myImage.getX();
+	}
+	
+	public double getSizeY(){
+		return myImage.getY();
 	}
 	
 	public void setDirection(double degree){
