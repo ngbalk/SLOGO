@@ -42,8 +42,8 @@ public class Workspace {
 	 * @return
 	 */
 	public Group display(){
-		myRoot.getChildren().add(myCurrentTurtle.display());
 		myRoot.getChildren().add(myCanvas.display());
+		myRoot.getChildren().add(myCurrentTurtle.display());
 		return myRoot;
 	}
 	/**
