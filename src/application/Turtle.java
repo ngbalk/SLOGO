@@ -22,12 +22,12 @@ public class Turtle extends AbstractDrawer{
 	}
 	
 	public void rotateLeft(double rotation){
-		this.rotate(-rotation);
+		this.rotate(rotation);
 		myImage.setRotate(myImage.getRotate() - rotation);
 	}
 	
 	public void rotateRight(double rotation){
-		this.rotate(rotation);
+		this.rotate(-rotation);
 		myImage.setRotate(myImage.getRotate() + rotation);
 	}
 	

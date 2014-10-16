@@ -24,7 +24,8 @@ public class AbstractDrawer {
 	public void move(double distance){
 		double radian = Math.toRadians(myOrientation);
 		myXLocation += distance * Math.cos(radian);
-		myYLocation += distance * Math.sin(radian);
+		myYLocation -= distance * Math.sin(radian);
+		System.out.println(myOrientation);
 	}
 	/**
 	 * Enter the value of degrees to rotate.  Positive degrees will rotate in the clockwise direction, and negative degrees
