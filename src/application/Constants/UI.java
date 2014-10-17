@@ -7,7 +7,7 @@ public final class UI {
 	public static final String STAGE_TITLE = "SLogo";
 	public static final int DEFAULT_WORKSPACE_WIDTH = 600;
 	public static final int DEFUALT_WORKSPACE_HEIGHT = 600;
-	public static final String DEFUALT_TURTLE_IMAGE = "default_turtle.jpg";
+	public static final String DEFUALT_TURTLE_IMAGE = "default_turtle_edited.png";
 	
 	
 	private UI() {
