@@ -58,6 +58,10 @@ public class Workspace {
 	public SLogoCanvas getCanvas(){
 		return myCanvas;
 	}
+	
+	public Turtle getCurrentTurtle(){
+		return myCurrentTurtle;
+	}
 
 	
 }

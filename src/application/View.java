@@ -9,6 +9,7 @@ import application.Actions.AbstractAction;
 import application.Constants.UI;
 import application.GUIfeatures.ChooseBackgroundColorButton;
 import application.GUIfeatures.ChoosePenColorButton;
+import application.GUIfeatures.ChooseTurtleImageButton;
 import application.GUIfeatures.GUIButtonFeature;
 import application.GUIfeatures.NewWorkspaceButton;
 import application.GUIfeatures.PenSizeButton;
@@ -88,20 +89,25 @@ public class View {
 		myWorkspaceTabs = new WorkspaceTabs(100, 100);
 
 		SubmitTextField codeInputField = new SubmitTextField(300, 740);
+		SubmitTextField penSizeInputField = new SubmitTextField(750, 200);
+		SubmitTextField turtleImageInputField = new SubmitTextField(750, 300);
 
 		myColorPicker = new ColorPicker(Color.RED);
 		myColorPicker.setLayoutX(750);
 		myColorPicker.setLayoutY(10);
 
-		SubmitTextField penSizeInputField = new SubmitTextField(750, 200);
-
-		Object[] features = new Object[] { myWorkspaceTabs,
-				new NewWorkspaceButton(10, 10, this), codeInputField,
+		Object[] features = new Object[] {
+				myWorkspaceTabs,
+				new NewWorkspaceButton(10, 10, this),
+				codeInputField,
 				new SubmitTextButton(600, 750, codeInputField, this),
-				myColorPicker, new ChooseBackgroundColorButton(750, 60, this),
-				penSizeInputField, new PenSizeButton(750, 250, this,
-						penSizeInputField), new ChoosePenColorButton(750, 110, this)
-
+				myColorPicker,
+				new ChooseBackgroundColorButton(750, 60, this),
+				penSizeInputField,
+				new PenSizeButton(750, 250, this, penSizeInputField),
+				new ChoosePenColorButton(750, 110, this),
+				new ChooseTurtleImageButton(750, 350, this,
+						turtleImageInputField), turtleImageInputField
 		};
 
 		for (Object o : features) {
@@ -110,19 +116,19 @@ public class View {
 
 	}
 
-//	/**
-//	 * Bind a button created in the FXML file to an event handler.
-//	 * 
-//	 * @param buttonId
-//	 * @param handler
-//	 * @return
-//	 */
-//	private Button bindButtonToHandler(String buttonId,
-//			EventHandler<ActionEvent> handler) {
-//		Button buttonToBind = (Button) this.myScene.lookup(buttonId);
-//		buttonToBind.setOnAction(handler);
-//		return buttonToBind;
-//	}
+	// /**
+	// * Bind a button created in the FXML file to an event handler.
+	// *
+	// * @param buttonId
+	// * @param handler
+	// * @return
+	// */
+	// private Button bindButtonToHandler(String buttonId,
+	// EventHandler<ActionEvent> handler) {
+	// Button buttonToBind = (Button) this.myScene.lookup(buttonId);
+	// buttonToBind.setOnAction(handler);
+	// return buttonToBind;
+	// }
 
 	/**
 	 * Add a workspace, adding it to both the TabPane and the List of
@@ -130,6 +136,5 @@ public class View {
 	 * 
 	 * @param workspace
 	 */
-	
 
 }
