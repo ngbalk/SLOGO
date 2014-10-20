@@ -8,24 +8,17 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 
-public class BackgroundColorPickerAndButton extends GUIFeature {
-	private HBox myContainer;
-	private Button myButton;
-	private ColorPicker myColorPicker;
-
+public class BackgroundColorPickerAndButton extends ColorPickerAndButton {
 	public BackgroundColorPickerAndButton(){ 
 		super();
-		myContainer = new HBox();
-		myColorPicker = new ColorPicker();
-		myButton = new Button();
-		myButton.setText("Choose Background Color");
-		myButton.setOnAction(event -> behavior());
-		myContainer.getChildren().addAll(myButton, myColorPicker);
-		this.getChildren().add(myContainer);
 	}
-	
-	public void behavior() {
+	@Override
+	protected void behavior() {
 		myController.getActiveWorkspace().getCanvas().setBackgroundColor(myColorPicker.getValue());
+	}
+	@Override
+	protected void setButtonText(){
+		myButton.setText("Choose Background Color");
 	}
 
 }

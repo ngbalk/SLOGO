@@ -22,7 +22,7 @@ public class Controller implements Initializable {
 	@FXML private WorkspaceTabs myWorkspaceTabs = new WorkspaceTabs();
 	@FXML private BackgroundColorPickerAndButton myBackgroundColorPickerAndButton = new BackgroundColorPickerAndButton();
 	@FXML private SubmitTextButtonAndField mySubmitTextButtonAndField = new SubmitTextButtonAndField();
-	
+	@FXML private PenColorPickerAndButton myPenColorPickerAndButton = new PenColorPickerAndButton();
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -32,6 +32,7 @@ public class Controller implements Initializable {
 		myWorkspaceTabs.setController(this);
 		mySubmitTextButtonAndField.setController(this);
 		myBackgroundColorPickerAndButton.setController(this);
+		myPenColorPickerAndButton.setController(this);
 	}
 	public void setView(View view){
 		this.myView = view;
