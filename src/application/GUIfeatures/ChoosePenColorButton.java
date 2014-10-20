@@ -13,7 +13,7 @@ public class ChoosePenColorButton extends GUIButtonFeature {
 	}
 
 	public void behavior() {
-		myView.myActiveWorkspace.getCanvas().setPenColor(myView.myColorPicker.getValue());
+		myView.getActiveWorkspace().getCanvas().setPenColor(myView.getColorPicker().getValue());
 	}
 
 }

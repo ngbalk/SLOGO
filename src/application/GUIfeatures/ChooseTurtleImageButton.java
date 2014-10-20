@@ -15,7 +15,7 @@ public class ChooseTurtleImageButton extends GUIButtonFeature {
 
 	@Override
 	public void behavior() {
-		myView.myActiveWorkspace.getCurrentTurtle().setImage(myInput.getText());
+		myView.getActiveWorkspace().getCurrentTurtle().setImage(myInput.getText());
 	}
 
 }

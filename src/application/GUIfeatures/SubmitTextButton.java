@@ -16,7 +16,7 @@ public class SubmitTextButton extends GUIButtonFeature {
 
 	@Override
 	public void behavior() {
-		myView.updateTurtle(myView.myModel.parseInput(myInputText.getText()));
+		myView.updateTurtle(myView.getModel().parseInput(myInputText.getText()));
 		myInputText.clear();
 		
 	}
