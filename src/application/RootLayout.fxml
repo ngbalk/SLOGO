@@ -16,7 +16,8 @@
     <top>
         <ToolBar>
             <HBox>
-                <NewWorkspaceButton fx:id="newWorkspaceButton" style="-fx-base: Blue"  text="New Workspace" styleClass="first" /> 
+                <NewWorkspaceButton fx:id="myNewWorkspaceButton" style="-fx-base: Blue" styleClass="first"/> 
+                <WorkspaceTabs fx:id="myWorkspaceTabs" style="-fx-base: Blue" styleClass="first" /> 
             </HBox>
         </ToolBar>
     </top>

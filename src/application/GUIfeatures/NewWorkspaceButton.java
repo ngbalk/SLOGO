@@ -6,49 +6,49 @@ import application.Workspace;
 import application.Constants.UI;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
+import javafx.scene.layout.Pane;
 
-public class NewWorkspaceButton extends GUIButtonFeature {
-	Controller myController;
+public class NewWorkspaceButton extends GUIFeature implements GUIButtonFeature {
 	View myView;
+	Button myButton;
 
 	public NewWorkspaceButton() {
 		super();
+		myButton = new Button();
+		myButton.setText("Add Workspace");
+		myButton.setOnAction(event -> behavior());
+		this.getChildren().add(myButton);
 		System.out.println("button built");
 	}
 
-	@Override
+	//@Override
 	public void behavior() {
 		System.out.println("Building behavior");
-		myView = myController.getView();
 		Workspace workspace = new Workspace(UI.DEFAULT_WORKSPACE_WIDTH,
 				UI.DEFUALT_WORKSPACE_HEIGHT);
-
-		myView.myWorkspaces.add(workspace);
-		myView.myActiveWorkspace = workspace;
-		Tab newTab = new Tab(("Workspace #" + (myView.myWorkspaceTabs.getTabs()
+		myController.getWorkspaces().add(workspace);
+		myController.setActiveWorkspace(workspace);
+		Tab newTab = new Tab(("Workspace #" + (myController.getWorkspaceTabs().getTabPane().getTabs()
 				.size() + 1)));
 		newTab.setContent(workspace.display());
 		newTab.setOnClosed((new EventHandler<Event>() {
 			@Override
 			public void handle(Event arg0) {
-				myView.myWorkspaces.remove(workspace);
+				myController.getWorkspaces().remove(workspace);
 			}
 		}));
 		newTab.setOnSelectionChanged(new EventHandler<Event>() {
 			@Override
 			public void handle(Event arg0) {
-				myView.myActiveWorkspace = workspace;
+				myController.setActiveWorkspace(workspace);
 			}
 		});
-		myView.myWorkspaceTabs.getTabs().add(newTab);
+		myController.getWorkspaceTabs().getTabPane().getTabs().add(newTab);
 	}
-	public void setView(View view){
-		this.myView = view;
-	}
-	public void setController(Controller controller){
-		this.myController = controller;
-	}
+
+
 
 }

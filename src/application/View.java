@@ -34,16 +34,16 @@ import javafx.stage.Stage;
 
 public class View {
 	private Model myModel;
+	private Controller myController;
 	private Stage myStage;
 	private Scene myScene;
 	private TabPane myWorkspaceTabs;
-	private Workspace myActiveWorkspace;
-	private List<Workspace> myWorkspaces;
+
 	private ColorPicker myColorPicker;
 
 	public View(Stage stage) throws IOException {
 		this.myModel = new Model();
-		this.myWorkspaces = new ArrayList<Workspace>();
+		
 		myStage = stage;
 		this.initializeStage();
 	}
@@ -68,8 +68,8 @@ public class View {
 	 */
 	public void updateTurtle(List<AbstractAction> actionChain) {
 		System.out.println("### Updating Turtle. Workspace: "
-				+ myActiveWorkspace);
-		this.myActiveWorkspace.updateTurtle(actionChain);
+				+ myController.getActiveWorkspace());
+		myController.getActiveWorkspace().updateTurtle(actionChain);
 	}
 
 	/**
@@ -82,8 +82,8 @@ public class View {
 	 	Parent root;
 		try {
 			root = fxmlLoader.load();
-			Controller mainController = (Controller) fxmlLoader.getController();
-			mainController.setView(this);
+			myController = (Controller) fxmlLoader.getController();
+			myController.setView(this);
 		} catch (IOException e) {
 			System.out.println("Could not load FXML file" + "\n" + e.getMessage());
 			return;
@@ -164,26 +164,6 @@ public class View {
 //	private List<Workspace> myWorkspaces;
 //	private ColorPicker myColorPicker;
 	
-	public Model getModel(){
-		return myModel;
-	}
-	public Stage getStage(){
-		return myStage;
-	}
-	public Scene getScene(){
-		return myScene;
-	}
-	public TabPane getWorkspaceTabs(){
-		return myWorkspaceTabs;
-	}
-	public Workspace getActiveWorkspace(){
-		return myActiveWorkspace;
-	}
-	public List<Workspace> getWorkspaces(){
-		return myWorkspaces;
-	}
-	public ColorPicker getColorPicker(){
-		return myColorPicker;
-	}
+
 	
 }

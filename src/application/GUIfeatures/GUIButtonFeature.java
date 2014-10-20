@@ -1,15 +1,7 @@
 package application.GUIfeatures;
 
-import javafx.scene.control.Button;
+import application.Controller;
 
-public abstract class GUIButtonFeature extends Button{
-	
+public interface GUIButtonFeature {
 	public abstract void behavior();
-
-	public GUIButtonFeature(){
-		System.out.println("building button");
-		this.setOnAction(event -> behavior());
-		System.out.println("behavior set");
-	}
-	
 }
