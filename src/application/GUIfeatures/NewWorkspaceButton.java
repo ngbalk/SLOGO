@@ -1,5 +1,6 @@
 package application.GUIfeatures;
 
+import application.Controller;
 import application.View;
 import application.Workspace;
 import application.Constants.UI;
@@ -9,16 +10,18 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 
 public class NewWorkspaceButton extends GUIButtonFeature {
+	Controller myController;
 	View myView;
 
-	public NewWorkspaceButton(double x, double y, View v) {
-		super(x, y);
-		this.setText("New Workspace");
-		myView = v;
+	public NewWorkspaceButton() {
+		super();
+		System.out.println("button built");
 	}
 
 	@Override
 	public void behavior() {
+		System.out.println("Building behavior");
+		myView = myController.getView();
 		Workspace workspace = new Workspace(UI.DEFAULT_WORKSPACE_WIDTH,
 				UI.DEFUALT_WORKSPACE_HEIGHT);
 
@@ -40,6 +43,12 @@ public class NewWorkspaceButton extends GUIButtonFeature {
 			}
 		});
 		myView.myWorkspaceTabs.getTabs().add(newTab);
+	}
+	public void setView(View view){
+		this.myView = view;
+	}
+	public void setController(Controller controller){
+		this.myController = controller;
 	}
 
 }

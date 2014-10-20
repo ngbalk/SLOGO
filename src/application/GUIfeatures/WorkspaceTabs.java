@@ -8,9 +8,7 @@ import javafx.scene.control.TabPane;
 
 public class WorkspaceTabs extends TabPane {
 	
-	public WorkspaceTabs (double x, double y){
-		this.setLayoutX(x);
-		this.setLayoutY(y);
+	public WorkspaceTabs (){
 		
 	}
 	

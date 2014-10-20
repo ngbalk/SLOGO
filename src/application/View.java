@@ -78,41 +78,60 @@ public class View {
 	 * @param stage
 	 */
 	private void initializeStage() {
-		Group root = new Group();
-		Scene scene = new Scene(root, application.Constants.UI.STAGE_HEIGHT,
-				application.Constants.UI.STAGE_WIDTH);
-		this.myScene = scene;
-		this.myStage.setTitle(UI.STAGE_TITLE);
-		this.myStage.setScene(scene);
-		this.myStage.show();
-
-		myWorkspaceTabs = new WorkspaceTabs(100, 100);
-
-		SubmitTextField codeInputField = new SubmitTextField(300, 740);
-		SubmitTextField penSizeInputField = new SubmitTextField(750, 200);
-		SubmitTextField turtleImageInputField = new SubmitTextField(750, 300);
-
-		myColorPicker = new ColorPicker(Color.RED);
-		myColorPicker.setLayoutX(750);
-		myColorPicker.setLayoutY(10);
-
-		Object[] features = new Object[] {
-				myWorkspaceTabs,
-				new NewWorkspaceButton(10, 10, this),
-				codeInputField,
-				new SubmitTextButton(600, 750, codeInputField, this),
-				myColorPicker,
-				new ChooseBackgroundColorButton(750, 60, this),
-				penSizeInputField,
-				new PenSizeButton(750, 250, this, penSizeInputField),
-				new ChoosePenColorButton(750, 110, this),
-				new ChooseTurtleImageButton(750, 350, this,
-						turtleImageInputField), turtleImageInputField
-		};
-
-		for (Object o : features) {
-			root.getChildren().add((Node) o);
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(application.Constants.UI.ROOT_LAYOUT_FXML_LOCATION));
+	 	Parent root;
+		try {
+			root = fxmlLoader.load();
+			Controller mainController = (Controller) fxmlLoader.getController();
+			mainController.setView(this);
+		} catch (IOException e) {
+			System.out.println("Could not load FXML file" + "\n" + e.getMessage());
+			return;
 		}
+		
+		
+		System.out.println("Controller built");
+		Scene scene = new Scene(root, application.Constants.UI.STAGE_HEIGHT, application.Constants.UI.STAGE_WIDTH);
+        this.myScene = scene;
+        this.myStage.setTitle(UI.STAGE_TITLE);
+        this.myStage.setScene(scene);
+        this.myStage.show();
+
+//		Group root = new Group();
+//		Scene scene = new Scene(root, application.Constants.UI.STAGE_HEIGHT,
+//				application.Constants.UI.STAGE_WIDTH);
+//		this.myScene = scene;
+//		this.myStage.setTitle(UI.STAGE_TITLE);
+//		this.myStage.setScene(scene);
+//		this.myStage.show();
+//
+//		myWorkspaceTabs = new WorkspaceTabs();
+//
+//		SubmitTextField codeInputField = new SubmitTextField(300, 740);
+//		SubmitTextField penSizeInputField = new SubmitTextField(750, 200);
+//		SubmitTextField turtleImageInputField = new SubmitTextField(750, 300);
+//
+//		myColorPicker = new ColorPicker(Color.RED);
+//		myColorPicker.setLayoutX(750);
+//		myColorPicker.setLayoutY(10);
+//
+//		Object[] features = new Object[] {
+//				myWorkspaceTabs,
+//				new NewWorkspaceButton(10, 10, this),
+//				codeInputField,
+//				new SubmitTextButton(600, 750, codeInputField, this),
+//				myColorPicker,
+//				new ChooseBackgroundColorButton(750, 60, this),
+//				penSizeInputField,
+//				new PenSizeButton(750, 250, this, penSizeInputField),
+//				new ChoosePenColorButton(750, 110, this),
+//				new ChooseTurtleImageButton(750, 350, this,
+//						turtleImageInputField), turtleImageInputField
+//		};
+//
+//		for (Object o : features) {
+//			root.getChildren().add((Node) o);
+//		}
 
 	}
 

@@ -10,15 +10,14 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.text.*?>
+<?import application.GUIfeatures.*?>
 
-<BorderPane id="background" prefWidth="1000.0" prefHeight="1000.0" xmlns:fx="http://javafx.com/fxml">
+<BorderPane id="background" prefWidth="1000.0" prefHeight="1000.0" xmlns:fx="http://javafx.com/fxml" fx:controller="application.Controller">
     <top>
         <ToolBar>
             <HBox>
-                <Button id="newWorkspace" style="-fx-base: Blue"  text="New Workspace" styleClass="first" /> 
+                <NewWorkspaceButton fx:id="newWorkspaceButton" style="-fx-base: Blue"  text="New Workspace" styleClass="first" /> 
             </HBox>
-                <TabPane id="workspaceTabs"  style="-fx-spacing: 750.0">
-                </TabPane>
         </ToolBar>
     </top>
     <left>
