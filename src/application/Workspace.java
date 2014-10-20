@@ -54,5 +54,14 @@ public class Workspace {
 	public void hide(){
 		myRoot.getChildren().clear();
 	}
+	
+	public SLogoCanvas getCanvas(){
+		return myCanvas;
+	}
+	
+	public Turtle getCurrentTurtle(){
+		return myCurrentTurtle;
+	}
 
+	
 }

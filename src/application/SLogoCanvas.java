@@ -43,5 +43,13 @@ public class SLogoCanvas{
 	public void setBackgroundColor(Color c){
 		myRectangle.setFill(c);
 	}
+	
+	public void setPenSize(double size){
+		myCanvas.getGraphicsContext2D().setLineWidth(size);
+	}
+	
+	public void setPenColor(Color c){
+		myCanvas.getGraphicsContext2D().setStroke(c);
+	}
 
 }

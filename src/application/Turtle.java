@@ -45,7 +45,6 @@ public class Turtle extends AbstractDrawer{
 	}
 	
 	public ImageView display(){
-
 		return myImage;
 	}
 
