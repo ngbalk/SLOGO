@@ -23,7 +23,7 @@ public class Controller implements Initializable {
 	@FXML private BackgroundColorPickerAndButton myBackgroundColorPickerAndButton = new BackgroundColorPickerAndButton();
 	@FXML private SubmitTextButtonAndField mySubmitTextButtonAndField = new SubmitTextButtonAndField();
 	@FXML private PenColorPickerAndButton myPenColorPickerAndButton = new PenColorPickerAndButton();
-	
+	@FXML private PenSizeSlider myPenSizeSlider = new PenSizeSlider();
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		this.myWorkspaces = new ArrayList<Workspace>();
@@ -33,6 +33,7 @@ public class Controller implements Initializable {
 		mySubmitTextButtonAndField.setController(this);
 		myBackgroundColorPickerAndButton.setController(this);
 		myPenColorPickerAndButton.setController(this);
+		myPenSizeSlider.setController(this);
 	}
 	public void setView(View view){
 		this.myView = view;
