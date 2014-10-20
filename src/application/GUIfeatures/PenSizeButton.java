@@ -16,7 +16,7 @@ public class PenSizeButton extends GUIButtonFeature {
 
 	@Override
 	public void behavior() {
-		myView.myActiveWorkspace.getCanvas().setPenSize(Double.parseDouble(myInput.getText()));
+		myView.getActiveWorkspace().getCanvas().setPenSize(Double.parseDouble(myInput.getText()));
 		
 	}
 

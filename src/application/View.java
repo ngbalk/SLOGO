@@ -33,13 +33,13 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class View {
-	public Model myModel;
+	private Model myModel;
 	private Stage myStage;
 	private Scene myScene;
-	public TabPane myWorkspaceTabs;
-	public Workspace myActiveWorkspace;
-	public List<Workspace> myWorkspaces;
-	public ColorPicker myColorPicker;
+	private TabPane myWorkspaceTabs;
+	private Workspace myActiveWorkspace;
+	private List<Workspace> myWorkspaces;
+	private ColorPicker myColorPicker;
 
 	public View(Stage stage) throws IOException {
 		this.myModel = new Model();
@@ -137,4 +137,34 @@ public class View {
 	 * @param workspace
 	 */
 
+//	private Model myModel;
+//	private Stage myStage;
+//	private Scene myScene;
+//	private TabPane myWorkspaceTabs;
+//	private Workspace myActiveWorkspace;
+//	private List<Workspace> myWorkspaces;
+//	private ColorPicker myColorPicker;
+	
+	public Model getModel(){
+		return myModel;
+	}
+	public Stage getStage(){
+		return myStage;
+	}
+	public Scene getScene(){
+		return myScene;
+	}
+	public TabPane getWorkspaceTabs(){
+		return myWorkspaceTabs;
+	}
+	public Workspace getActiveWorkspace(){
+		return myActiveWorkspace;
+	}
+	public List<Workspace> getWorkspaces(){
+		return myWorkspaces;
+	}
+	public ColorPicker getColorPicker(){
+		return myColorPicker;
+	}
+	
 }

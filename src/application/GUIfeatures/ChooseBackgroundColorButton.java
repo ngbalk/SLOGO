@@ -18,7 +18,7 @@ public class ChooseBackgroundColorButton extends GUIButtonFeature {
 	}
 	
 	public void behavior() {
-		myView.myActiveWorkspace.getCanvas().setBackgroundColor(myView.myColorPicker.getValue());
+		myView.getActiveWorkspace().getCanvas().setBackgroundColor(myView.getColorPicker().getValue());
 	}
 
 }
