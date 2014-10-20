@@ -20,11 +20,13 @@ public class NewWorkspaceButton extends GUIFeature implements GUIButtonFeature {
 		myButton = new Button();
 		myButton.setText("Add Workspace");
 		myButton.setOnAction(event -> behavior());
+		
+				
 		this.getChildren().add(myButton);
 		System.out.println("button built");
 	}
 
-	//@Override
+	
 	public void behavior() {
 		System.out.println("Building behavior");
 		Workspace workspace = new Workspace(UI.DEFAULT_WORKSPACE_WIDTH,

@@ -13,7 +13,7 @@ import application.GUIfeatures.ChooseTurtleImageButton;
 import application.GUIfeatures.GUIButtonFeature;
 import application.GUIfeatures.NewWorkspaceButton;
 import application.GUIfeatures.PenSizeButton;
-import application.GUIfeatures.SubmitTextButton;
+import application.GUIfeatures.SubmitTextButtonAndField;
 import application.GUIfeatures.SubmitTextField;
 import application.GUIfeatures.WorkspaceTabs;
 import javafx.event.ActionEvent;
@@ -163,7 +163,9 @@ public class View {
 //	private Workspace myActiveWorkspace;
 //	private List<Workspace> myWorkspaces;
 //	private ColorPicker myColorPicker;
-	
+	public Model getModel(){
+		return myModel;
+	}
 
 	
 }

@@ -18,12 +18,16 @@ public class Controller implements Initializable {
 	private List<Workspace> myWorkspaces;
 	@FXML private NewWorkspaceButton myNewWorkspaceButton = new NewWorkspaceButton();
 	@FXML private WorkspaceTabs myWorkspaceTabs = new WorkspaceTabs();
+	@FXML private SubmitTextButtonAndField mySubmitTextButtonAndField = new SubmitTextButtonAndField();
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		this.myWorkspaces = new ArrayList<Workspace>();
 		//We could update this all at once with a MapReduce Functional programming idiom.
 		myNewWorkspaceButton.setController(this);
 		myWorkspaceTabs.setController(this);
+		
+		mySubmitTextButtonAndField.setController(this);
+		System.out.println("waiting to set text field controller");
 
 	}
 	public void setView(View view){
@@ -32,9 +36,7 @@ public class Controller implements Initializable {
 	public View getView(){
 		return myView;
 	}
-//	public Model getModel(){
-//		return myModel;
-//	}
+
 //	public Stage getStage(){
 //		return myStage;
 //	}

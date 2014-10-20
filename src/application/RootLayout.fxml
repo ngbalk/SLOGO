@@ -27,8 +27,7 @@
     </left>
     <bottom>
         <HBox>
-            <TextArea id="textInput" prefHeight="150.0" prefWidth="900.0"/>
-            <Button id="submitText" style="-fx-base: Green"  text="Submit" styleClass="first" /> 
+            <SubmitTextButtonAndField fx:id="mySubmitTextButtonAndField" />
         </HBox>
     </bottom>
 </BorderPane>
