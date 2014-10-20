@@ -12,8 +12,8 @@ import javafx.scene.control.Tab;
 import javafx.scene.layout.Pane;
 
 public class NewWorkspaceButton extends GUIFeature implements GUIButtonFeature {
-	View myView;
-	Button myButton;
+	private View myView;
+	private Button myButton;
 
 	public NewWorkspaceButton() {
 		super();
