@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 public class Controller implements Initializable {
+	public static final ResourceBundle myResources = ResourceBundle.getBundle("resources.languages/TestFile");
 	private View myView;
 	private Workspace myActiveWorkspace;
 	private List<Workspace> myWorkspaces;

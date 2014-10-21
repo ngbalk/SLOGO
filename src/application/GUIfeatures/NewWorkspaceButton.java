@@ -10,6 +10,7 @@ import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.Pane;
+import static application.Controller.myResources;
 
 public class NewWorkspaceButton extends GUIFeature implements GUIButtonFeature {
 	View myView;
@@ -18,7 +19,7 @@ public class NewWorkspaceButton extends GUIFeature implements GUIButtonFeature {
 	public NewWorkspaceButton() {
 		super();
 		myButton = new Button();
-		myButton.setText("Add Workspace");
+		myButton.setText(myResources.getString("addWorkspace"));
 		myButton.setOnAction(event -> behavior());
 		
 				
