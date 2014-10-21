@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -14,20 +15,24 @@
 
 <BorderPane id="background" prefWidth="1000.0" prefHeight="1000.0" xmlns:fx="http://javafx.com/fxml" fx:controller="application.Controller">
     <top>
-        <ToolBar>
-            <HBox>
-                <NewWorkspaceButton fx:id="myNewWorkspaceButton" style="-fx-base: Blue" styleClass="first"/> 
-                <WorkspaceTabs fx:id="myWorkspaceTabs" style="-fx-base: Blue" styleClass="first" /> 
-            </HBox>
-        </ToolBar>
+        <NewWorkspaceButton fx:id="myNewWorkspaceButton" style="-fx-base: Blue" styleClass="first"/>         
     </top>
-    <left>
-             <VBox styleClass="segmented-button-bar" style="-fx-background-color: #CCFF99; -fx-spacing: 3.0">
+    <center>
+        <Pane prefWidth="600.0">
+        <WorkspaceTabs fx:id="myWorkspaceTabs" style="-fx-base: Blue" styleClass="first" /> 
+        </Pane>
+    </center>
+    <right>
+             <VBox styleClass="segmented-button-bar" style="-fx-spacing: 3.0">
+                <BackgroundColorPickerAndButton fx:id="myBackgroundColorPickerAndButton"/>
+                <PenColorPickerAndButton fx:id="myPenColorPickerAndButton"/>
+                <PenSizeSlider fx:id="myPenSizeSlider"/>
+                <Pane prefHeight="200.0">
+                    <SubmitTextButtonAndField fx:id="mySubmitTextButtonAndField" />
+                </Pane>
             </VBox>
-    </left>
+    </right>
     <bottom>
-        <HBox>
-            <SubmitTextButtonAndField fx:id="mySubmitTextButtonAndField" />
-        </HBox>
+
     </bottom>
 </BorderPane>

@@ -13,8 +13,8 @@ import javafx.scene.layout.Pane;
 import static application.Controller.myResources;
 
 public class NewWorkspaceButton extends GUIFeature implements GUIButtonFeature {
-	View myView;
-	Button myButton;
+	private View myView;
+	private Button myButton;
 
 	public NewWorkspaceButton() {
 		super();

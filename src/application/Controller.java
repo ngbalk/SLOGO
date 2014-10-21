@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import application.GUIfeatures.*;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,27 +16,37 @@ import javafx.fxml.Initializable;
 public class Controller implements Initializable {
 	public static final ResourceBundle myResources = ResourceBundle.getBundle("resources.languages/TestFile");
 	private View myView;
+	private Model myModel;
 	private Workspace myActiveWorkspace;
 	private List<Workspace> myWorkspaces;
 	@FXML private NewWorkspaceButton myNewWorkspaceButton = new NewWorkspaceButton();
 	@FXML private WorkspaceTabs myWorkspaceTabs = new WorkspaceTabs();
+	@FXML private BackgroundColorPickerAndButton myBackgroundColorPickerAndButton = new BackgroundColorPickerAndButton();
 	@FXML private SubmitTextButtonAndField mySubmitTextButtonAndField = new SubmitTextButtonAndField();
+	@FXML private PenColorPickerAndButton myPenColorPickerAndButton = new PenColorPickerAndButton();
+	@FXML private PenSizeSlider myPenSizeSlider = new PenSizeSlider();
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		this.myWorkspaces = new ArrayList<Workspace>();
 		//We could update this all at once with a MapReduce Functional programming idiom.
 		myNewWorkspaceButton.setController(this);
 		myWorkspaceTabs.setController(this);
-		
 		mySubmitTextButtonAndField.setController(this);
-		System.out.println("waiting to set text field controller");
-
+		myBackgroundColorPickerAndButton.setController(this);
+		myPenColorPickerAndButton.setController(this);
+		myPenSizeSlider.setController(this);
 	}
 	public void setView(View view){
 		this.myView = view;
 	}
 	public View getView(){
-		return myView;
+		return this.myView;
+	}
+	public void setModel(Model model){
+		this.myModel = model;
+	}
+	public Model getModel(){
+		return this.myModel;
 	}
 
 //	public Stage getStage(){
@@ -45,20 +56,19 @@ public class Controller implements Initializable {
 //		return myScene;
 //	}
 	public WorkspaceTabs getWorkspaceTabs(){
-		return myWorkspaceTabs;
+		return this.myWorkspaceTabs;
 	}
 	public Workspace getActiveWorkspace(){
-		return myActiveWorkspace;
+		return this.myActiveWorkspace;
 	}
 	public void setActiveWorkspace(Workspace workspace){
 		this.myActiveWorkspace = workspace;
 	}
 	public List<Workspace> getWorkspaces(){
-		return myWorkspaces;
+		return this.myWorkspaces;
 	}
-//	public ColorPicker getColorPicker(){
-//		return myColorPicker;
-//	}
+
+
 	
 
 }

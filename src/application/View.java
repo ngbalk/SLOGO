@@ -7,15 +7,7 @@ import java.util.List;
 
 import application.Actions.AbstractAction;
 import application.Constants.UI;
-import application.GUIfeatures.ChooseBackgroundColorButton;
-import application.GUIfeatures.ChoosePenColorButton;
-import application.GUIfeatures.ChooseTurtleImageButton;
-import application.GUIfeatures.GUIButtonFeature;
-import application.GUIfeatures.NewWorkspaceButton;
-import application.GUIfeatures.PenSizeButton;
-import application.GUIfeatures.SubmitTextButtonAndField;
-import application.GUIfeatures.SubmitTextField;
-import application.GUIfeatures.WorkspaceTabs;
+import application.GUIfeatures.*;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -38,7 +30,6 @@ public class View {
 	private Stage myStage;
 	private Scene myScene;
 	private TabPane myWorkspaceTabs;
-
 	private ColorPicker myColorPicker;
 
 	public View(Stage stage) throws IOException {
@@ -73,7 +64,7 @@ public class View {
 	}
 
 	/**
-	 * Initialize the application's stage.
+	 * Load in the FXML and build a controller which will handle our GUIFeatures.
 	 * 
 	 * @param stage
 	 */
@@ -84,13 +75,11 @@ public class View {
 			root = fxmlLoader.load();
 			myController = (Controller) fxmlLoader.getController();
 			myController.setView(this);
+			myController.setModel(this.myModel);
 		} catch (IOException e) {
 			System.out.println("Could not load FXML file" + "\n" + e.getMessage());
 			return;
 		}
-		
-		
-		System.out.println("Controller built");
 		Scene scene = new Scene(root, application.Constants.UI.STAGE_HEIGHT, application.Constants.UI.STAGE_WIDTH);
         this.myScene = scene;
         this.myStage.setTitle(UI.STAGE_TITLE);
