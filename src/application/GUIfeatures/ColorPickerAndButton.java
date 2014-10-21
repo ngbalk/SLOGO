@@ -4,7 +4,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.layout.HBox;
 
-public abstract class ColorPickerAndButton extends GUIFeature{
+public abstract class ColorPickerAndButton extends AbstractGUIFeature{
 	protected HBox myContainer;
 	protected Button myButton;
 	protected ColorPicker myColorPicker;

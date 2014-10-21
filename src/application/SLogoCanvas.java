@@ -5,6 +5,7 @@ import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 
 
@@ -26,14 +27,15 @@ public class SLogoCanvas{
 	 * @param start Point2D
 	 * @param end Point2D
 	 */
-	public void draw(Point2D start, Point2D end){
-		myCanvas.getGraphicsContext2D().strokeLine(start.getX(), start.getY(), end.getX(), end.getY());
+	public void displayLine(Line line){
+		myPane.getChildren().add(line);
 	}
 	/**
 	 * Clear the current canvas of any drawings
 	 */
 	public void clear(){
-		myCanvas.getGraphicsContext2D().clearRect(0, 0, myCanvas.getWidth(), myCanvas.getHeight());
+		//myCanvas.getGraphicsContext2D().clearRect(0, 0, myCanvas.getWidth(), myCanvas.getHeight());
+		myPane.getChildren().clear();
 	}
 	
 	public Pane display(){
@@ -44,12 +46,12 @@ public class SLogoCanvas{
 		myRectangle.setFill(c);
 	}
 	
-	public void setPenSize(double size){
-		myCanvas.getGraphicsContext2D().setLineWidth(size);
-	}
-	
-	public void setPenColor(Color c){
-		myCanvas.getGraphicsContext2D().setStroke(c);
-	}
+//	public void setPenSize(double size){
+//		myCanvas.getGraphicsContext2D().setLineWidth(size);
+//	}
+//	
+//	public void setPenColor(Color c){
+//		myCanvas.getGraphicsContext2D().setStroke(c);
+//	}
 
 }

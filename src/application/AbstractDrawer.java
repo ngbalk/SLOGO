@@ -1,19 +1,20 @@
 package application;
 
 import javafx.geometry.Point2D;
+import javafx.scene.shape.Line;
 
 public class AbstractDrawer {
 	
 	protected double myXLocation;
 	protected double myYLocation;
 	protected double myOrientation;
-	protected boolean myIsPenDown;
+	protected SLogoPen myPen;
 
 	public AbstractDrawer(double x, double y) {
 		myXLocation = x;
 		myYLocation = y;
 		myOrientation = 0;
-		myIsPenDown = true;
+		myPen = new SLogoPen();
 	}
 	
 	
@@ -21,11 +22,12 @@ public class AbstractDrawer {
 	 * Enter a value of the distance to move.  A positive value will move forward, a negative value will move backwards.
 	 * @param distance
 	 */
-	public void move(double distance){
+	public Line move(double distance){
+		Point2D start = this.getLocation();
 		double radian = Math.toRadians(myOrientation);
 		myXLocation += distance * Math.cos(radian);
 		myYLocation -= distance * Math.sin(radian);
-		System.out.println(myOrientation);
+		return myPen.drawLine(start, this.getLocation());
 	}
 	/**
 	 * Enter the value of degrees to rotate.  Positive degrees will rotate in the clockwise direction, and negative degrees
@@ -45,20 +47,20 @@ public class AbstractDrawer {
 	 * Set the Drawer's pen to the "up" position
 	 */
 	public void penUp(){
-		myIsPenDown = false;
+		myPen.setPenUp();
 	}
 	/**
 	 * Set the Drawer's pen position to the "down" position
 	 */
 	public void penDown(){
-		myIsPenDown = true;
+		myPen.setPenDown();
 	}
 	/**
 	 * check if the pen is in down position.
 	 * @return
 	 */
 	public boolean isPenDown(){
-		return myIsPenDown;
+		return myPen.getPenDownStatus();
 	}
 	/**
 	 * return the current location of the drawer.
@@ -73,6 +75,10 @@ public class AbstractDrawer {
 	 */
 	public double getOrientation(){
 		return myOrientation;
+	}
+	
+	public SLogoPen getPen(){
+		return myPen;
 	}
 	
 }

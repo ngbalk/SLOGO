@@ -1,8 +1,10 @@
 package application;
 
 import application.Constants.UI;
+import javafx.geometry.Point2D;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Line;
 
 public class Turtle extends AbstractDrawer{
 
@@ -15,10 +17,11 @@ public class Turtle extends AbstractDrawer{
 		this.myImage.setY(y);
 		myImage.setRotate(90);
 	}
-	public void move(double distance){
-		super.move(distance);
+	public Line move(double distance){
+		Line line = super.move(distance);
 		this.myImage.setX(this.myXLocation);
 		this.myImage.setY(this.myYLocation);
+		return line;
 	}
 	
 	public void rotateLeft(double rotation){
@@ -46,6 +49,10 @@ public class Turtle extends AbstractDrawer{
 	
 	public ImageView display(){
 		return myImage;
+	}
+	
+	public boolean isPenDown(){
+		return myPen.getPenDownStatus();
 	}
 
 	

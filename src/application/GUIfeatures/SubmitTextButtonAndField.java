@@ -8,7 +8,7 @@ import javafx.scene.layout.HBox;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 
-public class SubmitTextButtonAndField extends GUIFeature implements GUIButtonFeature {
+public class SubmitTextButtonAndField extends AbstractGUIFeature implements GUIButtonFeature {
 	private HBox myContainer;
 	private TextArea myInputText;
 	private Button myButton;

@@ -9,15 +9,17 @@ public class PenColorPickerAndButton extends ColorPickerAndButton {
 	public PenColorPickerAndButton() {
 		super();
 	}
+
 	@Override
 	public void behavior() {
-		myController.getActiveWorkspace().getCanvas().setPenColor(myColorPicker.getValue());
+		myController.getActiveWorkspace().getCurrentTurtle().getPen()
+				.setPenColor(myColorPicker.getValue());
 	}
 
 	@Override
 	protected void setButtonText() {
 		myButton.setText("Choose Pen Color");
-		
+
 	}
 
 }

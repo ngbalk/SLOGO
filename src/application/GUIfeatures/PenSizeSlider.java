@@ -7,7 +7,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.layout.HBox;
 import application.View;
 
-public class PenSizeSlider extends GUIFeature {
+public class PenSizeSlider extends AbstractGUIFeature {
 	Slider mySlider;
 	HBox myContainer;
 	Label myLabel;
@@ -16,7 +16,7 @@ public class PenSizeSlider extends GUIFeature {
 		myContainer = new HBox();
 		myLabel = new Label();
 		mySlider = new Slider();
-		mySlider.setMin(0);
+		mySlider.setMin(1);
 		mySlider.setMax(100.0);
 		mySlider.valueProperty().addListener(new ChangeListener<Number>(){
 
@@ -33,7 +33,7 @@ public class PenSizeSlider extends GUIFeature {
 	}
 
 	private void behavior() {
-		myController.getActiveWorkspace().getCanvas().setPenSize(mySlider.getValue());
+		myController.getActiveWorkspace().getCurrentTurtle().getPen().setPenSize(mySlider.getValue());
 		
 	}
 

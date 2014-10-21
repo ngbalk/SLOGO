@@ -7,7 +7,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 
-public class WorkspaceTabs extends GUIFeature{
+public class WorkspaceTabs extends AbstractGUIFeature{
 	private TabPane myTabPane;
 	public WorkspaceTabs (){
 		myTabPane = new TabPane();
