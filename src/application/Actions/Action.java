@@ -15,4 +15,9 @@ public class Action extends AbstractAction {
 		
 	}
 
+	@Override
+	public String toString() {
+		return "";
+	}
+
 }

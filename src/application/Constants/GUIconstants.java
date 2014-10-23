@@ -20,7 +20,11 @@ public final class GUIconstants {
 	public static final String PEN_SLIDER_TITLE = "penSliderTitle";
 	public static final String SUBMIT_BUTTON_TITLE = "submitButtonTitle";
 	public static final String TOGGLE_GRID_LINES_BUTTON = "gridLinesButtonTitle";
-	
+	public static final int DEFAULT_TURTLE_X_LOCATION = 300;
+	public static final int DEFAULT_TURTLE_Y_LOCATION = 300;
+	public static final int DEFAULT_CANVAS_WIDTH = 600;
+	public static final int DEFAULT_CANVAS_HEIGHT = 600;
+		
 	private GUIconstants() {
 		throw new AssertionError();
 	}

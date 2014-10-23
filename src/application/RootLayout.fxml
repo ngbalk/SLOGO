@@ -28,12 +28,12 @@
                 <PenColorPickerAndButton fx:id="myPenColorPickerAndButton"/>
                 <ToggleReferenceGridButton fx:id="myToggleReferenceGrid"/>
                 <PenSizeSlider fx:id="myPenSizeSlider"/>
-                <Pane prefHeight="200.0">
-                    <SubmitTextButtonAndField fx:id="mySubmitTextButtonAndField" />
-                </Pane>
+
                  <Pane prefHeight="200.0">
                     <ChooseTurtleImageButton fx:id="myTurtleImageButtonAndField" />
                 </Pane>
+                <HistoryFeature fx:id="myHistoryFeature"/>
+                <SubmitTextButtonAndField fx:id="mySubmitTextButtonAndField" />
             </VBox>
     </right>
     <bottom>

@@ -19,7 +19,8 @@ public class AbstractTurtle {
 	
 	
 	/**
-	 * Enter a value of the distance to move.  A positive value will move forward, a negative value will move backwards.
+	 * Enter a value of the distance to move.  A positive value will move forward, a negative value will move backwards. 
+	 * A line is returned, corresponding to the correct drawing.
 	 * @param distance
 	 */
 	public Line move(double distance){

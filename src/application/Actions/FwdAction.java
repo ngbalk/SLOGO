@@ -20,4 +20,9 @@ public class FwdAction extends AbstractAction {
 		// System.out.println("***Prior Location: " + turt.getLocation());
 	}
 
+	@Override
+	public String toString() {
+		return "fwd " + myDistance;
+	}
+
 }

@@ -28,7 +28,9 @@ public class SubmitTextButtonAndField extends AbstractGUIFeature implements GUIB
 
 	public void behavior() {
 		//I am not sure if this line of code fits into our idea of MVC...
-		myController.getView().updateTurtle(myController.getModel().parseInput(myInputText.getText()));
+		String text = myInputText.getText();
+		myController.getView().updateTurtle(myController.getModel().parseInput(text));
+		myController.getActiveWorkspace().getHistory().add(text);
 		myInputText.clear();
 	}
 

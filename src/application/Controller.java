@@ -26,6 +26,7 @@ public class Controller implements Initializable {
 	@FXML private SubmitTextButtonAndField mySubmitTextButtonAndField = new SubmitTextButtonAndField();
 	@FXML private PenColorPickerAndButton myPenColorPickerAndButton = new PenColorPickerAndButton();
 	@FXML private PenSizeSlider myPenSizeSlider = new PenSizeSlider();
+	@FXML private HistoryFeature myHistoryFeature = new HistoryFeature();
 	@FXML private ChooseTurtleImageButton myTurtleImageButtonAndField = new ChooseTurtleImageButton();
 	@FXML private ToggleReferenceGridButton myToggleReferenceGrid = new ToggleReferenceGridButton();
 	@Override
@@ -38,6 +39,7 @@ public class Controller implements Initializable {
 		myBackgroundColorPickerAndButton.setController(this);
 		myPenColorPickerAndButton.setController(this);
 		myPenSizeSlider.setController(this);
+		myHistoryFeature.setController(this);
 		myTurtleImageButtonAndField.setController(this);
 		myToggleReferenceGrid.setController(this);
 	}
@@ -64,6 +66,9 @@ public class Controller implements Initializable {
 	}
 	public List<Workspace> getWorkspaces(){
 		return this.myWorkspaces;
+	}
+	public HistoryFeature getHistoryFeature(){
+		return myHistoryFeature;
 	}
 
 
