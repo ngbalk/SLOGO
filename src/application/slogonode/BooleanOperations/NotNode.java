@@ -15,4 +15,9 @@ public class NotNode extends BooleanOperations{
 	public int evaluate() {
 		return myChildren.get(0).evaluate() == 1 ? 0 : 1;
 	}
+	
+	@Override
+	public boolean needsMoreChildrenForEvaluation() {
+		return (myChildren.size() < 1);
+	}
 }
