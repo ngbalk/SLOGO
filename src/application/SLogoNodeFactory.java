@@ -25,6 +25,21 @@ public class SLogoNodeFactory {
 	 * @param nodeName
 	 * @return
 	 */
+	
+	public SLogoNode getSLogoNodeFromString(String nodeName, ResourceBundle myResources) {
+		SLogoNode commandNode = null;
+		try {
+			commandNode = (SLogoNode) Class.forName(nodeName+"Node").newInstance();
+		} catch (Exception e) {
+			
+		} finally {
+			if (commandNode == null)
+				commandNode = new MoveForwardNode();
+		}
+		return commandNode;
+	}
+	
+	// TODO: deprecated class, delete this one
 	public SLogoNode getSLogoNodeFromString(String nodeName) {
 		SLogoNode myNode = null;
 		try {

@@ -23,19 +23,20 @@ public class PropertiesFactory {
 		
 	    Enumeration<String> propertiesFileKeys = myResources.getKeys();
 	    while (propertiesFileKeys.hasMoreElements()) {
-	      String command = propertiesFileKeys.nextElement();
-	      String keywordInSpecifiedLanguage = myResources.getString(command);
+	      String command = propertiesFileKeys.nextElement(); //key
+	      String keywordInSpecifiedLanguage = myResources.getString(command); //value
 	      Collection<String> keywords = new ArrayList<String>();
 	      if(keywordInSpecifiedLanguage.contains(","))
 	    	  keywords.addAll(new ArrayList<String>(Arrays.asList(keywordInSpecifiedLanguage.split(","))));
 	      else
 	    	  keywords.add(keywordInSpecifiedLanguage);
 	      for(String key: keywords)
-	    	  commandsMap.put(key, command);
+	    	  commandsMap.put(key, command); // essentiallly map.put(value, key)
 	    }
 		return commandsMap;
 	}
 	
+	// TODO: deprecated class, delete this one
 	public Map<String, String> getPropertyValues(String fileName)
 			throws IOException {
 		Map<String, String> propertiesMap = new HashMap<String, String>();
