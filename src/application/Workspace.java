@@ -1,27 +1,33 @@
 package application;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 import application.Actions.AbstractAction;
-import application.Constants.UI;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import application.Constants.GUIconstants;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
+import javafx.scene.Node;
 
 public class Workspace {
 	
-	Turtle myCurrentTurtle;
-	SLogoCanvas myCanvas;
-	List<AbstractAction> myHistory;
-	Map myCommands;
-	Group myRoot;
+	private Turtle myCurrentTurtle;
+	private SLogoCanvas myCanvas;
+	private ObservableList<String> myHistory;
+	private Map myCommands;
+	private Group myRoot;
 
-	public Workspace(int width, int height) {
-		myCurrentTurtle = new Turtle(width/2, height/2);
-		myCurrentTurtle.setImage(UI.DEFUALT_TURTLE_IMAGE);
-		myCanvas = new SLogoCanvas(width, height);
-		myHistory = new ArrayList<AbstractAction>();
+	public Workspace() {
+		myCurrentTurtle = new Turtle(GUIconstants.DEFAULT_TURTLE_X_LOCATION, GUIconstants.DEFAULT_TURTLE_Y_LOCATION);
+		myCurrentTurtle.setImage(GUIconstants.DEFUALT_TURTLE_IMAGE);
+		myCanvas = new SLogoCanvas(GUIconstants.DEFAULT_CANVAS_WIDTH, GUIconstants.DEFAULT_CANVAS_HEIGHT);
+		myHistory = FXCollections.observableList(new ArrayList<String>());
 		myRoot = new Group();
 	}
 	/**
@@ -33,7 +39,6 @@ public class Workspace {
 	public void updateTurtle(List<AbstractAction> actionChain){
 		for (AbstractAction action : actionChain){
 			action.update(myCurrentTurtle, myCanvas);
-			myHistory.add(action);
 		}
 	}
 	/**
@@ -61,6 +66,9 @@ public class Workspace {
 	
 	public Turtle getCurrentTurtle(){
 		return myCurrentTurtle;
+	}
+	public ObservableList<String> getHistory() {
+		return myHistory;
 	}
 
 	

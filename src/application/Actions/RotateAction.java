@@ -5,7 +5,7 @@
  */
 package application.Actions;
 
-import application.AbstractDrawer;
+import application.AbstractTurtle;
 import application.SLogoCanvas;
 import application.Turtle;
 
@@ -16,5 +16,6 @@ public abstract class RotateAction extends AbstractAction {
 	public RotateAction (double degrees){
 		myDegreesToTurn = degrees;
 	}
+	public abstract String toString();
 	
 }

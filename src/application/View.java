@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.List;
 
 import application.Actions.AbstractAction;
-import application.Constants.UI;
+import application.Constants.GUIconstants;
 import application.GUIfeatures.*;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -29,8 +29,6 @@ public class View {
 	private Controller myController;
 	private Stage myStage;
 	private Scene myScene;
-	private TabPane myWorkspaceTabs;
-	private ColorPicker myColorPicker;
 
 	public View(Stage stage) throws IOException {
 		this.myModel = new Model();
@@ -69,7 +67,7 @@ public class View {
 	 * @param stage
 	 */
 	private void initializeStage() {
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(application.Constants.UI.ROOT_LAYOUT_FXML_LOCATION));
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(application.Constants.GUIconstants.ROOT_LAYOUT_FXML_LOCATION));
 	 	Parent root;
 		try {
 			root = fxmlLoader.load();
@@ -80,9 +78,9 @@ public class View {
 			System.out.println("Could not load FXML file" + "\n" + e.getMessage());
 			return;
 		}
-		Scene scene = new Scene(root, application.Constants.UI.STAGE_HEIGHT, application.Constants.UI.STAGE_WIDTH);
+		Scene scene = new Scene(root, application.Constants.GUIconstants.STAGE_HEIGHT, application.Constants.GUIconstants.STAGE_WIDTH);
         this.myScene = scene;
-        this.myStage.setTitle(UI.STAGE_TITLE);
+        this.myStage.setTitle(GUIconstants.STAGE_TITLE);
         this.myStage.setScene(scene);
         this.myStage.show();
 

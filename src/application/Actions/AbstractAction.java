@@ -6,7 +6,7 @@
 
 package application.Actions;
 
-import application.AbstractDrawer;
+import application.AbstractTurtle;
 import application.SLogoCanvas;
 import application.Turtle;
 import javafx.geometry.Point2D;
@@ -15,13 +15,14 @@ public abstract class AbstractAction {
 	
 	// TODO: Not really sure what to put in this class
 	
-	public AbstractDrawer myDrawer;
+	public AbstractTurtle myDrawer;
 	public Point2D nextPoint;
 	/**
 	 * update takes in an AbstractDrawer and updates it according to the specifications of this type of Action.
 	 * @param currentDrawer
 	 */
 	public abstract void update(Turtle turt, SLogoCanvas canvas);
+	public abstract String toString();
 	
 	
 }

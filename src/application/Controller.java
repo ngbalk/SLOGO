@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import application.Constants.GUIconstants;
 import application.GUIfeatures.*;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -14,18 +15,23 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 public class Controller implements Initializable {
-	public static final ResourceBundle myResources = ResourceBundle.getBundle("resources.languages/TestFile");
+	public static final ResourceBundle myResources = ResourceBundle.getBundle(GUIconstants.DEFAULT_RESOURCE_FILE);
 	private View myView;
 	private Model myModel;
+	private Workspace myActiveWorkspace;
+	private List<Workspace> myWorkspaces;
 	@FXML private NewWorkspaceButton myNewWorkspaceButton = new NewWorkspaceButton();
 	@FXML private WorkspaceTabs myWorkspaceTabs = new WorkspaceTabs();
 	@FXML private BackgroundColorPickerAndButton myBackgroundColorPickerAndButton = new BackgroundColorPickerAndButton();
 	@FXML private SubmitTextButtonAndField mySubmitTextButtonAndField = new SubmitTextButtonAndField();
 	@FXML private PenColorPickerAndButton myPenColorPickerAndButton = new PenColorPickerAndButton();
 	@FXML private PenSizeSlider myPenSizeSlider = new PenSizeSlider();
+	@FXML private HistoryFeature myHistoryFeature = new HistoryFeature();
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		//this.myWorkspaces = new ArrayList<Workspace>();
+		this.myActiveWorkspace = new Workspace();
+		
+		this.myWorkspaces = new ArrayList<Workspace>();
 		//We could update this all at once with a MapReduce Functional programming idiom.
 		myNewWorkspaceButton.setController(this);
 		myWorkspaceTabs.setController(this);
@@ -33,6 +39,7 @@ public class Controller implements Initializable {
 		myBackgroundColorPickerAndButton.setController(this);
 		myPenColorPickerAndButton.setController(this);
 		myPenSizeSlider.setController(this);
+		myHistoryFeature.setController(this);
 	}
 	public void setView(View view){
 		this.myView = view;
@@ -46,23 +53,23 @@ public class Controller implements Initializable {
 	public Model getModel(){
 		return this.myModel;
 	}
-
-//	public Stage getStage(){
-//		return myStage;
-//	}
-//	public Scene getScene(){
-//		return myScene;
-//	}
 	public WorkspaceTabs getWorkspaceTabs(){
 		return this.myWorkspaceTabs;
 	}
 	public Workspace getActiveWorkspace(){
-		return myModel.activeWorkspace;
+		return this.myActiveWorkspace;
 	}
 	public void setActiveWorkspace(Workspace workspace){
-		myModel.setActiveWorkspace(workspace);
+		this.myActiveWorkspace = workspace;
 	}
 	public List<Workspace> getWorkspaces(){
-		return myModel.workspaces;
+		return this.myWorkspaces;
 	}
+	public HistoryFeature getHistoryFeature() {
+		return myHistoryFeature;
+	}
+
+
+	
+
 }

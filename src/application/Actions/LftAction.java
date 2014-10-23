@@ -1,6 +1,6 @@
 package application.Actions;
 
-import application.AbstractDrawer;
+import application.AbstractTurtle;
 import application.SLogoCanvas;
 import application.Turtle;
 
@@ -14,5 +14,11 @@ public class LftAction extends RotateAction {
 	public void update(Turtle turt, SLogoCanvas canvas) {
 		turt.rotateLeft(myDegreesToTurn);
 	}
+
+	@Override
+	public String toString() {
+		return "lft " + myDegreesToTurn;
+	}
+	
 	
 }

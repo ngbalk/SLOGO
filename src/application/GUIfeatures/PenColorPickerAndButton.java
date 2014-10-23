@@ -2,6 +2,8 @@ package application.GUIfeatures;
 
 import javafx.scene.paint.Color;
 import application.View;
+import application.Constants.GUIconstants;
+import static application.Controller.myResources;
 
 public class PenColorPickerAndButton extends ColorPickerAndButton {
 	View myView;
@@ -18,7 +20,7 @@ public class PenColorPickerAndButton extends ColorPickerAndButton {
 
 	@Override
 	protected void setButtonText() {
-		myButton.setText("Choose Pen Color");
+		myButton.setText(myResources.getString(GUIconstants.PEN_COLOR_BUTTON_TITLE));
 
 	}
 

@@ -1,12 +1,12 @@
 package application;
 
-import application.Constants.UI;
+import application.Constants.GUIconstants;
 import javafx.geometry.Point2D;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Line;
 
-public class Turtle extends AbstractDrawer{
+public class Turtle extends AbstractTurtle{
 
 	private ImageView myImage;
 	
