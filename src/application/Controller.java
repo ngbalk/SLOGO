@@ -17,8 +17,6 @@ public class Controller implements Initializable {
 	public static final ResourceBundle myResources = ResourceBundle.getBundle("resources.languages/TestFile");
 	private View myView;
 	private Model myModel;
-	private Workspace myActiveWorkspace;
-	private List<Workspace> myWorkspaces;
 	@FXML private NewWorkspaceButton myNewWorkspaceButton = new NewWorkspaceButton();
 	@FXML private WorkspaceTabs myWorkspaceTabs = new WorkspaceTabs();
 	@FXML private BackgroundColorPickerAndButton myBackgroundColorPickerAndButton = new BackgroundColorPickerAndButton();
@@ -27,7 +25,7 @@ public class Controller implements Initializable {
 	@FXML private PenSizeSlider myPenSizeSlider = new PenSizeSlider();
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		this.myWorkspaces = new ArrayList<Workspace>();
+		//this.myWorkspaces = new ArrayList<Workspace>();
 		//We could update this all at once with a MapReduce Functional programming idiom.
 		myNewWorkspaceButton.setController(this);
 		myWorkspaceTabs.setController(this);
@@ -59,16 +57,12 @@ public class Controller implements Initializable {
 		return this.myWorkspaceTabs;
 	}
 	public Workspace getActiveWorkspace(){
-		return this.myActiveWorkspace;
+		return myModel.activeWorkspace;
 	}
 	public void setActiveWorkspace(Workspace workspace){
-		this.myActiveWorkspace = workspace;
+		myModel.setActiveWorkspace(workspace);
 	}
 	public List<Workspace> getWorkspaces(){
-		return this.myWorkspaces;
+		return myModel.workspaces;
 	}
-
-
-	
-
 }
