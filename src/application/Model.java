@@ -13,6 +13,8 @@ import java.util.*;
 import application.Actions.AbstractAction;
 import application.Constants.GUIconstants;
 import application.slogonode.SLogoNode;
+import application.slogonode.Number.*;
+import application.slogonode.TurtleCommands.*;
 import javafx.geometry.Point2D;
 
 import static application.Controller.myResources;
@@ -21,7 +23,6 @@ public class Model {
 
 	public List<Workspace> workspaces;
 	public Map<String, String> myCommands;
-
 	public Model() throws IOException {
 		System.out.println("Starting constructor");
 		PropertiesFactory factory = new PropertiesFactory();
@@ -192,15 +193,6 @@ public class Model {
 	}
 
 	/**
-	 * Change the language the the back-end parser for parsing.
-	 * 
-	 * @param language
-	 */
-	public void setLanguage(String language) {
-
-	}
-
-	/**
 	 * If a point on the Canvas is clicked, make the Drawer go to this point.
 	 * Pass in the start location, the end location, and the starting
 	 * orientation and a List of Actions will be returned to correctly complete
@@ -210,8 +202,21 @@ public class Model {
 	 */
 	public List<AbstractAction> handleManualDrawerClickEvent(Point2D start,
 			double orientation, Point2D end) {
+		List<AbstractAction> actionsList = new ArrayList<AbstractAction>();
+		double difX = end.getX() - start.getX();
+		double difY = end.getY() - start.getY();
+		double distToMove = Math.sqrt(Math.pow(difX, 2) + Math.pow(difY, 2));
+		
+		double newOrien = Math.atan(difY/difX);
+		
+		double changeOrientation = orientation - newOrien; 
+		SLogoNode rotNode = new RotateRightNode();
+		SLogoNode moveNode = new MoveForwardNode();
+		SLogoNode rotateDegNode = new IntegerNode((int) changeOrientation);
+		SLogoNode moveDistNode = new IntegerNode((int) distToMove);
+		rotNode.addChild(rotateDegNode);
+		moveNode.addChild(moveDistNode);
+			
 		return null;
-
 	}
-
 }
