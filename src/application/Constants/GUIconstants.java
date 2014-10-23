@@ -28,6 +28,10 @@ public final class GUIconstants {
 	public static final double DEFAULT_ERROR_WINDOW_WIDTH = 200;
 	public static final double DEFAULT_ERROR_WINDOW_HEIGHT = 200;
 	public static final double DEFAULT_ERROR_MESSAGE_FONT_SIZE = 30;
+	public static final String DEFAULT_KEY_CONTROLLER_BUTTON_TITLE = "Activate Key Controls";
+	public static final String DEFAULT_KEY_CONTROLLER_MESSAGE = "W,A,S,D";
+	public static final double DEFAULT_MANUAL_TURTLE_MOVE_DISTANCE = 5;
+	public static final double DEFAULT_MANUAL_TURTLE_ROTATE = 5;
 	
 	
 	private GUIconstants() {

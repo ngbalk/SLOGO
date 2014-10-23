@@ -46,7 +46,7 @@ public class NewWorkspaceButton extends AbstractGUIFeature implements GUIButtonF
 				myController.setActiveWorkspace(workspace);
 				myController.getHistoryFeature().update();
 				//Testing
-				myController.getView().displayError(new InvalidSLogoSyntax());
+				myController.getView().displayError(new ArithmeticException());
 			}
 		});
 		myController.getWorkspaceTabs().getTabPane().getTabs().add(newTab);

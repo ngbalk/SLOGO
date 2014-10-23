@@ -98,6 +98,13 @@ public class View {
 	public Model getModel(){
 		return myModel;
 	}
+	/**
+	 * Return the current Scene.
+	 * @return
+	 */
+	public Scene getScene(){
+		return myScene;
+	}
 
 	
 }
