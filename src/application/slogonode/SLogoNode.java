@@ -26,26 +26,18 @@ public abstract class SLogoNode {
 	public SLogoNode(List<AbstractAction> actions) {
 		myActions = actions;
 	}
-	
-	/**
-	 * 
-	 * @param actions
-	 */
-	public void setActionList(List<AbstractAction> actions) {
-		myActions = actions;
-	}
 
 	/**
 	 * 
 	 * @return
 	 */
-	public abstract int evaluate();
+	//public abstract int evaluate();
 	
 	/**
 	 * 
 	 * @return
 	 */
-	public abstract AbstractAction evaluate();
+	public abstract List<AbstractAction> evaluate();
 	
 	/**
 	 * 

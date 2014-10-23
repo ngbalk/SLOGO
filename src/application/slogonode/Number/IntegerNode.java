@@ -1,9 +1,13 @@
 /**
  *  @author Pranava Raparla
  *  Created: October 4th, 2014
- *  Modified: October 9th, 2014
+ *  Modified: October 23rd, 2014
  */
 package application.slogonode.Number;
+
+import java.util.*;
+
+import application.Actions.*;
 
 public class IntegerNode extends NumberNode {
 	
@@ -18,8 +22,10 @@ public class IntegerNode extends NumberNode {
 	}
 	
 	@Override
-	public int evaluate() {
-		return myValue;
+	public List<AbstractAction> evaluate() {
+		ArrayList<AbstractAction> actionList = new ArrayList<AbstractAction>();
+		actionList.add(new IntegerAction(myValue));
+		return actionList;
 	}
 	
 }
