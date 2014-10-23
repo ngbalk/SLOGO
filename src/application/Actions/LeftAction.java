@@ -4,20 +4,20 @@ import application.AbstractTurtle;
 import application.SLogoCanvas;
 import application.Turtle;
 
-public class LftAction extends RotateAction {
+public class LeftAction extends RotateAction {
 
-	public LftAction (double degrees){
+	public LeftAction (double degrees){
 		super(degrees);
 	}
 	
 	@Override
 	public void update(Turtle turt, SLogoCanvas canvas) {
-		turt.rotateLeft(myDegreesToTurn);
+		turt.rotateLeft(myValue);
 	}
 
 	@Override
 	public String toString() {
-		return "lft " + myDegreesToTurn;
+		return "lft " + myValue;
 	}
 	
 	

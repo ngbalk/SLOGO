@@ -4,9 +4,9 @@ import javafx.geometry.Point2D;
 import application.SLogoCanvas;
 import application.Turtle;
 
-public class FwdAction extends AbstractAction {
+public class BackwardAction extends AbstractAction {
 
-	public FwdAction(int distance) {
+	public BackwardAction(double distance) {
 		myValue = distance;
 	}
 
@@ -15,13 +15,14 @@ public class FwdAction extends AbstractAction {
 		Point2D previousLocation = turtle.getLocation();
 		canvas.displayLine(turtle.move(myValue));
 
-		// System.out.println("***Prior Location: " + prevLoc);
-		// System.out.println("***Prior Location: " + turt.getLocation());
+		// System.out.println("***Prior Location: " + previousLocation);
+		// System.out.println("***Prior Location: " + turtle.getLocation());
 	}
 
 	@Override
 	public String toString() {
-		return "fwd " + myValue;
+		return "bwd " + myValue;
 	}
+	
 
 }

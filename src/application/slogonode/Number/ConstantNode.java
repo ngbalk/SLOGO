@@ -9,22 +9,21 @@ import java.util.*;
 
 import application.Actions.*;
 
-public class IntegerNode extends NumberNode {
+public class ConstantNode extends NumberNode {
 	
-	public IntegerNode() {
+	public ConstantNode() {
 		myType = "NUMBER";
-		myOperation = "INTEGER";
 	}
 	
-	public IntegerNode(int value) {
-		this();
+	public ConstantNode(double value) {
+		super();
 		myValue = value;
 	}
 	
 	@Override
 	public List<AbstractAction> evaluate() {
 		ArrayList<AbstractAction> actionList = new ArrayList<AbstractAction>();
-		actionList.add(new IntegerAction(myValue));
+		actionList.add(new ConstantAction(myValue));
 		return actionList;
 	}
 }

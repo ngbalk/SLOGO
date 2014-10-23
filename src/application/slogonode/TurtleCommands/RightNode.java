@@ -9,22 +9,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import application.Actions.AbstractAction;
-import application.Actions.FwdAction;
+import application.Actions.ForwardAction;
+import application.Actions.RightAction;
 import application.slogonode.SLogoNode;
 
-public class MoveForwardNode extends TurtleCommandsNode {
+public class RightNode extends RotateNode {
 	
-	public MoveForwardNode() {
+	public RightNode() {
 		super();
-		myCommand = "MoveForward";
+		myCommand = "RotateRight";
 	}
-	
+
 	@Override
 	public List<AbstractAction> evaluate() {
 		List<AbstractAction> actionList = new ArrayList<AbstractAction>();
 		myValue = myChildren.get(0).evaluate().get(0).getValue();
-		AbstractAction action = new FwdAction(myValue);
+		AbstractAction action = new RightAction(myValue);
 		actionList.add(action);
 		return actionList;
-	}
+	}	
 }

@@ -8,18 +8,12 @@ package application.Actions;
 import application.SLogoCanvas;
 import application.Turtle;
 
-public class IntegerAction extends Action {
-	public int myValue;
+public class ConstantAction extends Action {
 	
-	public IntegerAction(int value) {
+	public ConstantAction(double value) {
 		myValue = value;
 	}
 	
-	@Override
-	public int getValue() {
-		return myValue;
-	}
-
 	@Override
 	public void update(Turtle turt, SLogoCanvas canvas) {
 		return;

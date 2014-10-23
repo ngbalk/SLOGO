@@ -8,7 +8,7 @@ package application.slogonode.TurtleCommands;
 import java.util.*;
 
 import application.Actions.AbstractAction;
-import application.Actions.FwdAction;
+import application.Actions.ForwardAction;
 import application.slogonode.SLogoNode;
 
 public abstract class MoveNode extends TurtleCommandsNode {

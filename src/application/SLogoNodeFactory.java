@@ -34,7 +34,7 @@ public class SLogoNodeFactory {
 			
 		} finally {
 			if (commandNode == null)
-				commandNode = new MoveForwardNode();
+				commandNode = new ForwardNode();
 		}
 		return commandNode;
 	}
@@ -44,18 +44,18 @@ public class SLogoNodeFactory {
 		SLogoNode myNode = null;
 		try {
 			int value = Integer.parseInt(nodeName);
-			myNode = new IntegerNode(value);
+			myNode = new ConstantNode(value);
 		}
 		catch (Exception e) {
 			try {
 				if (nodeName.equalsIgnoreCase("Forward"))
-					myNode = new MoveForwardNode();
+					myNode = new ForwardNode();
 				else if (nodeName.equalsIgnoreCase("Backward"))
-					myNode = new MoveBackwardNode();
+					myNode = new BackwardNode();
 				else if (nodeName.equalsIgnoreCase("Left"))
-					myNode = new RotateLeftNode();
+					myNode = new LeftNode();
 				else if (nodeName.equalsIgnoreCase("Right"))
-					myNode = new RotateRightNode();
+					myNode = new RightNode();
 	/*			else if (nodeName.equalsIgnoreCase("SetHeading"))
 					myNode = new SetHeadingNode();
 				else if (nodeName.equalsIgnoreCase("SetTowards"))
@@ -181,7 +181,7 @@ public class SLogoNodeFactory {
 				else if (nodeName.equalsIgnoreCase("GroupEnd"))
 					myNode = new GroupEndNode();
 	*/			else
-					myNode = new MoveForwardNode();
+					myNode = new ForwardNode();
 			} catch (Exception exc) {
 	
 			}

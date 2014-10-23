@@ -12,7 +12,7 @@ import application.Actions.AbstractAction;
 
 public abstract class SLogoNode {	
 	
-	protected int myValue;
+	protected double myValue;
 	protected String myType;
 	public List<SLogoNode> myChildren;
 	//public List<AbstractAction> myActions;
@@ -31,7 +31,7 @@ public abstract class SLogoNode {
 	 * 
 	 * @return
 	 */
-	//public abstract int evaluate();
+	//public abstract double evaluate();
 	
 	/**
 	 * 

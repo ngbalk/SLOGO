@@ -251,10 +251,10 @@ public class Model {
 		double newOrien = Math.atan(difY/difX);
 		
 		double changeOrientation = orientation - newOrien; 
-		SLogoNode rotNode = new RotateRightNode();
-		SLogoNode moveNode = new MoveForwardNode();
-		SLogoNode rotateDegNode = new IntegerNode((int) changeOrientation);
-		SLogoNode moveDistNode = new IntegerNode((int) distToMove);
+		SLogoNode rotNode = new RightNode();
+		SLogoNode moveNode = new ForwardNode();
+		SLogoNode rotateDegNode = new ConstantNode((int) changeOrientation);
+		SLogoNode moveDistNode = new ConstantNode((int) distToMove);
 		rotNode.addChild(rotateDegNode);
 		moveNode.addChild(moveDistNode);
 			
