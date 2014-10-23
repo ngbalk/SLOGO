@@ -14,11 +14,12 @@ import application.Actions.AbstractAction;
 import application.slogonode.SLogoNode;
 import application.slogonode.Number.*;
 import application.slogonode.TurtleCommands.*;
+import javafx.collections.ObservableList;
 import javafx.geometry.Point2D;
 
 public class Model {
 
-	public List<Workspace> workspaces;
+
 	public Map<String, String> myCommands;
 	public Model() throws IOException {
 		System.out.println("Starting constructor");

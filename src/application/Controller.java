@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import application.Constants.GUIconstants;
 import application.GUIfeatures.*;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
@@ -15,6 +16,7 @@ public class Controller implements Initializable {
 	private View myView;
 	private Model myModel;
 	private Workspace myActiveWorkspace;
+	private List<Workspace> myWorkspaces;
 	@FXML private NewWorkspaceButton myNewWorkspaceButton = new NewWorkspaceButton();
 	@FXML private WorkspaceTabs myWorkspaceTabs = new WorkspaceTabs();
 	@FXML private BackgroundColorPickerAndButton myBackgroundColorPickerAndButton = new BackgroundColorPickerAndButton();
@@ -24,9 +26,8 @@ public class Controller implements Initializable {
 	@FXML private HistoryFeature myHistoryFeature = new HistoryFeature();
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		this.myActiveWorkspace = new Workspace();
-		
-		//this.myWorkspaces = new ArrayList<Workspace>();
+		myActiveWorkspace = new Workspace();
+		myWorkspaces = new ArrayList<Workspace>();
 		//We could update this all at once with a MapReduce Functional programming idiom.
 		myNewWorkspaceButton.setController(this);
 		myWorkspaceTabs.setController(this);
@@ -58,7 +59,7 @@ public class Controller implements Initializable {
 		this.myActiveWorkspace = workspace;
 	}
 	public List<Workspace> getWorkspaces(){
-		return myModel.workspaces;
+		return myWorkspaces;
 	}
 	public HistoryFeature getHistoryFeature() {
 		return myHistoryFeature;
