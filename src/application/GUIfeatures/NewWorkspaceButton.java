@@ -1,19 +1,15 @@
 package application.GUIfeatures;
 
-import application.Controller;
-import application.View;
+
 import application.Workspace;
 import application.Constants.GUIconstants;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
-import javafx.scene.layout.Pane;
 import static application.Controller.myResources;
 
 public class NewWorkspaceButton extends AbstractGUIFeature implements GUIButtonFeature {
-	private View myView;
 	private Button myButton;
 	
 
