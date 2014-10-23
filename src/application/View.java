@@ -21,8 +21,11 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 
 public class View {
 	private Model myModel;
@@ -45,8 +48,12 @@ public class View {
 	 * 
 	 * @param errorString
 	 */
-	public void displayError(String errorString) {
-
+	public void displayError(Exception e) {
+		Text errorMessage = new Text(e.getMessage());
+		Group content = new Group();
+		content.getChildren().add(errorMessage);
+		Window errorWindow = new Window(content);
+		errorWindow.display();
 	}
 
 	/**
@@ -83,73 +90,11 @@ public class View {
         this.myStage.setTitle(GUIconstants.STAGE_TITLE);
         this.myStage.setScene(scene);
         this.myStage.show();
-
-//		Group root = new Group();
-//		Scene scene = new Scene(root, application.Constants.UI.STAGE_HEIGHT,
-//				application.Constants.UI.STAGE_WIDTH);
-//		this.myScene = scene;
-//		this.myStage.setTitle(UI.STAGE_TITLE);
-//		this.myStage.setScene(scene);
-//		this.myStage.show();
-//
-//		myWorkspaceTabs = new WorkspaceTabs();
-//
-//		SubmitTextField codeInputField = new SubmitTextField(300, 740);
-//		SubmitTextField penSizeInputField = new SubmitTextField(750, 200);
-//		SubmitTextField turtleImageInputField = new SubmitTextField(750, 300);
-//
-//		myColorPicker = new ColorPicker(Color.RED);
-//		myColorPicker.setLayoutX(750);
-//		myColorPicker.setLayoutY(10);
-//
-//		Object[] features = new Object[] {
-//				myWorkspaceTabs,
-//				new NewWorkspaceButton(10, 10, this),
-//				codeInputField,
-//				new SubmitTextButton(600, 750, codeInputField, this),
-//				myColorPicker,
-//				new ChooseBackgroundColorButton(750, 60, this),
-//				penSizeInputField,
-//				new PenSizeButton(750, 250, this, penSizeInputField),
-//				new ChoosePenColorButton(750, 110, this),
-//				new ChooseTurtleImageButton(750, 350, this,
-//						turtleImageInputField), turtleImageInputField
-//		};
-//
-//		for (Object o : features) {
-//			root.getChildren().add((Node) o);
-//		}
-
 	}
-
-	// /**
-	// * Bind a button created in the FXML file to an event handler.
-	// *
-	// * @param buttonId
-	// * @param handler
-	// * @return
-	// */
-	// private Button bindButtonToHandler(String buttonId,
-	// EventHandler<ActionEvent> handler) {
-	// Button buttonToBind = (Button) this.myScene.lookup(buttonId);
-	// buttonToBind.setOnAction(handler);
-	// return buttonToBind;
-	// }
-
 	/**
-	 * Add a workspace, adding it to both the TabPane and the List of
-	 * workspaces.
-	 * 
-	 * @param workspace
+	 * Return the Model.
+	 * @return
 	 */
-
-//	private Model myModel;
-//	private Stage myStage;
-//	private Scene myScene;
-//	private TabPane myWorkspaceTabs;
-//	private Workspace myActiveWorkspace;
-//	private List<Workspace> myWorkspaces;
-//	private ColorPicker myColorPicker;
 	public Model getModel(){
 		return myModel;
 	}

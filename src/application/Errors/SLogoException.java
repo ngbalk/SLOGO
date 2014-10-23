@@ -5,7 +5,8 @@ public abstract class SLogoException extends Exception{
 	public SLogoException() {
 		// TODO Auto-generated constructor stub
 	}
-	public String displayMessage(){
+	@Override
+	public String getMessage(){
 		return myMessage;
 	}
 
