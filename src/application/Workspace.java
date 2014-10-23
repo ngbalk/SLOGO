@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import application.Actions.AbstractAction;
-import application.Constants.UI;
+import application.Constants.GUIconstants;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 
@@ -19,7 +19,7 @@ public class Workspace {
 
 	public Workspace(int width, int height) {
 		myCurrentTurtle = new Turtle(width/2, height/2);
-		myCurrentTurtle.setImage(UI.DEFUALT_TURTLE_IMAGE);
+		myCurrentTurtle.setImage(GUIconstants.DEFUALT_TURTLE_IMAGE);
 		myCanvas = new SLogoCanvas(width, height);
 		myHistory = new ArrayList<AbstractAction>();
 		myRoot = new Group();

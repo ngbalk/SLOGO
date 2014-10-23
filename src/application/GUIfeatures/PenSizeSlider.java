@@ -6,6 +6,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.HBox;
 import application.View;
+import application.Constants.GUIconstants;
+import static application.Controller.myResources;
 
 public class PenSizeSlider extends AbstractGUIFeature {
 	Slider mySlider;
@@ -27,7 +29,7 @@ public class PenSizeSlider extends AbstractGUIFeature {
 				
 			}
 		});
-		myLabel.setText("Change Pen Size");
+		myLabel.setText(myResources.getString(GUIconstants.PEN_SLIDER_TITLE));
 		myContainer.getChildren().addAll(myLabel, mySlider);
 		this.getChildren().add(myContainer);
 	}
