@@ -22,7 +22,7 @@ public class BackwardNode extends TurtleCommandsNode {
 	@Override
 	public List<AbstractAction> evaluate() {
 		List<AbstractAction> actionList = new ArrayList<AbstractAction>();
-		AbstractAction action = new BackwardAction(myValue);
+		AbstractAction action = new BackwardAction(-myValue);
 		actionList.add(action);
 		return actionList;
 	}
