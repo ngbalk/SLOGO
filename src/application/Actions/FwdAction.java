@@ -5,16 +5,15 @@ import application.SLogoCanvas;
 import application.Turtle;
 
 public class FwdAction extends AbstractAction {
-	int myDistance;
 
 	public FwdAction(int distance) {
-		myDistance = distance;
+		myValue = distance;
 	}
 
 	@Override
 	public void update(Turtle turtle, SLogoCanvas canvas) {
 		Point2D previousLocation = turtle.getLocation();
-		canvas.displayLine(turtle.move(myDistance));
+		canvas.displayLine(turtle.move(myValue));
 
 		// System.out.println("***Prior Location: " + prevLoc);
 		// System.out.println("***Prior Location: " + turt.getLocation());
@@ -22,7 +21,7 @@ public class FwdAction extends AbstractAction {
 
 	@Override
 	public String toString() {
-		return "fwd " + myDistance;
+		return "fwd " + myValue;
 	}
 
 }

@@ -27,5 +27,4 @@ public class IntegerNode extends NumberNode {
 		actionList.add(new IntegerAction(myValue));
 		return actionList;
 	}
-	
 }

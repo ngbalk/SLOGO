@@ -15,6 +15,7 @@ public class IntegerAction extends Action {
 		myValue = value;
 	}
 	
+	@Override
 	public int getValue() {
 		return myValue;
 	}

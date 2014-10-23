@@ -22,4 +22,9 @@ public abstract class BooleanOperations extends SLogoNode{
 		// TODO Auto-generated method stub
 		return super.toString() + " Operation:" + myOperation;
 	}
+	
+	@Override
+	public boolean needsMoreChildrenForEvaluation() {
+		return (myChildren.size() < 2);
+	}
 }

@@ -15,16 +15,16 @@ public abstract class SLogoNode {
 	protected int myValue;
 	protected String myType;
 	public List<SLogoNode> myChildren;
-	public List<AbstractAction> myActions;
+	//public List<AbstractAction> myActions;
 	
 	public SLogoNode() {
 		super();
 		myChildren = new ArrayList<SLogoNode>();
-		myActions = new ArrayList<AbstractAction>();
+		//myActions = new ArrayList<AbstractAction>();
 	}
 	
 	public SLogoNode(List<AbstractAction> actions) {
-		myActions = actions;
+		//myActions = actions;
 	}
 
 	/**

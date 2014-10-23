@@ -5,6 +5,8 @@
  */
 package application.slogonode.TurtleCommands;
 
+import java.util.*;
+
 import application.Actions.AbstractAction;
 import application.Actions.FwdAction;
 import application.slogonode.SLogoNode;
@@ -21,12 +23,4 @@ public abstract class MoveNode extends TurtleCommandsNode {
 		return super.toString();
 	}
 	
-	@Override
-	public int evaluate() {
-		myValue = myChildren.get(0).evaluate();
-		AbstractAction action = new FwdAction(myValue);
-		myActions.add(action);
-		myChildren.get(1).evaluate();
-		return myValue;
-	}
 }

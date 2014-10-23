@@ -149,12 +149,10 @@ public class Model {
 				root = node;
 			else
 				root.addChild(node);
-			
-			node.setActionList(listOfActions);
 		}
 		
 		System.out.println("Root: " + root);
-		int result = root.evaluate();
+		listOfActions = root.evaluate();
 		System.out.println("Action List: " + listOfActions);
 		return listOfActions;
 	}

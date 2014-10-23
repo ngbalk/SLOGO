@@ -5,6 +5,9 @@
  */
 package application.slogonode.TurtleCommands;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import application.Actions.AbstractAction;
 import application.Actions.FwdAction;
 import application.slogonode.SLogoNode;
@@ -17,19 +20,11 @@ public class MoveForwardNode extends TurtleCommandsNode {
 	}
 	
 	@Override
-	public int evaluate() {
-		for(int i=0; i<myChildren.size(); i++) {
-			if(myChildren.get(i)==null)
-				continue;
-			else if(i==0) {
-				myValue = myChildren.get(0).evaluate();
-				AbstractAction action = new FwdAction(myValue);
-				myActions.add(action);
-				System.out.println("ACTION ADDED: " + myCommand + " " + myValue);
-			}
-			if(i==1)
-				myChildren.get(1).evaluate();
-		}
-		return myValue;
+	public List<AbstractAction> evaluate() {
+		List<AbstractAction> actionList = new ArrayList<AbstractAction>();
+		myValue = myChildren.get(0).evaluate().get(0).getValue();
+		AbstractAction action = new FwdAction(myValue);
+		actionList.add(action);
+		return actionList;
 	}
 }
