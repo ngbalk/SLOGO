@@ -20,8 +20,6 @@ public class Model {
 
 	public List<Workspace> workspaces;
 	public Map<String, String> myCommands;
-	public Workspace activeWorkspace;
-
 	public Model() throws IOException {
 		System.out.println("Starting constructor");
 		PropertiesFactory factory = new PropertiesFactory();
@@ -182,9 +180,5 @@ public class Model {
 		moveNode.addChild(moveDistNode);
 			
 		return null;
-	}
-	
-	public void setActiveWorkspace(Workspace workspace){
-		this.activeWorkspace = workspace; 
 	}
 }
