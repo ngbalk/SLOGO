@@ -28,7 +28,6 @@
                 <PenColorPickerAndButton fx:id="myPenColorPickerAndButton"/>
                 <ToggleReferenceGridButton fx:id="myToggleReferenceGrid"/>
                 <PenSizeSlider fx:id="myPenSizeSlider"/>
-
                  <Pane prefHeight="200.0">
                     <ChooseTurtleImageButton fx:id="myTurtleImageButtonAndField" />
                 </Pane>

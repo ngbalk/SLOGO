@@ -7,10 +7,7 @@ import java.util.ResourceBundle;
 
 import application.Constants.GUIconstants;
 import application.GUIfeatures.*;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
@@ -18,8 +15,8 @@ public class Controller implements Initializable {
 	public static final ResourceBundle myResources = ResourceBundle.getBundle(GUIconstants.DEFAULT_RESOURCE_FILE);
 	private View myView;
 	private Model myModel;
-	private Workspace myActiveWorkspace;
 	private List<Workspace> myWorkspaces;
+	private Workspace myActiveWorkspace;
 	@FXML private NewWorkspaceButton myNewWorkspaceButton = new NewWorkspaceButton();
 	@FXML private WorkspaceTabs myWorkspaceTabs = new WorkspaceTabs();
 	@FXML private BackgroundColorPickerAndButton myBackgroundColorPickerAndButton = new BackgroundColorPickerAndButton();
@@ -29,8 +26,10 @@ public class Controller implements Initializable {
 	@FXML private HistoryFeature myHistoryFeature = new HistoryFeature();
 	@FXML private ChooseTurtleImageButton myTurtleImageButtonAndField = new ChooseTurtleImageButton();
 	@FXML private ToggleReferenceGridButton myToggleReferenceGrid = new ToggleReferenceGridButton();
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		this.myActiveWorkspace = new Workspace();
 		this.myWorkspaces = new ArrayList<Workspace>();
 		//We could update this all at once with a MapReduce Functional programming idiom.
 		myNewWorkspaceButton.setController(this);
@@ -42,6 +41,7 @@ public class Controller implements Initializable {
 		myHistoryFeature.setController(this);
 		myTurtleImageButtonAndField.setController(this);
 		myToggleReferenceGrid.setController(this);
+
 	}
 	public void setView(View view){
 		this.myView = view;
@@ -65,13 +65,10 @@ public class Controller implements Initializable {
 		this.myActiveWorkspace = workspace;
 	}
 	public List<Workspace> getWorkspaces(){
-		return this.myWorkspaces;
+		return myWorkspaces;
 	}
-	public HistoryFeature getHistoryFeature(){
+	public HistoryFeature getHistoryFeature() {
 		return myHistoryFeature;
 	}
-
-
-	
 
 }

@@ -25,6 +25,7 @@ public class NewWorkspaceButton extends AbstractGUIFeature implements GUIButtonF
 
 	
 	public void behavior() {
+
 		Workspace workspace = new Workspace();
 		myController.getWorkspaces().add(workspace);
 		myController.setActiveWorkspace(workspace);

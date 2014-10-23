@@ -18,7 +18,7 @@ import javafx.geometry.Point2D;
 
 public class Model {
 
-	public List<Workspace> workspaces;
+	
 	public Map<String, String> myCommands;
 	public Model() throws IOException {
 		System.out.println("Starting constructor");
@@ -146,13 +146,13 @@ public class Model {
 	 * 
 	 * @param workspace
 	 */
-	public void storeWorkspace(Workspace workspace) {
-		for (Workspace wk : workspaces)
-			if (wk.equals(workspace))
-				return;
-			else
-				workspaces.add(workspace);
-	}
+//	public void storeWorkspace(Workspace workspace) {
+//		for (Workspace wk : workspaces)
+//			if (wk.equals(workspace))
+//				return;
+//			else
+//				workspaces.add(workspace);
+//	}
 
 	/**
 	 * If a point on the Canvas is clicked, make the Drawer go to this point.
