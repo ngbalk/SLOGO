@@ -37,7 +37,10 @@ public class SLogoNodeFactory {
 				System.out.println("This isn't a number: " + nodeName);
 			}
 			// THE LINE BELOW THIS IS THE PROBLEM! the node class is created, but something happens after newInstance that fucks it up
-			commandNode = Class.forName("application.slogonode.TurtleCommands."+nodeName+"Node").newInstance();
+			System.out.println(nodeName);
+			Class classType = Class.forName("application.slogonode.TurtleCommands."+nodeName+"Node");
+			commandNode = (SLogoNode) classType.newInstance();
+			System.out.println(commandNode.getClass().toString());
 		} catch (Exception e) {
 			System.out.println("\nERROR! THIS COMMAND DOES NOT EXIST: " + nodeName);
 		} finally {

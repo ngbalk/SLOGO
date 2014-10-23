@@ -16,7 +16,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 
-public class KeyControlFeature extends AbstractGUIFeature{
+public class KeyControlFeature extends AbstractGUIFeature implements GUIButtonFeature {
 	private HBox myContainer;
 	private Button myButton;
 	public KeyControlFeature(){
@@ -27,7 +27,7 @@ public class KeyControlFeature extends AbstractGUIFeature{
 		this.getChildren().add(myContainer);
 	}
 	
-	private void behavior(){
+	public void behavior(){
 		EventHandler<KeyEvent> keyHandler = new EventHandler<KeyEvent>(){
 			
 			@Override
