@@ -31,7 +31,7 @@ public class PropertiesFactory {
 	      else
 	    	  keywords.add(keywordInSpecifiedLanguage);
 	      for(String key: keywords)
-	    	  commandsMap.put(key, command); // essentiallly map.put(value, key)
+	    	  commandsMap.put(key, command); // essentially it's map.put(value, key)
 	    }
 		return commandsMap;
 	}

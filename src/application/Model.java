@@ -111,6 +111,7 @@ public class Model {
 		}
 	}
 
+	
 	/**
 	 * pass parseInput the input string, and parseInput will return a List of
 	 * AbstractActions to the View, which the View will handle applying to the
@@ -120,8 +121,46 @@ public class Model {
 	 * @param inputString
 	 * @return
 	 */
-
+	
 	public List<AbstractAction> parseInput(String inputString) {
+		List<AbstractAction> listOfActions = new ArrayList<AbstractAction>();
+		SLogoNode root = null;
+		SLogoNode currentNode = null;
+		String[] inputStringArray = inputString.split("\\s+");
+		SLogoNodeFactory nodeFactory = new SLogoNodeFactory();
+		
+		System.out.println("Input String: " + inputString);
+		System.out.println("Split input: " + inputStringArray);
+		System.out.println("My Commands: " + myCommands);
+		if(inputString.isEmpty())
+			return listOfActions;
+
+		for(String str : inputStringArray) {
+			System.out.println("\tSTR: " + str);
+			String command = myCommands.get(str);
+			SLogoNode node = null;
+			if(command == null)
+				node = nodeFactory.getSLogoNodeFromString(str);
+			else
+				node = nodeFactory.getSLogoNodeFromString(command);
+			
+			System.out.println("Node: " + node);
+			if(root == null)
+				root = node;
+			else
+				root.addChild(node);
+			
+			node.setActionList(listOfActions);
+		}
+		
+		System.out.println("Root: " + root);
+		int result = root.evaluate();
+		System.out.println("Action List: " + listOfActions);
+		return listOfActions;
+	}
+	
+	// TODO: deprecated, must delete
+	public List<AbstractAction> parseInput2(String inputString) {
 		List<AbstractAction> listOfActions = new ArrayList<AbstractAction>();
 		SLogoNode root = null;
 		String[] inputStringArray = inputString.split("\\s+");
@@ -172,7 +211,7 @@ public class Model {
 			myScanner = new Scanner(inputFile);
 			inputString = myScanner.useDelimiter("\\Z").next();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			// TODO update this block to not have print stack trace()
 			e.printStackTrace();
 		} finally {
 			if (myScanner != null)

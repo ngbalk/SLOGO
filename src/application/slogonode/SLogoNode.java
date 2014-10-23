@@ -1,7 +1,7 @@
 /**
  *  @author Pranava Raparla
  *  Created: October 3rd, 2014
- *  Modified: October 9th, 2014
+ *  Modified: October 23rd, 2014
  */
 
 package application.slogonode;
@@ -40,7 +40,19 @@ public abstract class SLogoNode {
 	 * @return
 	 */
 	public abstract int evaluate();
-
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public abstract AbstractAction evaluate();
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public abstract boolean needsMoreChildrenForEvaluation();
+	
 	/**
 	 * 
 	 * @return
