@@ -2,7 +2,7 @@
  *  @author Pranava Raparla
  *  @author Monica Choe
  *  Created: October 4th, 2014
- *  Modified: October 10th, 2014
+ *  Modified: October 23rd, 2014
  */
 
 package application;
@@ -11,11 +11,14 @@ import java.io.*;
 import java.util.*;
 
 import application.Actions.AbstractAction;
+import application.Constants.GUIconstants;
 import application.slogonode.SLogoNode;
 import application.slogonode.Number.*;
 import application.slogonode.TurtleCommands.*;
 import javafx.collections.ObservableList;
 import javafx.geometry.Point2D;
+
+import static application.Controller.myResources;
 
 public class Model {
 
@@ -26,23 +29,58 @@ public class Model {
 		PropertiesFactory factory = new PropertiesFactory();
 		System.out.println("Initialized Factory");
 		try {
-			myCommands = factory
-					.getPropertyValues("resources/languages/English.properties");
+			myCommands = factory.getCommandsMap(myResources);
 			System.out.println("Factory loaded");
 			System.out.println(myCommands);
 		} catch (Exception e) {
-			System.out
-					.println("An Error occured in the loading of the properties File!");
+			System.out.println("An Error occured in the loading of the properties File!");
 		}
 	}
-
-	public void loadCommandsbyLanguage(String fileName) {
+	
+	// TODO: deprecated, must delete
+	public void loadCommandsbyLanguage2(String fileName) {
 		Properties languageProperties = new Properties();
 		Scanner myScanner = null;
 		try {
 			System.out.println("Loading another language");
-			InputStream inputStream = getClass().getClassLoader()
-					.getResourceAsStream(fileName);
+			InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
+			languageProperties.load(inputStream);
+			myScanner = new Scanner(new File(fileName));
+			System.out.println(myScanner);
+			while (myScanner.hasNextLine()) {
+				String str = myScanner.nextLine();
+				System.out.println("Current string: " + str);
+				if (str.substring(0, 1).equalsIgnoreCase("#"))
+					continue;
+				else if (str.startsWith("\\s+"))
+					continue;
+				else {
+					System.out.println("Adding?");
+					String keyword = myScanner.next() + "Node";
+					String equalsSign = myScanner.next();
+					String commandReference1 = myScanner.next();
+					String commandReference2 = myScanner.next();
+					myCommands.put(commandReference1, keyword);
+					myCommands.put(commandReference2, keyword);
+				}
+			}
+			System.out.println("Done loading new language");
+		} catch (Exception e) {
+			System.out.println("Error occured in loading a new language");
+		} finally {
+			if (myScanner != null)
+				myScanner.close();
+		}
+	}
+
+	
+	// TODO: deprecated, must delete
+	public void loadCommandsbyLanguage3(String fileName) {
+		Properties languageProperties = new Properties();
+		Scanner myScanner = null;
+		try {
+			System.out.println("Loading another language");
+			InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
 			languageProperties.load(inputStream);
 			myScanner = new Scanner(new File(fileName));
 			System.out.println(myScanner);
@@ -55,7 +93,7 @@ public class Model {
 					continue;
 				else {
 					System.out.println("Adding?");
-					String keyword = myScanner.next();
+					String keyword = myScanner.next() + "Node";
 					String equalsSign = myScanner.next();
 					String commandReference1 = myScanner.next();
 					String commandReference2 = myScanner.next();

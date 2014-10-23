@@ -2,7 +2,7 @@
  *  @author Pranava Raparla
  *  @author Monica Choe
  *  Created: October 9th, 2014
- *  Modified: October 9th, 2014
+ *  Modified: October 23rd, 2014
  */
 package application;
 
@@ -17,6 +17,25 @@ public class PropertiesFactory {
 	 * @return
 	 * @throws IOException
 	 */
+	
+	public Map<String, String> getCommandsMap(ResourceBundle myResources) {
+		Map<String, String> commandsMap = new HashMap<String, String>();
+		
+	    Enumeration<String> propertiesFileKeys = myResources.getKeys();
+	    while (propertiesFileKeys.hasMoreElements()) {
+	      String command = propertiesFileKeys.nextElement();
+	      String keywordInSpecifiedLanguage = myResources.getString(command);
+	      Collection<String> keywords = new ArrayList<String>();
+	      if(keywordInSpecifiedLanguage.contains(","))
+	    	  keywords.addAll(new ArrayList<String>(Arrays.asList(keywordInSpecifiedLanguage.split(","))));
+	      else
+	    	  keywords.add(keywordInSpecifiedLanguage);
+	      for(String key: keywords)
+	    	  commandsMap.put(key, command);
+	    }
+		return commandsMap;
+	}
+	
 	public Map<String, String> getPropertyValues(String fileName)
 			throws IOException {
 		Map<String, String> propertiesMap = new HashMap<String, String>();
