@@ -26,6 +26,7 @@ public class Controller implements Initializable {
 	@FXML private HistoryFeature myHistoryFeature = new HistoryFeature();
 	@FXML private ChooseTurtleImageButton myTurtleImageButtonAndField = new ChooseTurtleImageButton();
 	@FXML private ToggleReferenceGridButton myToggleReferenceGrid = new ToggleReferenceGridButton();
+	@FXML private KeyControlFeature myKeyControlFeature = new KeyControlFeature();
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -41,8 +42,7 @@ public class Controller implements Initializable {
 		myHistoryFeature.setController(this);
 		myTurtleImageButtonAndField.setController(this);
 		myToggleReferenceGrid.setController(this);
-
-
+		myKeyControlFeature.setController(this);
 	}
 	public void setView(View view){
 		this.myView = view;

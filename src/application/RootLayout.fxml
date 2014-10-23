@@ -24,6 +24,7 @@
     </center>
     <right>
              <VBox styleClass="segmented-button-bar" style="-fx-spacing: 3.0">
+                <KeyControlFeature fx:id="myKeyControlFeature"/>
                 <BackgroundColorPickerAndButton fx:id="myBackgroundColorPickerAndButton"/>
                 <PenColorPickerAndButton fx:id="myPenColorPickerAndButton"/>
                 <ToggleReferenceGridButton fx:id="myToggleReferenceGrid"/>
