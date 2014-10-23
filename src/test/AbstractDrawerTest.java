@@ -2,7 +2,7 @@ package test;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import javafx.geometry.Point2D;
-import application.AbstractDrawer;
+import application.AbstractTurtle;
 
 public class AbstractDrawerTest {
 

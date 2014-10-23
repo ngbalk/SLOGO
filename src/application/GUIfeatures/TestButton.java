@@ -1,7 +1,7 @@
 package application.GUIfeatures;
 
 import application.Workspace;
-import application.Constants.UI;
+import application.Constants.GUIconstants;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;

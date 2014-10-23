@@ -3,14 +3,14 @@ package application;
 import javafx.geometry.Point2D;
 import javafx.scene.shape.Line;
 
-public class AbstractDrawer {
+public class AbstractTurtle { 
 	
 	protected double myXLocation;
 	protected double myYLocation;
 	protected double myOrientation;
 	protected SLogoPen myPen;
 
-	public AbstractDrawer(double x, double y) {
+	public AbstractTurtle(double x, double y) {
 		myXLocation = x;
 		myYLocation = y;
 		myOrientation = 0;
@@ -28,7 +28,7 @@ public class AbstractDrawer {
 		double radian = Math.toRadians(myOrientation);
 		myXLocation += distance * Math.cos(radian);
 		myYLocation -= distance * Math.sin(radian);
-		return myPen.drawLine(start, this.getLocation());
+		return   myPen.drawLine(start, this.getLocation());
 	}
 	/**
 	 * Enter the value of degrees to rotate.  Positive degrees will rotate in the clockwise direction, and negative degrees

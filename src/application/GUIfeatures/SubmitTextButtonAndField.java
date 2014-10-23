@@ -1,7 +1,9 @@
 package application.GUIfeatures;
 
 import application.Controller;
+import static application.Controller.myResources;
 import application.View;
+import application.Constants.GUIconstants;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
@@ -18,7 +20,7 @@ public class SubmitTextButtonAndField extends AbstractGUIFeature implements GUIB
 		myContainer = new HBox();
 		myInputText = new TextArea();
 		myButton = new Button();
-		myButton.setText("Submit");
+		myButton.setText(myResources.getString(GUIconstants.SUBMIT_BUTTON_TITLE));
 		myButton.setOnAction(event -> behavior());
 		myContainer.getChildren().addAll(myInputText, myButton);
 		this.getChildren().add(myContainer);

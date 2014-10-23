@@ -3,7 +3,7 @@ package application.GUIfeatures;
 import application.Controller;
 import application.View;
 import application.Workspace;
-import application.Constants.UI;
+import application.Constants.GUIconstants;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
@@ -15,16 +15,16 @@ import static application.Controller.myResources;
 public class NewWorkspaceButton extends AbstractGUIFeature implements GUIButtonFeature {
 	private View myView;
 	private Button myButton;
+	
 
 	public NewWorkspaceButton() {
 		super();
 		myButton = new Button();
-		myButton.setText(myResources.getString("addWorkspace"));
+		myButton.setText(myResources.getString(GUIconstants.ADD_WORKSPACE_BUTTON_TITLE));
 		myButton.setOnAction(event -> behavior());
 		
 				
 		this.getChildren().add(myButton);
-		System.out.println("button built");
 	}
 
 	
@@ -33,7 +33,7 @@ public class NewWorkspaceButton extends AbstractGUIFeature implements GUIButtonF
 		Workspace workspace = new Workspace();
 		myController.getWorkspaces().add(workspace);
 		myController.setActiveWorkspace(workspace);
-		Tab newTab = new Tab(("Workspace #" + (myController.getWorkspaceTabs().getTabPane().getTabs()
+		Tab newTab = new Tab((myResources.getString(GUIconstants.NEW_WORKSPACE_TITLE) + (myController.getWorkspaceTabs().getTabPane().getTabs()
 				.size() + 1)));
 		newTab.setContent(workspace.display());
 		newTab.setOnClosed((new EventHandler<Event>() {

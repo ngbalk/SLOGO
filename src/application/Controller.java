@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import application.Constants.GUIconstants;
 import application.GUIfeatures.*;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -14,7 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 public class Controller implements Initializable {
-	public static final ResourceBundle myResources = ResourceBundle.getBundle("resources.languages/TestFile");
+	public static final ResourceBundle myResources = ResourceBundle.getBundle(GUIconstants.DEFAULT_RESOURCE_FILE);
 	private View myView;
 	private Model myModel;
 	private Workspace myActiveWorkspace;

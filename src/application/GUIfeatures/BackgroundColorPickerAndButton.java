@@ -1,12 +1,14 @@
 package application.GUIfeatures;
 
 import application.View;
+import application.Constants.GUIconstants;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
+import static application.Controller.myResources;
 
 public class BackgroundColorPickerAndButton extends ColorPickerAndButton {
 	public BackgroundColorPickerAndButton(){ 
@@ -18,7 +20,9 @@ public class BackgroundColorPickerAndButton extends ColorPickerAndButton {
 	}
 	@Override
 	protected void setButtonText(){
-		myButton.setText("Choose Background Color");
+		myButton.setText(myResources.getString(GUIconstants.BACKGROUND_COLOR_BUTTON_TITLE));
+		
+		
 	}
 
 }

@@ -6,9 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 import application.Actions.AbstractAction;
-import application.Constants.UI;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
+import application.Constants.GUIconstants;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -22,9 +24,9 @@ public class Workspace {
 	private Group myRoot;
 
 	public Workspace() {
-		myCurrentTurtle = new Turtle(UI.DEFAULT_TURTLE_X_LOCATION, UI.DEFAULT_TURTLE_Y_LOCATION);
-		myCurrentTurtle.setImage(UI.DEFUALT_TURTLE_IMAGE);
-		myCanvas = new SLogoCanvas(UI.DEFAULT_CANVAS_WIDTH, UI.DEFAULT_CANVAS_HEIGHT);
+		myCurrentTurtle = new Turtle(GUIconstants.DEFAULT_TURTLE_X_LOCATION, GUIconstants.DEFAULT_TURTLE_Y_LOCATION);
+		myCurrentTurtle.setImage(GUIconstants.DEFUALT_TURTLE_IMAGE);
+		myCanvas = new SLogoCanvas(GUIconstants.DEFAULT_CANVAS_WIDTH, GUIconstants.DEFAULT_CANVAS_HEIGHT);
 		myHistory = FXCollections.observableList(new ArrayList<String>());
 		myRoot = new Group();
 	}
