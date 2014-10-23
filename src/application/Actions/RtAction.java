@@ -14,5 +14,10 @@ public class RtAction extends RotateAction {
 	public void update(Turtle turt, SLogoCanvas canvas) {
 		turt.rotateRight(myDegreesToTurn);
 	}
+
+	@Override
+	public String toString() {
+		return "rt " + myDegreesToTurn;
+	}
 	
 }

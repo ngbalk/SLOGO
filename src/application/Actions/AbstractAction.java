@@ -22,6 +22,7 @@ public abstract class AbstractAction {
 	 * @param currentDrawer
 	 */
 	public abstract void update(Turtle turt, SLogoCanvas canvas);
+	public abstract String toString();
 	
 	
 }

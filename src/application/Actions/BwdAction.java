@@ -20,4 +20,10 @@ public class BwdAction extends AbstractAction {
 		// System.out.println("***Prior Location: " + turtle.getLocation());
 	}
 
+	@Override
+	public String toString() {
+		return "bwd " + myDistance;
+	}
+	
+
 }

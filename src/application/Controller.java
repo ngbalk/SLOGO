@@ -25,8 +25,11 @@ public class Controller implements Initializable {
 	@FXML private SubmitTextButtonAndField mySubmitTextButtonAndField = new SubmitTextButtonAndField();
 	@FXML private PenColorPickerAndButton myPenColorPickerAndButton = new PenColorPickerAndButton();
 	@FXML private PenSizeSlider myPenSizeSlider = new PenSizeSlider();
+	@FXML private HistoryFeature myHistoryFeature = new HistoryFeature();
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		this.myActiveWorkspace = new Workspace();
+		
 		this.myWorkspaces = new ArrayList<Workspace>();
 		//We could update this all at once with a MapReduce Functional programming idiom.
 		myNewWorkspaceButton.setController(this);
@@ -35,6 +38,7 @@ public class Controller implements Initializable {
 		myBackgroundColorPickerAndButton.setController(this);
 		myPenColorPickerAndButton.setController(this);
 		myPenSizeSlider.setController(this);
+		myHistoryFeature.setController(this);
 	}
 	public void setView(View view){
 		this.myView = view;
@@ -48,13 +52,6 @@ public class Controller implements Initializable {
 	public Model getModel(){
 		return this.myModel;
 	}
-
-//	public Stage getStage(){
-//		return myStage;
-//	}
-//	public Scene getScene(){
-//		return myScene;
-//	}
 	public WorkspaceTabs getWorkspaceTabs(){
 		return this.myWorkspaceTabs;
 	}
@@ -66,6 +63,9 @@ public class Controller implements Initializable {
 	}
 	public List<Workspace> getWorkspaces(){
 		return this.myWorkspaces;
+	}
+	public HistoryFeature getHistoryFeature() {
+		return myHistoryFeature;
 	}
 
 

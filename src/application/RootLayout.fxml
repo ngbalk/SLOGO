@@ -27,9 +27,9 @@
                 <BackgroundColorPickerAndButton fx:id="myBackgroundColorPickerAndButton"/>
                 <PenColorPickerAndButton fx:id="myPenColorPickerAndButton"/>
                 <PenSizeSlider fx:id="myPenSizeSlider"/>
-                <Pane prefHeight="200.0">
-                    <SubmitTextButtonAndField fx:id="mySubmitTextButtonAndField" />
-                </Pane>
+                <HistoryFeature fx:id="myHistoryFeature"/>
+                <SubmitTextButtonAndField fx:id="mySubmitTextButtonAndField" />
+
             </VBox>
     </right>
     <bottom>

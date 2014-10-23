@@ -30,8 +30,7 @@ public class NewWorkspaceButton extends AbstractGUIFeature implements GUIButtonF
 	
 	public void behavior() {
 		System.out.println("Building behavior");
-		Workspace workspace = new Workspace(UI.DEFAULT_WORKSPACE_WIDTH,
-				UI.DEFUALT_WORKSPACE_HEIGHT);
+		Workspace workspace = new Workspace();
 		myController.getWorkspaces().add(workspace);
 		myController.setActiveWorkspace(workspace);
 		Tab newTab = new Tab(("Workspace #" + (myController.getWorkspaceTabs().getTabPane().getTabs()
@@ -47,6 +46,7 @@ public class NewWorkspaceButton extends AbstractGUIFeature implements GUIButtonF
 			@Override
 			public void handle(Event arg0) {
 				myController.setActiveWorkspace(workspace);
+				myController.getHistoryFeature().update();
 			}
 		});
 		myController.getWorkspaceTabs().getTabPane().getTabs().add(newTab);

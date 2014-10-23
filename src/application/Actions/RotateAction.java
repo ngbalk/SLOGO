@@ -16,5 +16,6 @@ public abstract class RotateAction extends AbstractAction {
 	public RotateAction (double degrees){
 		myDegreesToTurn = degrees;
 	}
+	public abstract String toString();
 	
 }
