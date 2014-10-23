@@ -26,6 +26,8 @@ public class Controller implements Initializable {
 	@FXML private SubmitTextButtonAndField mySubmitTextButtonAndField = new SubmitTextButtonAndField();
 	@FXML private PenColorPickerAndButton myPenColorPickerAndButton = new PenColorPickerAndButton();
 	@FXML private PenSizeSlider myPenSizeSlider = new PenSizeSlider();
+	@FXML private ChooseTurtleImageButton myTurtleImageButtonAndField = new ChooseTurtleImageButton();
+	@FXML private ToggleReferenceGridButton myToggleReferenceGrid = new ToggleReferenceGridButton();
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		this.myWorkspaces = new ArrayList<Workspace>();
@@ -36,6 +38,8 @@ public class Controller implements Initializable {
 		myBackgroundColorPickerAndButton.setController(this);
 		myPenColorPickerAndButton.setController(this);
 		myPenSizeSlider.setController(this);
+		myTurtleImageButtonAndField.setController(this);
+		myToggleReferenceGrid.setController(this);
 	}
 	public void setView(View view){
 		this.myView = view;

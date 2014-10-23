@@ -26,9 +26,13 @@
              <VBox styleClass="segmented-button-bar" style="-fx-spacing: 3.0">
                 <BackgroundColorPickerAndButton fx:id="myBackgroundColorPickerAndButton"/>
                 <PenColorPickerAndButton fx:id="myPenColorPickerAndButton"/>
+                <ToggleReferenceGridButton fx:id="myToggleReferenceGrid"/>
                 <PenSizeSlider fx:id="myPenSizeSlider"/>
                 <Pane prefHeight="200.0">
                     <SubmitTextButtonAndField fx:id="mySubmitTextButtonAndField" />
+                </Pane>
+                 <Pane prefHeight="200.0">
+                    <ChooseTurtleImageButton fx:id="myTurtleImageButtonAndField" />
                 </Pane>
             </VBox>
     </right>

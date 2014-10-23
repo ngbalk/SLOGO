@@ -1,24 +1,35 @@
 package application.GUIfeatures;
 
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.layout.HBox;
 import application.View;
 import application.Constants.GUIconstants;
 import static application.Controller.myResources;
 
 
-public class ChooseTurtleImageButton implements GUIButtonFeature {
-	SubmitTextField myInput;
-	View myView;
+public class ChooseTurtleImageButton extends AbstractGUIFeature implements GUIButtonFeature {
+	private HBox myContainer;
+	private TextArea myInputText;
+	private Button myButton;
 
-	public ChooseTurtleImageButton(double x, double y, View view, SubmitTextField input) {
-		super(x, y);
-		myView = view;
-		this.setText(myResources.getString(GUIconstants.TURTLE_IMAGE_BUTTON_TITLE));
-		myInput = input;
+	public ChooseTurtleImageButton() {
+		super();
+		myContainer = new HBox();
+		myInputText = new TextArea();
+		myInputText.setMaxHeight(20);
+		myInputText.setMaxWidth(500);
+		myButton = new Button();
+		myButton.setText(myResources.getString(GUIconstants.TURTLE_IMAGE_BUTTON_TITLE));
+		myButton.setOnAction(event -> behavior());
+		myContainer.getChildren().addAll(myInputText, myButton);
+		this.getChildren().add(myContainer);
 	}
 
 	@Override
 	public void behavior() {
-		myView.getActiveWorkspace().getCurrentTurtle().setImage(myInput.getText());
+		myController
+		.getActiveWorkspace().getCurrentTurtle().setImage(myInputText.getText());
 	}
 
 }
