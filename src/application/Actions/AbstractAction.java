@@ -1,7 +1,7 @@
 /**
  *  @author Pranava Raparla
  *  Created: October 4th, 2014
- *  Modified: October 4th, 2014
+ *  Modified: October 23rd, 2014
  */
 
 package application.Actions;
@@ -17,6 +17,7 @@ public abstract class AbstractAction {
 	
 	public AbstractTurtle myDrawer;
 	public Point2D nextPoint;
+	public double myValue;
 	/**
 	 * update takes in an AbstractDrawer and updates it according to the specifications of this type of Action.
 	 * @param currentDrawer
@@ -24,5 +25,7 @@ public abstract class AbstractAction {
 	public abstract void update(Turtle turt, SLogoCanvas canvas);
 	public abstract String toString();
 	
-	
+	public double getValue() {
+		return myValue;
+	}
 }

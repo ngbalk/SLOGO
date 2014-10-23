@@ -14,7 +14,12 @@ public abstract class NumberNode extends SLogoNode {
 	
 	@Override
 	public String toString() {
-		return super.toString() + " Operation:" + myOperation;
+		return super.toString() + " Number";
+	}
+	
+	@Override
+	public boolean needsMoreChildrenForEvaluation() {
+		return false;
 	}
 	
 }

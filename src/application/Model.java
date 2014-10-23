@@ -111,6 +111,7 @@ public class Model {
 		}
 	}
 
+	
 	/**
 	 * pass parseInput the input string, and parseInput will return a List of
 	 * AbstractActions to the View, which the View will handle applying to the
@@ -120,42 +121,92 @@ public class Model {
 	 * @param inputString
 	 * @return
 	 */
-
+	
 	public List<AbstractAction> parseInput(String inputString) {
 		List<AbstractAction> listOfActions = new ArrayList<AbstractAction>();
 		SLogoNode root = null;
-		String[] inputStringArray = inputString.split("\\s+");
+		SLogoNode currentNode = null;
+		List<String> splitList = Arrays.asList(inputString.split("\\s+")); //fixed size
+		List<String> inputStringParsedIntoWords = new ArrayList<String>(); //list wrapper which can dynamically change
+		inputStringParsedIntoWords.addAll(splitList); //list that we can work with
 		SLogoNodeFactory nodeFactory = new SLogoNodeFactory();
+		List<SLogoNode> listOfSLogoNodeTrees = new ArrayList<SLogoNode>();
 		
 		System.out.println("Input String: " + inputString);
-		System.out.println("Split input: " + inputStringArray);
+		System.out.println("Split input: " + inputStringParsedIntoWords);
 		System.out.println("My Commands: " + myCommands);
 		if(inputString.isEmpty())
 			return listOfActions;
-
-		for(String str : inputStringArray) {
-			System.out.println("\tSTR: " + str);
-			String command = myCommands.get(str);
-			SLogoNode node = null;
-			if(command == null)
-				node = nodeFactory.getSLogoNodeFromString(str);
-			else
-				node = nodeFactory.getSLogoNodeFromString(command);
-			
-			System.out.println("Node: " + node);
-			if(root == null)
-				root = node;
-			else
-				root.addChild(node);
-			
-			node.setActionList(listOfActions);
-		}
 		
-		System.out.println("Root: " + root);
-		int result = root.evaluate();
+		listOfSLogoNodeTrees = makeListOfSLogoNodeTrees(root, currentNode, nodeFactory, inputStringParsedIntoWords);
+				
+		System.out.println("List: " + listOfSLogoNodeTrees);
+		for(SLogoNode subTree: listOfSLogoNodeTrees)
+			listOfActions.addAll(subTree.evaluate());
 		System.out.println("Action List: " + listOfActions);
 		return listOfActions;
 	}
+	
+	public List<SLogoNode> makeListOfSLogoNodeTrees(SLogoNode root, SLogoNode currentNode, SLogoNodeFactory nodeFactory, List<String> remainingInput) {
+		if (remainingInput.size() <= 0)
+			return null;
+		String nextCommand = myCommands.get(remainingInput.remove(0));
+		SLogoNode nodeToBeAdded = nodeFactory.getSLogoNodeFromString(nextCommand,myResources);
+		if (root == null)
+			root = nodeToBeAdded;
+		if (currentNode == null)
+			currentNode = nodeToBeAdded;
+		while (currentNode.needsMoreChildrenForEvaluation()) {
+			currentNode.addChild(nodeToBeAdded);
+			if(nodeToBeAdded.needsMoreChildrenForEvaluation())
+				makeListOfSLogoNodeTrees(root, nodeToBeAdded, nodeFactory, remainingInput);
+			if(remainingInput.size() > 0)
+				nodeToBeAdded = nodeFactory.getSLogoNodeFromString(remainingInput.remove(0), myResources);
+		}
+		List<SLogoNode> listOfSLogoNodeTrees = new ArrayList<SLogoNode>();
+		List<SLogoNode> listOfFollowingSLogoNodeTrees = makeListOfSLogoNodeTrees(null,null,nodeFactory,remainingInput);
+		listOfSLogoNodeTrees.add(root);
+		if(listOfFollowingSLogoNodeTrees != null)
+			listOfSLogoNodeTrees.addAll(listOfFollowingSLogoNodeTrees);
+		return listOfSLogoNodeTrees;
+	}
+	
+	// TODO: deprecated, must delete
+//	public List<AbstractAction> parseInput2(String inputString) {
+//		List<AbstractAction> listOfActions = new ArrayList<AbstractAction>();
+//		SLogoNode root = null;
+//		String[] inputStringArray = inputString.split("\\s+");
+//		SLogoNodeFactory nodeFactory = new SLogoNodeFactory();
+//		
+//		System.out.println("Input String: " + inputString);
+//		System.out.println("Split input: " + inputStringArray);
+//		System.out.println("My Commands: " + myCommands);
+//		if(inputString.isEmpty())
+//			return listOfActions;
+//
+//		for(String str : inputStringArray) {
+//			System.out.println("\tSTR: " + str);
+//			String command = myCommands.get(str);
+//			SLogoNode node = null;
+//			if(command == null)
+//				node = nodeFactory.getSLogoNodeFromString(str);
+//			else
+//				node = nodeFactory.getSLogoNodeFromString(command);
+//			
+//			System.out.println("Node: " + node);
+//			if(root == null)
+//				root = node;
+//			else
+//				root.addChild(node);
+//			
+//			node.setActionList(listOfActions);
+//		}
+//		
+//		System.out.println("Root: " + root);
+//		int result = root.evaluate();
+//		System.out.println("Action List: " + listOfActions);
+//		return listOfActions;
+//	}
 
 	/**
 	 * Similar to parseInput, but the input String is contained within a File.
@@ -172,7 +223,7 @@ public class Model {
 			myScanner = new Scanner(inputFile);
 			inputString = myScanner.useDelimiter("\\Z").next();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			// TODO update this block to not have print stack trace()
 			e.printStackTrace();
 		} finally {
 			if (myScanner != null)
@@ -214,10 +265,10 @@ public class Model {
 		double newOrien = Math.atan(difY/difX);
 		
 		double changeOrientation = orientation - newOrien; 
-		SLogoNode rotNode = new RotateRightNode();
-		SLogoNode moveNode = new MoveForwardNode();
-		SLogoNode rotateDegNode = new IntegerNode((int) changeOrientation);
-		SLogoNode moveDistNode = new IntegerNode((int) distToMove);
+		SLogoNode rotNode = new RightNode();
+		SLogoNode moveNode = new ForwardNode();
+		SLogoNode rotateDegNode = new ConstantNode((int) changeOrientation);
+		SLogoNode moveDistNode = new ConstantNode((int) distToMove);
 		rotNode.addChild(rotateDegNode);
 		moveNode.addChild(moveDistNode);
 			

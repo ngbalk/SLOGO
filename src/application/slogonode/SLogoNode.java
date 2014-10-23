@@ -1,7 +1,7 @@
 /**
  *  @author Pranava Raparla
  *  Created: October 3rd, 2014
- *  Modified: October 9th, 2014
+ *  Modified: October 23rd, 2014
  */
 
 package application.slogonode;
@@ -12,35 +12,39 @@ import application.Actions.AbstractAction;
 
 public abstract class SLogoNode {	
 	
-	protected int myValue;
+	protected double myValue;
 	protected String myType;
 	public List<SLogoNode> myChildren;
-	public List<AbstractAction> myActions;
+	//public List<AbstractAction> myActions;
 	
 	public SLogoNode() {
 		super();
 		myChildren = new ArrayList<SLogoNode>();
-		myActions = new ArrayList<AbstractAction>();
+		//myActions = new ArrayList<AbstractAction>();
 	}
 	
 	public SLogoNode(List<AbstractAction> actions) {
-		myActions = actions;
-	}
-	
-	/**
-	 * 
-	 * @param actions
-	 */
-	public void setActionList(List<AbstractAction> actions) {
-		myActions = actions;
+		//myActions = actions;
 	}
 
 	/**
 	 * 
 	 * @return
 	 */
-	public abstract int evaluate();
-
+	//public abstract double evaluate();
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public abstract List<AbstractAction> evaluate();
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public abstract boolean needsMoreChildrenForEvaluation();
+	
 	/**
 	 * 
 	 * @return

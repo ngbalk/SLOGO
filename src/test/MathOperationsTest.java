@@ -7,14 +7,14 @@ import org.junit.Test;
 import application.slogonode.SLogoNode;
 import application.slogonode.MathOperations.AtanNode;
 import application.slogonode.MathOperations.CosNode;
-import application.slogonode.Number.IntegerNode;
+import application.slogonode.Number.ConstantNode;
 
 public class MathOperationsTest {
 
 	@Test
 	public void testAtanNode(){
 		SLogoNode node = new AtanNode();
-		SLogoNode integer = new IntegerNode(5); 
+		SLogoNode integer = new ConstantNode(5); 
 		node.addChild(integer);
 		assertEquals(Math.atan(5), node.evaluate());
 	}
@@ -22,7 +22,7 @@ public class MathOperationsTest {
 	@Test
 	public void testCosNode(){
 		SLogoNode cosNode = new CosNode();
-		SLogoNode integer = new IntegerNode(10);
+		SLogoNode integer = new ConstantNode(10);
 		cosNode.addChild(integer);
 		assertEquals(Math.cos(10), cosNode.evaluate());
 	}

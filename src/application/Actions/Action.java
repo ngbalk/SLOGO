@@ -4,9 +4,9 @@ import application.SLogoCanvas;
 import application.Turtle;
 
 public class Action extends AbstractAction {
-
+	
 	public Action() {
-		// TODO Auto-generated constructor stub
+		myValue = 0;
 	}
 
 	@Override

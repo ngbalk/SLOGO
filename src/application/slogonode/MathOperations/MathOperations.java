@@ -1,7 +1,7 @@
 /**
  *  @author Pranava Raparla
  *  Created: October 3rd, 2014
- *  Modified: October 3rd, 2014
+ *  Modified: October 23rd, 2014
  */
 package application.slogonode.MathOperations;
 
@@ -22,4 +22,8 @@ public abstract class MathOperations extends SLogoNode {
 		return super.toString() + " Operation:" + myOperation;
 	}
 	
+	@Override
+	public boolean needsMoreChildrenForEvaluation() {
+		return (myChildren.size() < 1);
+	}	
 }

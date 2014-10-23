@@ -20,5 +20,9 @@ public abstract class TurtleCommandsNode extends SLogoNode {
 		// TODO Auto-generated method stub
 		return super.toString() + " Turtle Command:" + myCommand;
 	}
-	
+
+	@Override
+	public boolean needsMoreChildrenForEvaluation() {
+		return (myChildren.size() < 1);
+	}
 }

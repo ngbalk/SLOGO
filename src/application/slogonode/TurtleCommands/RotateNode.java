@@ -6,7 +6,7 @@
 package application.slogonode.TurtleCommands;
 
 import application.Actions.AbstractAction;
-import application.Actions.RtAction;
+import application.Actions.RightAction;
 import application.slogonode.SLogoNode;
 
 public abstract class RotateNode extends TurtleCommandsNode {
@@ -21,12 +21,4 @@ public abstract class RotateNode extends TurtleCommandsNode {
 		return super.toString();
 	}
 	
-	@Override
-	public int evaluate() {
-		myValue = myChildren.get(0).evaluate();
-		AbstractAction action = new RtAction(myValue);
-		myActions.add(action);
-		myChildren.get(1).evaluate();
-		return myValue;
-	}
 }
