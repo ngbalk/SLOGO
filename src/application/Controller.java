@@ -42,6 +42,7 @@ public class Controller implements Initializable {
 		myTurtleImageButtonAndField.setController(this);
 		myToggleReferenceGrid.setController(this);
 
+
 	}
 	public void setView(View view){
 		this.myView = view;

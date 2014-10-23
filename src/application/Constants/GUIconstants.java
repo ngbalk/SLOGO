@@ -25,6 +25,11 @@ public final class GUIconstants {
 	public static final int DEFAULT_CANVAS_WIDTH = 600;
 	public static final int DEFAULT_CANVAS_HEIGHT = 600;
 
+	public static final double DEFAULT_ERROR_WINDOW_WIDTH = 200;
+	public static final double DEFAULT_ERROR_WINDOW_HEIGHT = 200;
+	public static final double DEFAULT_ERROR_MESSAGE_FONT_SIZE = 30;
+	
+	
 	private GUIconstants() {
 		throw new AssertionError();
 	}

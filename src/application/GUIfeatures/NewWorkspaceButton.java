@@ -3,6 +3,7 @@ package application.GUIfeatures;
 
 import application.Workspace;
 import application.Constants.GUIconstants;
+import application.Errors.InvalidSLogoSyntax;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -26,6 +27,7 @@ public class NewWorkspaceButton extends AbstractGUIFeature implements GUIButtonF
 	
 	public void behavior() {
 
+		System.out.println("Building behavior");
 		Workspace workspace = new Workspace();
 		myController.getWorkspaces().add(workspace);
 		myController.setActiveWorkspace(workspace);
@@ -43,6 +45,8 @@ public class NewWorkspaceButton extends AbstractGUIFeature implements GUIButtonF
 			public void handle(Event arg0) {
 				myController.setActiveWorkspace(workspace);
 				myController.getHistoryFeature().update();
+				//Testing
+				myController.getView().displayError(new InvalidSLogoSyntax());
 			}
 		});
 		myController.getWorkspaceTabs().getTabPane().getTabs().add(newTab);
