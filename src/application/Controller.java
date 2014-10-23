@@ -7,10 +7,6 @@ import java.util.ResourceBundle;
 
 import application.Constants.GUIconstants;
 import application.GUIfeatures.*;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 

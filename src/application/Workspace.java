@@ -1,26 +1,19 @@
 package application;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
-
 import application.Actions.AbstractAction;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import application.Constants.GUIconstants;
-import javafx.geometry.Point2D;
 import javafx.scene.Group;
-import javafx.scene.Node;
+
 
 public class Workspace {
 	
 	private Turtle myCurrentTurtle;
 	private SLogoCanvas myCanvas;
 	private ObservableList<String> myHistory;
-	private Map myCommands;
 	private Group myRoot;
 
 	public Workspace() {
