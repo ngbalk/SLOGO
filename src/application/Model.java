@@ -124,8 +124,6 @@ public class Model {
 	
 	public List<AbstractAction> parseInput(String inputString) {
 		List<AbstractAction> listOfActions = new ArrayList<AbstractAction>();
-		SLogoNode root = null;
-		SLogoNode currentNode = null;
 		List<String> splitList = Arrays.asList(inputString.split("\\s+")); //fixed size
 		List<String> inputStringParsedIntoWords = new ArrayList<String>(); //list wrapper which can dynamically change
 		inputStringParsedIntoWords.addAll(splitList); //list that we can work with
@@ -138,37 +136,41 @@ public class Model {
 		if(inputString.isEmpty())
 			return listOfActions;
 		
-		listOfSLogoNodeTrees = makeListOfSLogoNodeTrees(root, currentNode, nodeFactory, inputStringParsedIntoWords);
+		listOfSLogoNodeTrees = makeListOfSLogoNodeTrees(nodeFactory, inputStringParsedIntoWords);
 				
-		System.out.println("List: " + listOfSLogoNodeTrees);
+		System.out.println("\n\n\n*****List: " + listOfSLogoNodeTrees + "\n\n****");
 		for(SLogoNode subTree: listOfSLogoNodeTrees)
 			listOfActions.addAll(subTree.evaluate());
 		System.out.println("Action List: " + listOfActions);
 		return listOfActions;
 	}
 	
-	public List<SLogoNode> makeListOfSLogoNodeTrees(SLogoNode root, SLogoNode currentNode, SLogoNodeFactory nodeFactory, List<String> remainingInput) {
-		if (remainingInput.size() <= 0)
-			return null;
-		String nextCommand = myCommands.get(remainingInput.remove(0));
-		SLogoNode nodeToBeAdded = nodeFactory.getSLogoNodeFromString(nextCommand,myResources);
-		if (root == null)
-			root = nodeToBeAdded;
-		if (currentNode == null)
-			currentNode = nodeToBeAdded;
-		while (currentNode.needsMoreChildrenForEvaluation()) {
-			if(remainingInput.size() > 0)
-				nodeToBeAdded = nodeFactory.getSLogoNodeFromString(remainingInput.remove(0), myResources);
-			currentNode.addChild(nodeToBeAdded);
-			makeListOfSLogoNodeTrees(root, nodeToBeAdded, nodeFactory, remainingInput);				
-		}
+	public List<SLogoNode> makeListOfSLogoNodeTrees(SLogoNodeFactory nodeFactory, List<String> remainingInput) {
 		List<SLogoNode> listOfSLogoNodeTrees = new ArrayList<SLogoNode>();
-		List<SLogoNode> listOfFollowingSLogoNodeTrees = makeListOfSLogoNodeTrees(null,null,nodeFactory,remainingInput);
-		listOfSLogoNodeTrees.add(root);
-		if(listOfFollowingSLogoNodeTrees != null)
-			listOfSLogoNodeTrees.addAll(listOfFollowingSLogoNodeTrees);
+		if (remainingInput.size() > 0) {
+			String nextCommand = myCommands.get(remainingInput.remove(0));
+			SLogoNode root = nodeFactory.getSLogoNodeFromString(nextCommand,myResources);
+			listOfSLogoNodeTrees.add(root);
+			SLogoNode currentNode = root;
+			if (currentNode.needsMoreChildrenForEvaluation())
+				makeListOfSLogoNodeTreesHelper(root,currentNode,nodeFactory,remainingInput);
+			listOfSLogoNodeTrees.addAll(makeListOfSLogoNodeTrees(nodeFactory,remainingInput));
+		}
 		return listOfSLogoNodeTrees;
 	}
+	public void makeListOfSLogoNodeTreesHelper(SLogoNode root, SLogoNode currentNode, SLogoNodeFactory nodeFactory, List<String> remainingInput) {
+		if(currentNode == null || remainingInput.size() <= 0)
+			return;
+		while (currentNode.needsMoreChildrenForEvaluation() && remainingInput.size() > 0) {
+			SLogoNode nodeToBeAdded = null;
+			if(remainingInput.size() > 0)
+				nodeToBeAdded = nodeFactory.getSLogoNodeFromString(remainingInput.remove(0), myResources);
+			else break;
+			currentNode.addChild(nodeToBeAdded);
+			makeListOfSLogoNodeTreesHelper(root, nodeToBeAdded, nodeFactory, remainingInput);				
+		}
+	}
+
 	
 	// TODO: deprecated, must delete
 //	public List<AbstractAction> parseInput2(String inputString) {
