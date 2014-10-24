@@ -40,7 +40,6 @@ public class SLogoNodeFactory {
 			System.out.println(nodeName);
 			Class classType = Class.forName("application.slogonode.TurtleCommands."+nodeName+"Node");
 			commandNode = (SLogoNode) classType.newInstance();
-			System.out.println(commandNode.getClass().toString());
 		} catch (Exception e) {
 			System.out.println("\nERROR! THIS COMMAND DOES NOT EXIST: " + nodeName);
 		} finally {
