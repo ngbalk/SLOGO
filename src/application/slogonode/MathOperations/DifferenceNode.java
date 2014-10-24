@@ -17,7 +17,13 @@ public class DifferenceNode extends MathOperations {
 
 	@Override
 	public List<AbstractAction> evaluate() {
-		return null;
+		double value = myChildren.get(0).evaluate().get(0).getValue() - myChildren.get(1).evaluate().get(0).getValue();
+		return createActionList(value);
+	}
+	
+	@Override
+	public boolean needsMoreChildrenForEvaluation(){
+		return myChildren.size() < 2; 
 	}
 
 }
