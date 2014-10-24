@@ -11,10 +11,10 @@ import application.Actions.AbstractAction;
 import application.Actions.SetTowardsAction;
 import application.slogonode.SLogoNode;
 
-public class SetTowardsNode extends TurtleCommandsNode {
+public class SetPositionNode extends TurtleCommandsNode {
 	
-	public SetTowardsNode() {
-		myType = "Towards";
+	public SetPositionNode() {
+		myType = "SetPosition";
 	}
 	
 	@Override
@@ -25,7 +25,7 @@ public class SetTowardsNode extends TurtleCommandsNode {
 	@Override
 	public List<AbstractAction> evaluate() {
 		List<AbstractAction> actionList = new ArrayList<AbstractAction>();
-		actionList.add(new SetTowardsAction(myChildren.get(0).evaluate().get(0).getValue(),myChildren.get(1).evaluate().get(0).getValue()));
+		actionList.add(new SetPositionAction(myChildren.get(0).evaluate().get(0).getValue(),myChildren.get(1).evaluate().get(0).getValue()));
 		myValue = actionList.get(0).getValue();
 		return actionList;
 	}
