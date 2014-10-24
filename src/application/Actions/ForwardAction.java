@@ -13,8 +13,12 @@ public class ForwardAction extends AbstractAction {
 	@Override
 	public void update(Turtle turtle, SLogoCanvas canvas) {
 		Point2D previousLocation = turtle.getLocation();
-		canvas.displayLine(turtle.move(myValue));
-
+		
+		double remainder = myValue;
+		while (remainder > 0){
+			canvas.displayLine(turtle.move(1));
+			remainder-=1;
+		}
 		// System.out.println("***Prior Location: " + prevLoc);
 		// System.out.println("***Prior Location: " + turt.getLocation());
 	}

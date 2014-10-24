@@ -33,14 +33,18 @@ public class AbstractTurtle {
 
 		if (myXLocation > GUIconstants.DEFAULT_CANVAS_WIDTH) {
 			myXLocation = myXLocation % GUIconstants.DEFAULT_CANVAS_WIDTH;
+			return new Line();
 		} else if (myXLocation < 0) {
 			myXLocation = GUIconstants.DEFAULT_CANVAS_WIDTH - myXLocation;
+			return new Line();
 		}
 
 		if (myYLocation > GUIconstants.DEFAULT_CANVAS_HEIGHT) {
 			myYLocation = myYLocation % GUIconstants.DEFAULT_CANVAS_HEIGHT;
+			return new Line();
 		} else if (myYLocation < 0) {
 			myYLocation = GUIconstants.DEFAULT_CANVAS_HEIGHT - myYLocation;
+			return new Line();
 		}
 		// to-do: fix line drawing to draw over edge of canvas
 		return myPen.drawLine(start, this.getLocation());
