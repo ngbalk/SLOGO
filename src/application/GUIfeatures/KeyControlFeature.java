@@ -8,6 +8,7 @@ import application.Actions.BackwardAction;
 import application.Actions.ForwardAction;
 import application.Actions.LeftAction;
 import application.Actions.RightAction;
+import application.Actions.RotateAction;
 import application.Constants.GUIconstants;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -35,13 +36,13 @@ public class KeyControlFeature extends AbstractGUIFeature implements GUIButtonFe
 				myButton.requestFocus();
 				if(event.getCode() == KeyCode.D){
 					List<AbstractAction> actionChain = new ArrayList<AbstractAction>();
-					actionChain.add(new RightAction(GUIconstants.DEFAULT_MANUAL_TURTLE_ROTATE));
+					actionChain.add(new RotateAction(-GUIconstants.DEFAULT_MANUAL_TURTLE_ROTATE));
 					updateTurtle(actionChain);
 					
 				}
 				if(event.getCode() == KeyCode.A){
 					List<AbstractAction> actionChain = new ArrayList<AbstractAction>();
-					actionChain.add(new LeftAction(GUIconstants.DEFAULT_MANUAL_TURTLE_ROTATE));
+					actionChain.add(new RotateAction(GUIconstants.DEFAULT_MANUAL_TURTLE_ROTATE));
 					updateTurtle(actionChain);
 					
 				}

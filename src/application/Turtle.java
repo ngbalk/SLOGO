@@ -23,9 +23,9 @@ public class Turtle extends AbstractTurtle{
 		this.myImage.setY(this.myYLocation);
 		return line;
 	}
-	
-	public void rotateLeft(double rotation){
-		this.rotate(rotation);
+	@Override
+	public void rotate(double rotation){
+		super.rotate(rotation);
 		myImage.setRotate(myImage.getRotate() - rotation);
 	}
 	
