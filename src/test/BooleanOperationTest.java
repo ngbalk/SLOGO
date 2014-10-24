@@ -15,9 +15,10 @@ public class BooleanOperationTest {
 		SLogoNode node = new AndNode();
 		SLogoNode childA = new ConstantNode(1);
 		SLogoNode childB = new ConstantNode(0);
-		
+		SLogoNode childC = new ConstantNode(1);
 		node.addChild(childA);
 		node.addChild(childB);
+		node.addChild(childC);
 		assertEquals(0.0, node.evaluate().get(0).getValue(), 0.0);
 	}
 	
@@ -84,10 +85,11 @@ public class BooleanOperationTest {
 	public void testOrNode(){
 		SLogoNode node = new OrNode();
 		SLogoNode childA = new ConstantNode(0);
-		SLogoNode childB = new ConstantNode(1);
-		
+		SLogoNode childB = new ConstantNode(0);
+		SLogoNode childC = new ConstantNode(1);
 		node.addChild(childA);
 		node.addChild(childB);
+		node.addChild(childC);
 		assertEquals(1.0, node.evaluate().get(0).getValue(), 0.0); 
 	}
 }

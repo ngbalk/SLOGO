@@ -5,6 +5,9 @@
  */
 package application.slogonode.MathOperations;
 
+import java.util.List;
+import application.Actions.AbstractAction;
+
 public class TanNode extends MathOperations {
 
 	public TanNode() {
@@ -12,8 +15,8 @@ public class TanNode extends MathOperations {
 	}
 
 	@Override
-	public int evaluate() {
-		return (int) Math.tan(myChildren.get(0).evaluate());
+	public List<AbstractAction> evaluate() {
+		double value = Math.tan(myChildren.get(0).evaluate().get(0).getValue());
+		return createActionList(value);
 	}
-
 }
