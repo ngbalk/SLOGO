@@ -2,6 +2,7 @@ package application;
 
 import application.Constants.GUIconstants;
 import javafx.geometry.Point2D;
+import javafx.scene.Group;
 import javafx.scene.shape.Line;
 
 public class AbstractTurtle {
@@ -48,6 +49,28 @@ public class AbstractTurtle {
 		}
 		// to-do: fix line drawing to draw over edge of canvas
 		return myPen.drawLine(start, this.getLocation());
+	}
+	
+	public Group movement (double distance){
+		Group root = new Group();
+		double direction = distance / Math.abs(distance);
+		double remainder = Math.abs(distance);
+		while (remainder > 0) {
+			//I PROMISE I WILL COME UP WITH A BETTER SOLUTION
+			//BUT MAYBE THIS IDEA WILL BE COOL FOR ANIMATING
+			//PROBABLY SHOULDN'T BE IN THE FORWARD ACTION THOUGH
+			if (this.getPen().isDashed() && remainder >= 30) {
+				root.getChildren().add(this.move(30 * direction));
+				remainder -= 30;
+			} else if (this.getPen().isDotted() && remainder >= 5) {
+				root.getChildren().add(this.move(5 * direction));
+				remainder -= 5;
+			} else {
+				root.getChildren().add(this.move(1 * direction));
+				remainder -= 1;
+			}
+		}
+		return root;
 	}
 
 	/**

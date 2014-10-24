@@ -14,7 +14,7 @@ public class BackwardAction extends Action {
 	@Override
 	public void update(Turtle turtle, SLogoCanvas canvas) {
 		Point2D previousLocation = turtle.getLocation();
-		canvas.displayLine(turtle.move(myValue));
+		canvas.display().getChildren().add(turtle.movement(myValue));
 
 		// System.out.println("***Prior Location: " + previousLocation);
 		// System.out.println("***Prior Location: " + turtle.getLocation());
