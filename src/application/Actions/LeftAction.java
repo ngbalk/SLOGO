@@ -1,3 +1,9 @@
+/**
+ *  @author Pranava Raparla
+ *  @author Wesley Valentine
+ *  Created: October 9th, 2014
+ *  Modified: October 24th, 2014
+ */
 package application.Actions;
 
 import application.AbstractTurtle;
@@ -8,17 +14,11 @@ public class LeftAction extends RotateAction {
 
 	public LeftAction (double degrees){
 		super(degrees);
+		myName = "Left";
 	}
 	
 	@Override
-	public void update(Turtle turt, SLogoCanvas canvas) {
-		turt.rotateLeft(myValue);
+	public void update(Turtle turtle, SLogoCanvas canvas) {
+		turtle.rotate(myValue);
 	}
-
-	@Override
-	public String toString() {
-		return "lft " + myValue;
-	}
-	
-	
 }

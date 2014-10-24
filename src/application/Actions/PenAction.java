@@ -10,7 +10,7 @@ import application.AbstractTurtle;
 import application.SLogoCanvas;
 import application.Turtle;
 
-public class PenAction extends AbstractAction {
+public class PenAction extends Action {
 
 	/**
 	 * 
@@ -18,6 +18,7 @@ public class PenAction extends AbstractAction {
 	 */
 	public PenAction (double status){
 		myValue = status;
+		myName = "PenUpDown";
 	}
 	
 	@Override
@@ -27,10 +28,4 @@ public class PenAction extends AbstractAction {
 		else
 			turtle.getPen().setPenDown();
 	}
-	
-	@Override
-	public String toString() {
-		return "Pen UP/Down: " + myValue + " ";
-	}
-
 }

@@ -5,6 +5,9 @@
  */
 package application.slogonode.MathOperations;
 
+import java.util.List;
+import application.Actions.AbstractAction;
+
 public class SumNode extends MathOperations {
 
 	public SumNode() {
@@ -12,8 +15,11 @@ public class SumNode extends MathOperations {
 	}
 
 	@Override
-	public int evaluate() {
-		return myChildren.get(0).evaluate() + myChildren.get(1).evaluate();
+	public List<AbstractAction> evaluate() {
+		
+		double value = 0.0; 
+		
+		return createActionList(value);
 	}
 
 }

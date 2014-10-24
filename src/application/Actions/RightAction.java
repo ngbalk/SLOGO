@@ -8,16 +8,11 @@ public class RightAction extends RotateAction {
 
 	public RightAction (double degrees){
 		super(degrees);
+		myName = "Right";
 	}
 	
 	@Override
 	public void update(Turtle turt, SLogoCanvas canvas) {
 		turt.rotateRight(myValue);
 	}
-
-	@Override
-	public String toString() {
-		return "rt " + myValue;
-	}
-	
 }

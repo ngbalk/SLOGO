@@ -7,6 +7,7 @@ public class Action extends AbstractAction {
 	
 	public Action() {
 		myValue = 0;
+		myName = "Action";
 	}
 
 	@Override
@@ -17,7 +18,7 @@ public class Action extends AbstractAction {
 
 	@Override
 	public String toString() {
-		return "";
+		return myName + ": " + myValue + ".";
 	}
 
 }

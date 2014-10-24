@@ -18,6 +18,7 @@ public abstract class AbstractAction {
 	public AbstractTurtle myDrawer;
 	public Point2D nextPoint;
 	public double myValue;
+	public String myName;
 	/**
 	 * update takes in an AbstractDrawer and updates it according to the specifications of this type of Action.
 	 * @param currentDrawer

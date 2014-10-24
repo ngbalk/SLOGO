@@ -4,10 +4,11 @@ import javafx.geometry.Point2D;
 import application.SLogoCanvas;
 import application.Turtle;
 
-public class ForwardAction extends AbstractAction {
+public class ForwardAction extends Action {
 
 	public ForwardAction(double distance) {
 		myValue = distance;
+		myName = "Forward";
 	}
 
 	@Override
@@ -33,10 +34,4 @@ public class ForwardAction extends AbstractAction {
 		// System.out.println("***Prior Location: " + prevLoc);
 		// System.out.println("***Prior Location: " + turt.getLocation());
 	}
-
-	@Override
-	public String toString() {
-		return "fwd " + myValue;
-	}
-
 }

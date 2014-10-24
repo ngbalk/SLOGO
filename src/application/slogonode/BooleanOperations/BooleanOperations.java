@@ -11,6 +11,7 @@ import java.util.*;
 
 import application.Actions.*;
 import application.slogonode.SLogoNode;
+import application.slogonode.Number.ConstantNode;
 
 public abstract class BooleanOperations extends SLogoNode{
 	
@@ -30,5 +31,11 @@ public abstract class BooleanOperations extends SLogoNode{
 	@Override
 	public boolean needsMoreChildrenForEvaluation() {
 		return (myChildren.size() < 2);
+	}
+	
+	public List<AbstractAction> createActionList(double value){
+		List<AbstractAction> actionList = new ArrayList<AbstractAction>();
+		actionList.addAll((new ConstantNode(value)).evaluate());
+		return actionList;
 	}
 }

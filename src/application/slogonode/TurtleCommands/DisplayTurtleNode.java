@@ -1,6 +1,5 @@
 /**
  *  @author Pranava Raparla
- *  @author Wesley Valentine
  *  Created: October 24th, 2014
  *  Modified: October 24th, 2014
  */
@@ -11,7 +10,7 @@ import java.util.*;
 import application.Actions.AbstractAction;
 import application.Actions.PenAction;
 
-public class PenNode extends TurtleCommandsNode {
+public class DisplayTurtleNode extends TurtleCommandsNode {
 		
 	@Override
 	public boolean needsMoreChildrenForEvaluation() {
@@ -21,8 +20,8 @@ public class PenNode extends TurtleCommandsNode {
 	@Override
 	public List<AbstractAction> evaluate() {
 		List<AbstractAction> actionList = new ArrayList<AbstractAction>();
-		AbstractAction penAction = new PenAction(myValue);
-		actionList.add(penAction);
+		AbstractAction action = new DisplayTurtleAction(myValue);
+		actionList.add(action);
 		return actionList;
 	}
 
