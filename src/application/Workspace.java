@@ -42,6 +42,7 @@ public class Workspace {
 	public Group display(){
 		myRoot.getChildren().add(myCanvas.display());
 		myRoot.getChildren().add(myCurrentTurtle.display());
+		
 		return myRoot;
 	}
 	/**
@@ -62,6 +63,9 @@ public class Workspace {
 	}
 	public ObservableList<String> getHistory() {
 		return myHistory;
+	}
+	public Group getRoot(){
+		return myRoot;
 	}
 
 	

@@ -35,6 +35,7 @@
                  <Pane prefHeight="200.0">
                     <ChooseTurtleImageButton fx:id="myTurtleImageButtonAndField" />
                 </Pane>
+                <ShowAndHideTurtleButton fx:id="myShowAndHideTurtleButton"/>
                 <HistoryFeature fx:id="myHistoryFeature"/>
                 <SubmitTextButtonAndField fx:id="mySubmitTextButtonAndField" />
             </VBox>

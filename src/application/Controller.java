@@ -30,7 +30,7 @@ public class Controller implements Initializable {
 	@FXML private DashPenButton myDashPenButton = new DashPenButton();
 	@FXML private DotPenButton myDotPenButton = new DotPenButton();
 	@FXML private SolidPenButton mySolidPenButton = new SolidPenButton();
-
+	@FXML private ShowAndHideTurtleButton myShowAndHideTurtleButton = new ShowAndHideTurtleButton();
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -50,7 +50,7 @@ public class Controller implements Initializable {
 		myDashPenButton.setController(this);
 		myDotPenButton.setController(this);
 		mySolidPenButton.setController(this);
-
+		myShowAndHideTurtleButton.setController(this);
 	}
 	public void setView(View view){
 		this.myView = view;
