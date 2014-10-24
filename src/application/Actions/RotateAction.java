@@ -10,10 +10,11 @@ import application.AbstractTurtle;
 import application.SLogoCanvas;
 import application.Turtle;
 
-public class RotateAction extends AbstractAction {
+public class RotateAction extends Action {
 
 	public RotateAction (double degrees){
 		myValue = degrees;
+		myName = "Rotate";
 	}
 	
 	/**
@@ -23,10 +24,4 @@ public class RotateAction extends AbstractAction {
 	public void update(Turtle turt, SLogoCanvas canvas) {
 		turt.rotate(myValue);
 	}
-	
-	@Override
-	public String toString() {
-		return "Rotate: " + myValue + " ";
-	}
-
 }

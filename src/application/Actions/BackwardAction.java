@@ -4,10 +4,11 @@ import javafx.geometry.Point2D;
 import application.SLogoCanvas;
 import application.Turtle;
 
-public class BackwardAction extends AbstractAction {
+public class BackwardAction extends Action {
 
 	public BackwardAction(double distance) {
 		myValue = distance;
+		myName = "Backward";
 	}
 
 	@Override
@@ -18,11 +19,4 @@ public class BackwardAction extends AbstractAction {
 		// System.out.println("***Prior Location: " + previousLocation);
 		// System.out.println("***Prior Location: " + turtle.getLocation());
 	}
-
-	@Override
-	public String toString() {
-		return "bwd " + myValue;
-	}
-	
-
 }

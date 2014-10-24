@@ -12,16 +12,11 @@ public class ConstantAction extends Action {
 	
 	public ConstantAction(double value) {
 		myValue = value;
+		myName = "Constant";
 	}
 	
 	@Override
 	public void update(Turtle turt, SLogoCanvas canvas) {
 		return;
 	}
-
-	@Override
-	public String toString() {
-		return "IntegerAction";
-	}
-
 }
