@@ -21,21 +21,24 @@ public class ShowAndHideTurtleButton extends AbstractGUIFeature implements
 	public void behavior() {
 		if (myController
 				.getActiveWorkspace()
-				.getRoot()
+				.getCanvas()
+				.display()
 				.getChildren()
 				.contains(
 						myController.getActiveWorkspace().getCurrentTurtle()
 								.display())) {
 			myController
 					.getActiveWorkspace()
-					.getRoot()
+					.getCanvas()
+					.display()
 					.getChildren()
 					.remove(myController.getActiveWorkspace()
 							.getCurrentTurtle().display());
 		} else {
 			myController
 					.getActiveWorkspace()
-					.getRoot()
+					.getCanvas()
+					.display()
 					.getChildren()
 					.add(myController.getActiveWorkspace().getCurrentTurtle()
 							.display());

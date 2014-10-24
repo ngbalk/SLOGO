@@ -5,6 +5,9 @@
  */
 package application.slogonode.MathOperations;
 
+import java.util.List;
+import application.Actions.AbstractAction;
+
 public class CosNode extends MathOperations {
 
 	public CosNode() {
@@ -12,8 +15,9 @@ public class CosNode extends MathOperations {
 	}
 
 	@Override
-	public int evaluate() {
-		return (int) Math.cos(myChildren.get(0).evaluate());
+	public List<AbstractAction> evaluate() {
+		double value = Math.cos(myChildren.get(0).evaluate().get(0).getValue());
+		return createActionList(value);
 	}
 
 }
