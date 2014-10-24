@@ -19,6 +19,7 @@ public class SetTowardsAction extends Action {
 	
 	@Override
 	public void update(Turtle turtle, SLogoCanvas canvas) {
+		// TODO: it's pointing the wrong direction, also (0,0) needs to be set in center...
 		double xDifference = myPoint.getX() - turtle.getLocation().getX() - 600;
 		double yDifference = myPoint.getY() - turtle.getLocation().getY() - 600;
 		myValue = Math.toDegrees(Math.atan2(yDifference,xDifference));
