@@ -28,6 +28,9 @@
                 <BackgroundColorPickerAndButton fx:id="myBackgroundColorPickerAndButton"/>
                 <PenColorPickerAndButton fx:id="myPenColorPickerAndButton"/>
                 <ToggleReferenceGridButton fx:id="myToggleReferenceGrid"/>
+                <SolidPenButton fx:id="mySolidPenButton"/>
+                <DashPenButton fx:id="myDashPenButton"/>
+                <DotPenButton fx:id="myDotPenButton"/>
                 <PenSizeSlider fx:id="myPenSizeSlider"/>
                  <Pane prefHeight="200.0">
                     <ChooseTurtleImageButton fx:id="myTurtleImageButtonAndField" />

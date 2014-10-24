@@ -5,6 +5,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
 public class SLogoPen {
+	private boolean myIsDotted = false;
+	private boolean myIsDashed = false;
 	private boolean myDownStatus;
 	private Color myColor;
 	private double mySize;
@@ -24,6 +26,11 @@ public class SLogoPen {
 			line.setEndY(end.getY());
 			line.setStroke(myColor);
 			line.setStrokeWidth(mySize);
+			if (myIsDotted) {
+				line.getStrokeDashArray().addAll(2d, 21d);
+			} else if (myIsDashed) {
+				line.getStrokeDashArray().addAll(25d, 10d);
+			}
 		}
 		return line;
 	}
@@ -46,5 +53,17 @@ public class SLogoPen {
 
 	public void setPenSize(double size) {
 		mySize = size;
+	}
+	public void setDottedLine(){
+		myIsDotted = true;
+		myIsDashed = false;
+	}
+	public void setDashedLine(){
+		myIsDashed = true;
+		myIsDotted = false;
+	}
+	public void setSolidLine(){
+		myIsDotted = false;
+		myIsDashed = false;
 	}
 }
