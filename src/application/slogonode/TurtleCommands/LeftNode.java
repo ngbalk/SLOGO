@@ -23,7 +23,7 @@ public class LeftNode extends RotateNode {
 	public List<AbstractAction> evaluate() {
 		List<AbstractAction> actionList = new ArrayList<AbstractAction>();
 		myValue = myChildren.get(0).evaluate().get(0).getValue();
-		AbstractAction action = new RotateAction(-myValue);
+		AbstractAction action = new RotateAction(myValue);
 		actionList.add(action);
 		return actionList;
 	}	
