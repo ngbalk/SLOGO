@@ -8,7 +8,7 @@ package application.slogonode.TurtleCommands;
 import java.util.*;
 
 import application.Actions.AbstractAction;
-import application.Actions.PenAction;
+import application.Actions.DisplayTurtleAction;
 
 public class DisplayTurtleNode extends TurtleCommandsNode {
 		

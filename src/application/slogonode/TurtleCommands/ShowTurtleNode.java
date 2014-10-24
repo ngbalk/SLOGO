@@ -9,7 +9,7 @@ package application.slogonode.TurtleCommands;
 import java.util.*;
 import application.Actions.AbstractAction;
 
-public class ShowTurtleNode extends PenNode {
+public class ShowTurtleNode extends DisplayTurtleNode {
 	
 	public ShowTurtleNode() {
 		myType = "ShowTurtle";
