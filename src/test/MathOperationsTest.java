@@ -31,9 +31,11 @@ public class MathOperationsTest {
 		SLogoNode node = new DifferenceNode();
 		SLogoNode childA = new ConstantNode(10);
 		SLogoNode childB = new ConstantNode(5); 
+		SLogoNode childC = new ConstantNode(2);
 		node.addChild(childA);
 		node.addChild(childB); 
-		assertEquals(5.0, node.evaluate().get(0).getValue(), 0.0);
+		node.addChild(childC);
+		assertEquals(3.0, node.evaluate().get(0).getValue(), 0.0);
 		
 	}
 	@Test
@@ -68,9 +70,11 @@ public class MathOperationsTest {
 		SLogoNode node = new ProductNode();
 		SLogoNode childA = new ConstantNode(10);
 		SLogoNode childB = new ConstantNode(2);
+		SLogoNode childC = new ConstantNode(7);
 		node.addChild(childA);
 		node.addChild(childB);
-		assertEquals(20.0, node.evaluate().get(0).getValue(), 0.0);
+		node.addChild(childC);
+		assertEquals(140.0, node.evaluate().get(0).getValue(), 0.0);
 	}
 	
 	@Test
@@ -114,9 +118,11 @@ public class MathOperationsTest {
 		SLogoNode node = new SumNode();
 		SLogoNode childA = new ConstantNode(10);
 		SLogoNode childB = new ConstantNode(5);
+		SLogoNode childC = new ConstantNode(-3);
 		node.addChild(childA);
 		node.addChild(childB);
-		assertEquals(15.0, node.evaluate().get(0).getValue(), 0.0);
+		node.addChild(childC);
+		assertEquals(12.0, node.evaluate().get(0).getValue(), 0.0);
 	}
 	
 	@Test

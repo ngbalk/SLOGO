@@ -16,7 +16,10 @@ public class ProductNode extends MathOperations {
 
 	@Override
 	public List<AbstractAction> evaluate() {
-		double value = myChildren.get(0).evaluate().get(0).getValue() * myChildren.get(1).evaluate().get(0).getValue();
+		double value = myChildren.get(0).evaluate().get(0).getValue();
+		for (int i = 1; i<myChildren.size(); i++){
+			value = value*myChildren.get(i).evaluate().get(0).getValue();
+		}
 		return createActionList(value);
 	}
 
