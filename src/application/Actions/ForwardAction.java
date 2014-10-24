@@ -19,10 +19,10 @@ public class ForwardAction extends AbstractAction {
 			//I PROMISE I WILL COME UP WITH A BETTER SOLUTION
 			//BUT MAYBE THIS IDEA WILL BE COOL FOR ANIMATING
 			//PROBABLY SHOULDN'T BE IN THE FORWARD ACTION THOUGH
-			if (turtle.getPen().isDashed() && myValue > 30) {
+			if (turtle.getPen().isDashed() && remainder >= 30) {
 				canvas.displayLine(turtle.move(30));
-				remainder -= 20;
-			} else if (turtle.getPen().isDotted() && myValue > 5) {
+				remainder -= 30;
+			} else if (turtle.getPen().isDotted() && remainder >= 5) {
 				canvas.displayLine(turtle.move(5));
 				remainder -= 5;
 			} else {
