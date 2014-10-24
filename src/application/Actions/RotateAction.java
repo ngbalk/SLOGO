@@ -1,6 +1,5 @@
 /**
  *  @author Pranava Raparla
- *  @author Wesley Valentine
  *  Created: October 9th, 2014
  *  Modified: October 23rd, 2014
  */
@@ -21,7 +20,7 @@ public class RotateAction extends AbstractAction {
 	 */
 	@Override
 	public void update(Turtle turt, SLogoCanvas canvas) {
-		turt.rotate(myValue);
+		turt.rotateLeft(myValue);
 	}
 	
 	@Override
