@@ -37,7 +37,6 @@ public class SLogoNodeFactory {
 				System.out.println("This isn't a number: " + nodeName);
 			}
 			// THE LINE BELOW THIS IS THE PROBLEM! the node class is created, but something happens after newInstance that fucks it up
-			System.out.println(nodeName);
 			Class classType = Class.forName("application.slogonode.TurtleCommands."+nodeName+"Node");
 			commandNode = (SLogoNode) classType.newInstance();
 		} catch (Exception e) {

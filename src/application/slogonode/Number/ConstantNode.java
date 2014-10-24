@@ -10,11 +10,7 @@ import java.util.*;
 import application.Actions.*;
 
 public class ConstantNode extends NumberNode {
-	
-	public ConstantNode() {
-		myType = "NUMBER";
-	}
-	
+		
 	public ConstantNode(double value) {
 		super();
 		myValue = value;
@@ -22,8 +18,10 @@ public class ConstantNode extends NumberNode {
 	
 	@Override
 	public List<AbstractAction> evaluate() {
+		System.out.println("ConstantNode evaluating...myvalue=" + myValue);
 		ArrayList<AbstractAction> actionList = new ArrayList<AbstractAction>();
-		actionList.add(new ConstantAction(myValue));
+		AbstractAction newAction = new ConstantAction(myValue);
+		actionList.add(newAction);
 		return actionList;
 	}
 }
