@@ -3,6 +3,7 @@ package application.slogonode.BooleanOperations;
 import java.util.List;
 
 import application.Actions.AbstractAction;
+import application.slogonode.SLogoNode;
 
 public class OrNode extends BooleanOperations{
 
@@ -13,9 +14,11 @@ public class OrNode extends BooleanOperations{
 	@Override
 	public List<AbstractAction> evaluate() {
 		double value = 0;
-		if (myChildren.get(0).evaluate().get(0).getValue() == 1
-				|| myChildren.get(1).evaluate().get(0).getValue() == 1) {
-			value = 1;
+		for (SLogoNode node : myChildren){
+			if (node.evaluate().get(0).getValue() == 1){
+				value = 1;
+				break; 
+			}
 		}
 		return createActionList(value);
 	}
