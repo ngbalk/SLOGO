@@ -66,4 +66,10 @@ public class SLogoPen {
 		myIsDotted = false;
 		myIsDashed = false;
 	}
+	public boolean isDashed(){
+		return myIsDashed;
+	}
+	public boolean isDotted(){
+		return myIsDotted;
+	}
 }
