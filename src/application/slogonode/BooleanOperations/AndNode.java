@@ -2,7 +2,6 @@ package application.slogonode.BooleanOperations;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import application.Actions.AbstractAction;
 import application.Actions.ConstantAction;
 
@@ -22,5 +21,6 @@ public class AndNode extends BooleanOperations {
 		AbstractAction action = new ConstantAction(value);
 		actionList.add(action);
 		return actionList;
+
 	}
 }
