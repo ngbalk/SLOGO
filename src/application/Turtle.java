@@ -70,5 +70,14 @@ public class Turtle extends AbstractTurtle {
 		}
 
 	}
+	
+	public void setX(double x){
+		myXLocation = x;
+		myImage.setX(x);
+	}
+	public void setY(double y){
+		myYLocation = y;
+		myImage.setY(y);
+	}
 
 }

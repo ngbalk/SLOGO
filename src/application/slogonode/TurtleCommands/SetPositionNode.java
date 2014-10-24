@@ -8,6 +8,7 @@ package application.slogonode.TurtleCommands;
 import java.util.*;
 
 import application.Actions.AbstractAction;
+import application.Actions.SetPositionAction;
 import application.Actions.SetTowardsAction;
 import application.slogonode.SLogoNode;
 
