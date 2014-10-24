@@ -5,6 +5,10 @@
  */
 package application.slogonode.MathOperations;
 
+import java.util.List;
+
+import application.Actions.AbstractAction;
+
 public class DifferenceNode extends MathOperations {
 
 	public DifferenceNode() {
@@ -12,8 +16,8 @@ public class DifferenceNode extends MathOperations {
 	}
 
 	@Override
-	public int evaluate() {
-		return myChildren.get(0).evaluate() - myChildren.get(1).evaluate();
+	public List<AbstractAction> evaluate() {
+		return null;
 	}
 
 }
