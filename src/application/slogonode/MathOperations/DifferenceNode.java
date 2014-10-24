@@ -25,5 +25,4 @@ public class DifferenceNode extends MathOperations {
 	public boolean needsMoreChildrenForEvaluation(){
 		return myChildren.size() < 2; 
 	}
-
 }

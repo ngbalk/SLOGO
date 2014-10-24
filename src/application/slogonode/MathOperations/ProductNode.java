@@ -5,6 +5,9 @@
  */
 package application.slogonode.MathOperations;
 
+import java.util.List;
+import application.Actions.AbstractAction;
+
 public class ProductNode extends MathOperations {
 
 	public ProductNode() {
@@ -12,8 +15,13 @@ public class ProductNode extends MathOperations {
 	}
 
 	@Override
-	public int evaluate() {
-		return myChildren.get(0).evaluate() * myChildren.get(1).evaluate();
+	public List<AbstractAction> evaluate() {
+		double value = myChildren.get(0).evaluate().get(0).getValue() * myChildren.get(1).evaluate().get(0).getValue();
+		return createActionList(value);
 	}
 
+	@Override
+	public boolean needsMoreChildrenForEvaluation(){
+		return myChildren.size() < 2; 
+	}
 }

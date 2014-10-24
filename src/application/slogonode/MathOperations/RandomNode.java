@@ -5,7 +5,9 @@
  */
 package application.slogonode.MathOperations;
 
+import java.util.List;
 import java.util.Random;
+import application.Actions.AbstractAction;
 
 public class RandomNode extends MathOperations {
 
@@ -14,9 +16,10 @@ public class RandomNode extends MathOperations {
 	}
 
 	@Override
-	public int evaluate() {
+	public List<AbstractAction> evaluate() {
 		Random rand = new Random();
-		return rand.nextInt(myChildren.get(0).evaluate());
+		double value = rand.nextInt((int)myChildren.get(0).evaluate().get(0).getValue());
+		return createActionList(value); 
 	}
 
 }

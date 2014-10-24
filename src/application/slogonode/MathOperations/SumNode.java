@@ -17,7 +17,6 @@ public class SumNode extends MathOperations {
 	@Override
 	public List<AbstractAction> evaluate() {
 		double value = myChildren.get(0).evaluate().get(0).getValue() + myChildren.get(1).evaluate().get(0).getValue(); 
-		
 		return createActionList(value);
 	}
 
@@ -25,5 +24,4 @@ public class SumNode extends MathOperations {
 	public boolean needsMoreChildrenForEvaluation(){
 		return (myChildren.size() < 2); 
 	}
-	
 }
