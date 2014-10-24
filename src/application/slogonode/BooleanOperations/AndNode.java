@@ -21,6 +21,5 @@ public class AndNode extends BooleanOperations {
 		AbstractAction action = new ConstantAction(value);
 		actionList.add(action);
 		return actionList;
-
 	}
 }
