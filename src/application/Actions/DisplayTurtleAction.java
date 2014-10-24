@@ -14,18 +14,20 @@ public class DisplayTurtleAction extends Action {
 
 	/**
 	 * 
-	 * @param status is 0 for down, 1 for up
+	 * @param status
+	 *            is 0 for down, 1 for up
 	 */
-	public DisplayTurtleAction (double status){
+	public DisplayTurtleAction(double status) {
 		myValue = status;
 		myName = "DisplayTurtle";
 	}
-	
+
 	@Override
 	public void update(Turtle turtle, SLogoCanvas canvas) {
-		if(myValue == 0)
-			turtle.getPen().setPenUp();
-		else
-			turtle.getPen().setPenDown();
+		if (myValue == 0)
+			canvas.display().getChildren().remove(turtle.display());
+		if (myValue == 1) {
+			canvas.display().getChildren().add(turtle.display());
+		}
 	}
 }

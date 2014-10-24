@@ -20,6 +20,7 @@ public class SLogoCanvas{
 	Rectangle myRectangle;
 	GridPane myReferenceGrid;
 	boolean gridLinesVisible = false;
+	
 
 	public SLogoCanvas(double x, double y) {
 		myCanvas = new Canvas(x, y);
