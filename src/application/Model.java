@@ -157,11 +157,10 @@ public class Model {
 		if (currentNode == null)
 			currentNode = nodeToBeAdded;
 		while (currentNode.needsMoreChildrenForEvaluation()) {
-			currentNode.addChild(nodeToBeAdded);
-			if(nodeToBeAdded.needsMoreChildrenForEvaluation())
-				makeListOfSLogoNodeTrees(root, nodeToBeAdded, nodeFactory, remainingInput);
 			if(remainingInput.size() > 0)
 				nodeToBeAdded = nodeFactory.getSLogoNodeFromString(remainingInput.remove(0), myResources);
+			currentNode.addChild(nodeToBeAdded);
+			makeListOfSLogoNodeTrees(root, nodeToBeAdded, nodeFactory, remainingInput);				
 		}
 		List<SLogoNode> listOfSLogoNodeTrees = new ArrayList<SLogoNode>();
 		List<SLogoNode> listOfFollowingSLogoNodeTrees = makeListOfSLogoNodeTrees(null,null,nodeFactory,remainingInput);

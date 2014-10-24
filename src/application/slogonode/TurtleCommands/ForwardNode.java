@@ -21,8 +21,15 @@ public class ForwardNode extends TurtleCommandsNode {
 	@Override
 	public List<AbstractAction> evaluate() {
 		List<AbstractAction> actionList = new ArrayList<AbstractAction>();
+		System.out.println("CHECKPOINT: children - " + myChildren.size());
 		SLogoNode child = myChildren.get(0);
-		List<AbstractAction> constantActionList = child.evaluate();
+		List<AbstractAction> constantActionList = null;
+		try {
+			if(child != null)
+				constantActionList = child.evaluate();
+		} catch (Exception e) {
+			System.out.println("Try catch messed up!");
+		}
 		AbstractAction constantAction = constantActionList.get(0);
 		myValue = constantAction.getValue();
 		AbstractAction action = new ForwardAction(myValue);
