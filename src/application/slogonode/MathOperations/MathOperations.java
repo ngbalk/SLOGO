@@ -5,7 +5,12 @@
  */
 package application.slogonode.MathOperations;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import application.Actions.AbstractAction;
 import application.slogonode.SLogoNode;
+import application.slogonode.Number.ConstantNode;
 
 public abstract class MathOperations extends SLogoNode {
 	
@@ -26,4 +31,10 @@ public abstract class MathOperations extends SLogoNode {
 	public boolean needsMoreChildrenForEvaluation() {
 		return (myChildren.size() < 1);
 	}	
+	
+	public List<AbstractAction> createActionList(double value){
+		List<AbstractAction> actionList = new ArrayList<AbstractAction>();
+		actionList.addAll((new ConstantNode(value)).evaluate());
+		return actionList;
+	}
 }

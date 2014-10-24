@@ -9,6 +9,7 @@ public class AndNode extends BooleanOperations {
 		myOperation = "AND";
 	}
 
+	@Override
 	public List<AbstractAction> evaluate() {
 		double value = 0;
 		if (myChildren.get(0).evaluate().get(0).myValue == 1
