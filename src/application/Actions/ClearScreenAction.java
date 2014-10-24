@@ -9,14 +9,16 @@ import application.SLogoCanvas;
 import application.Turtle;
 import application.Constants.GUIconstants;
 
-public class HomeAction extends Action {
+public class ClearScreenAction extends Action {
 
-	public HomeAction(){
-		myName = "Home";
+	public ClearScreenAction(){
+		myName = "ClearScreen";
 	}
 	
 	@Override
 	public void update(Turtle turtle, SLogoCanvas canvas) {
+		// TODO: entire canvas is cleared instead of just lines...gotta fix that
+		canvas.display().getChildren().clear();
 		turtle.setX(GUIconstants.DEFAULT_TURTLE_X_LOCATION);
 		turtle.setY(GUIconstants.DEFAULT_TURTLE_Y_LOCATION);
 	}
