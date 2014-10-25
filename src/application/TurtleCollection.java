@@ -18,6 +18,18 @@ public class TurtleCollection implements Iterator<Turtle> {
 	
 	public void add(Turtle turtle){
 		myTurtles.add(turtle);
+		turtle.display().setOnMouseClicked(event -> updateMouseClick(turtle));
+	}
+	public void updateMouseClick(Turtle turtle) {
+		if (myTurtles.contains(turtle)){
+			myTurtles.remove(turtle);
+		}else{
+			myTurtles.add(turtle);
+		}
+	}
+
+	public void remove(Turtle turtle){
+		myTurtles.remove(turtle);
 	}
 
 	@Override
@@ -38,6 +50,4 @@ public class TurtleCollection implements Iterator<Turtle> {
 			}
         }
 	}
-	
-	
 }
