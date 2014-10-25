@@ -1,5 +1,6 @@
 package application.GUIfeatures;
 
+import application.Turtle;
 import application.Constants.GUIconstants;
 import static application.View.myResources;
 import javafx.scene.control.Button;
@@ -13,7 +14,8 @@ public class ShowAndHideTurtleButton extends AbstractGUIFeature implements
 		super();
 
 		myButton = new Button();
-		myButton.setText(myResources.getString(GUIconstants.SHOW_TURTLE_BUTTON_TITLE));
+		myButton.setText(myResources
+				.getString(GUIconstants.SHOW_TURTLE_BUTTON_TITLE));
 		myButton.setOnAction(event -> behavior());
 
 		this.getChildren().add(myButton);
@@ -21,29 +23,16 @@ public class ShowAndHideTurtleButton extends AbstractGUIFeature implements
 
 	@Override
 	public void behavior() {
-		if (myController
-				.getActiveWorkspace()
-				.getCanvas()
-				.display()
-				.getChildren()
-				.contains(
-						myController.getActiveWorkspace().getCurrentTurtle()
-								.display())) {
-			myController
-					.getActiveWorkspace()
-					.getCanvas()
-					.display()
-					.getChildren()
-					.remove(myController.getActiveWorkspace()
-							.getCurrentTurtle().display());
-		} else {
-			myController
-					.getActiveWorkspace()
-					.getCanvas()
-					.display()
-					.getChildren()
-					.add(myController.getActiveWorkspace().getCurrentTurtle()
-							.display());
+		for (Turtle turtle : myController.getActiveWorkspace()
+				.getCurrentTurtles().getTurtles()) {
+			if (myController.getActiveWorkspace().getCanvas().display()
+					.getChildren().contains(turtle.display())) {
+				myController.getActiveWorkspace().getCanvas().display()
+						.getChildren().remove(turtle.display());
+			} else {
+				myController.getActiveWorkspace().getCanvas().display()
+						.getChildren().add(turtle.display());
+			}
 		}
 	}
 

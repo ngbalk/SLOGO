@@ -1,6 +1,7 @@
 package application.GUIfeatures;
 
 import static application.View.myResources;
+import application.Turtle;
 import application.Constants.GUIconstants;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -23,8 +24,10 @@ public class DashPenButton extends AbstractGUIFeature implements
 
 	@Override
 	public void behavior() {
-		myController.getActiveWorkspace().getCurrentTurtle().getPen()
-				.setDashedLine();
+		for (Turtle turtle : myController.getActiveWorkspace()
+				.getCurrentTurtles().getTurtles()) {
+			turtle.getPen().setDashedLine();
+		}
 	}
 
 }

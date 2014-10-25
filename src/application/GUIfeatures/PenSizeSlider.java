@@ -5,6 +5,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.HBox;
+import application.Turtle;
 import application.View;
 import application.Constants.GUIconstants;
 import static application.View.myResources;
@@ -35,7 +36,10 @@ public class PenSizeSlider extends AbstractGUIFeature {
 	}
 
 	private void behavior() {
-		myController.getActiveWorkspace().getCurrentTurtle().getPen().setPenSize(mySlider.getValue());
+		for (Turtle turtle : myController.getActiveWorkspace()
+				.getCurrentTurtles().getTurtles()) {
+			turtle.getPen().setPenSize(mySlider.getValue());
+		}
 		
 	}
 

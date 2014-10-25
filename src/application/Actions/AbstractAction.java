@@ -6,16 +6,15 @@
 
 package application.Actions;
 
-import application.AbstractTurtle;
-import application.SLogoCanvas;
 import application.Turtle;
+import application.SLogoCanvas;
 import javafx.geometry.Point2D;
 
 public abstract class AbstractAction {
 	
 	// TODO: Not really sure what to put in this class
 	
-	public AbstractTurtle myDrawer;
+	public Turtle myDrawer;
 	public Point2D nextPoint;
 	public double myValue;
 	public String myName;

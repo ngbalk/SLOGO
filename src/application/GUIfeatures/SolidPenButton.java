@@ -1,5 +1,6 @@
 package application.GUIfeatures;
 
+import application.Turtle;
 import application.Constants.GUIconstants;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
@@ -23,6 +24,9 @@ public class SolidPenButton extends AbstractGUIFeature implements
 
 	@Override
 	public void behavior() {
-		myController.getActiveWorkspace().getCurrentTurtle().getPen().setSolidLine();
+		for (Turtle turtle : myController.getActiveWorkspace()
+				.getCurrentTurtles().getTurtles()) {
+			turtle.getPen().setSolidLine();
+		}
 	}
 }

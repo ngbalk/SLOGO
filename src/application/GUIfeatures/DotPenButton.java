@@ -1,5 +1,6 @@
 package application.GUIfeatures;
 
+import application.Turtle;
 import application.Constants.GUIconstants;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -23,7 +24,9 @@ public class DotPenButton extends AbstractGUIFeature implements
 
 	@Override
 	public void behavior() {
-		myController.getActiveWorkspace().getCurrentTurtle().getPen()
-				.setDottedLine();
+		for (Turtle turtle : myController.getActiveWorkspace()
+				.getCurrentTurtles().getTurtles()) {
+			turtle.getPen().setDottedLine();
+		}
 	}
 }

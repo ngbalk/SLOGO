@@ -6,9 +6,8 @@
  */
 package application.Actions;
 
-import application.AbstractTurtle;
-import application.SLogoCanvas;
 import application.Turtle;
+import application.SLogoCanvas;
 
 public class DisplayTurtleAction extends Action {
 

@@ -6,7 +6,6 @@
  */
 package application.Actions;
 
-import application.AbstractTurtle;
 import application.SLogoCanvas;
 import application.Turtle;
 

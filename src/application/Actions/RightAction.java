@@ -1,6 +1,5 @@
 package application.Actions;
 
-import application.AbstractTurtle;
 import application.SLogoCanvas;
 import application.Turtle;
 
@@ -13,6 +12,6 @@ public class RightAction extends RotateAction {
 	
 	@Override
 	public void update(Turtle turt, SLogoCanvas canvas) {
-		turt.rotateRight(myValue);
+		turt.rotate(-myValue);
 	}
 }

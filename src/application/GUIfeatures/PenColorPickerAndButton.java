@@ -1,6 +1,7 @@
 package application.GUIfeatures;
 
 import javafx.scene.paint.Color;
+import application.Turtle;
 import application.View;
 import application.Constants.GUIconstants;
 import static application.View.myResources;
@@ -14,13 +15,16 @@ public class PenColorPickerAndButton extends ColorPickerAndButton {
 
 	@Override
 	public void behavior() {
-		myController.getActiveWorkspace().getCurrentTurtle().getPen()
-				.setPenColor(myColorPicker.getValue());
+		for (Turtle turtle : myController.getActiveWorkspace()
+				.getCurrentTurtles().getTurtles()) {
+			turtle.getPen().setPenColor(myColorPicker.getValue());
+		}
 	}
 
 	@Override
 	protected void setButtonText() {
-		myButton.setText(myResources.getString(GUIconstants.PEN_COLOR_BUTTON_TITLE));
+		myButton.setText(myResources
+				.getString(GUIconstants.PEN_COLOR_BUTTON_TITLE));
 
 	}
 

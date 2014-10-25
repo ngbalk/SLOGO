@@ -2,7 +2,9 @@ package application.GUIfeatures;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import static application.View.myResources;
+import application.Turtle;
 import application.Actions.AbstractAction;
 import application.Actions.BackwardAction;
 import application.Actions.ForwardAction;
@@ -59,14 +61,16 @@ public class KeyControlFeature extends AbstractGUIFeature implements GUIButtonFe
 					
 				}
 				if(event.getCode() == KeyCode.SHIFT){
-					if(myController.getActiveWorkspace().getCurrentTurtle().isPenDown()){
-						myController.getActiveWorkspace().getCurrentTurtle().penUp();
+					for (Turtle turtle : myController.getActiveWorkspace()
+							.getCurrentTurtles().getTurtles()) {
+					if(turtle.isPenDown()){
+						turtle.penUp();
 					}
 					else{
-						myController.getActiveWorkspace().getCurrentTurtle().penDown();
+						turtle.penDown();
 					}
 				}
-				
+				}
 			}
 		};
 		myController.getView().getScene().addEventHandler(KeyEvent.KEY_PRESSED, keyHandler);
