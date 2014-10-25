@@ -2,7 +2,7 @@ package application.GUIfeatures;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import static application.Controller.myResources;
 import application.Actions.AbstractAction;
 import application.Actions.BackwardAction;
 import application.Actions.ForwardAction;
@@ -22,9 +22,9 @@ public class KeyControlFeature extends AbstractGUIFeature implements GUIButtonFe
 	private Button myButton;
 	public KeyControlFeature(){
 		myContainer = new HBox();
-		myButton = new Button(GUIconstants.DEFAULT_KEY_CONTROLLER_BUTTON_TITLE);
+		myButton = new Button(myResources.getString(GUIconstants.DEFAULT_KEY_CONTROLLER_BUTTON_TITLE));
 		myButton.setOnAction(event -> behavior());
-		myContainer.getChildren().addAll(new Label(GUIconstants.DEFAULT_KEY_CONTROLLER_MESSAGE, myButton));
+		myContainer.getChildren().addAll(new Label(myResources.getString(GUIconstants.DEFAULT_KEY_CONTROLLER_MESSAGE), myButton));
 		this.getChildren().add(myContainer);
 	}
 	

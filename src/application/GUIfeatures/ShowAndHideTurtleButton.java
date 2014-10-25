@@ -1,5 +1,7 @@
 package application.GUIfeatures;
 
+import application.Constants.GUIconstants;
+import static application.Controller.myResources;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 
@@ -11,7 +13,7 @@ public class ShowAndHideTurtleButton extends AbstractGUIFeature implements
 		super();
 
 		myButton = new Button();
-		myButton.setText("Show/Hide Turtle");
+		myButton.setText(myResources.getString(GUIconstants.SHOW_TURTLE_BUTTON_TITLE));
 		myButton.setOnAction(event -> behavior());
 
 		this.getChildren().add(myButton);

@@ -1,23 +1,23 @@
 package application.GUIfeatures;
 
+import application.Constants.GUIconstants;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
+import static application.Controller.myResources;
 
-public class DotPenButton extends AbstractGUIFeature implements GUIButtonFeature {
-	private HBox myContainer;
+public class DotPenButton extends AbstractGUIFeature implements
+		GUIButtonFeature {
 	private Button myButton;
 
 	public DotPenButton() {
 		super();
-		myContainer = new HBox();
 
 		myButton = new Button();
-		myButton.setText("Dotted Pen");
+		myButton.setText(myResources.getString(GUIconstants.DOTTED_PEN_TITLE));
 		myButton.setOnAction(event -> behavior());
 
-		myContainer.getChildren().addAll(myButton);
-		this.getChildren().add(myContainer);
+		this.getChildren().add(myButton);
 
 	}
 

@@ -11,7 +11,7 @@ public final class GUIconstants {
 	public static final String STAGE_TITLE = "SLogo";
 	public static final String ROOT_LAYOUT_FXML_LOCATION = "RootLayout.fxml";
 	public static final String DEFUALT_TURTLE_IMAGE = "default_turtle_edited.png";
-	public static final String DEFAULT_RESOURCE_FILE = "resources.languages/English";
+	public static final String DEFAULT_RESOURCE_FILE = "resources.languages/French";
 	public static final String BACKGROUND_COLOR_BUTTON_TITLE = "backgroundButtonText";
 	public static final String TURTLE_IMAGE_BUTTON_TITLE = "turtleImageButtonText";
 	public static final String ADD_WORKSPACE_BUTTON_TITLE = "addWorkspaceButtonTitle";
@@ -20,6 +20,15 @@ public final class GUIconstants {
 	public static final String PEN_SLIDER_TITLE = "penSliderTitle";
 	public static final String SUBMIT_BUTTON_TITLE = "submitButtonTitle";
 	public static final String TOGGLE_GRID_LINES_BUTTON = "gridLinesButtonTitle";
+	public static final String HELP_PAGE_URL = "helpPageURL";
+	public static final String DASHED_PEN_TITLE = "dashedPenButtonTitle";
+	public static final String DOTTED_PEN_TITLE = "dottedPenButtonTitle";
+	public static final String SOLID_PEN_TITLE = "solidPenButtonTitle";
+	public static final String HELP_PAGE_TITLE = "helpPageTitle";
+	public static final String EMPTY_STRING = "";
+	public static final String NEW_LINE = "\n";
+	public static final String SHOW_TURTLE_BUTTON_TITLE = "showTurtleButtonTitle";
+	
 	public static final int DEFAULT_TURTLE_X_LOCATION = 300;
 	public static final int DEFAULT_TURTLE_Y_LOCATION = 300;
 	public static final int DEFAULT_CANVAS_WIDTH = 600;
@@ -28,10 +37,12 @@ public final class GUIconstants {
 	public static final double DEFAULT_ERROR_WINDOW_WIDTH = 200;
 	public static final double DEFAULT_ERROR_WINDOW_HEIGHT = 200;
 	public static final double DEFAULT_ERROR_MESSAGE_FONT_SIZE = 30;
-	public static final String DEFAULT_KEY_CONTROLLER_BUTTON_TITLE = "Activate Key Controls";
-	public static final String DEFAULT_KEY_CONTROLLER_MESSAGE = "Use W A S D to move, SHIFT to toggle pen up and down";
+	public static final String DEFAULT_KEY_CONTROLLER_BUTTON_TITLE = "keyControllerButtonTitle";
+	public static final String DEFAULT_KEY_CONTROLLER_MESSAGE = "keyControllerMessage";
 	public static final double DEFAULT_MANUAL_TURTLE_MOVE_DISTANCE = 5;
 	public static final double DEFAULT_MANUAL_TURTLE_ROTATE = 5;
+	public static final double PEN_SIZE_SLIDER_MINIMUM_VALUE = 1;
+	public static final double PEN_SIZE_SLIDER_MAXIMUM_VALUE = 100;
 	
 	
 	private GUIconstants() {

@@ -1,24 +1,23 @@
 package application.GUIfeatures;
 
+import application.Constants.GUIconstants;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
+import static application.Controller.myResources;
 
 public class SolidPenButton extends AbstractGUIFeature implements
 		GUIButtonFeature {
 
-	private HBox myContainer;
 	private Button myButton;
 
 	public SolidPenButton() {
 		super();
-		myContainer = new HBox();
 
 		myButton = new Button();
-		myButton.setText("Solid Pen");
+		myButton.setText(myResources.getString(GUIconstants.SOLID_PEN_TITLE));
 		myButton.setOnAction(event -> behavior());
 
-		myContainer.getChildren().addAll(myButton);
-		this.getChildren().add(myContainer);
+		this.getChildren().add(myButton);
 
 	}
 

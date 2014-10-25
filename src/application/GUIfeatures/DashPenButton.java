@@ -8,19 +8,16 @@ import javafx.scene.layout.HBox;
 
 public class DashPenButton extends AbstractGUIFeature implements
 		GUIButtonFeature {
-	private HBox myContainer;
 	private Button myButton;
 
 	public DashPenButton() {
 		super();
-		myContainer = new HBox();
 
 		myButton = new Button();
-		myButton.setText("Dashed Pen");
+		myButton.setText(myResources.getString(GUIconstants.DASHED_PEN_TITLE));
 		myButton.setOnAction(event -> behavior());
 
-		myContainer.getChildren().addAll(myButton);
-		this.getChildren().add(myContainer);
+		this.getChildren().add(myButton);
 
 	}
 

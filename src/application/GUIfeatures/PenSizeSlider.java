@@ -18,8 +18,8 @@ public class PenSizeSlider extends AbstractGUIFeature {
 		myContainer = new HBox();
 		myLabel = new Label();
 		mySlider = new Slider();
-		mySlider.setMin(1);
-		mySlider.setMax(100.0);
+		mySlider.setMin(GUIconstants.PEN_SIZE_SLIDER_MINIMUM_VALUE);
+		mySlider.setMax(GUIconstants.PEN_SIZE_SLIDER_MAXIMUM_VALUE);
 		mySlider.valueProperty().addListener(new ChangeListener<Number>(){
 
 			@Override
