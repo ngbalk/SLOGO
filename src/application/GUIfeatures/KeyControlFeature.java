@@ -54,7 +54,7 @@ public class KeyControlFeature extends AbstractGUIFeature implements GUIButtonFe
 				}
 				if(event.getCode() == KeyCode.S){
 					List<AbstractAction> actionChain = new ArrayList<AbstractAction>();
-					actionChain.add(new BackwardAction(GUIconstants.DEFAULT_MANUAL_TURTLE_MOVE_DISTANCE));
+					actionChain.add(new ForwardAction(-GUIconstants.DEFAULT_MANUAL_TURTLE_MOVE_DISTANCE));
 					updateTurtle(actionChain);
 					
 				}
