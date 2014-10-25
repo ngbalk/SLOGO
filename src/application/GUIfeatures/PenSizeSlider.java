@@ -7,7 +7,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.layout.HBox;
 import application.View;
 import application.Constants.GUIconstants;
-import static application.Controller.myResources;
+import static application.View.myResources;
 
 public class PenSizeSlider extends AbstractGUIFeature {
 	Slider mySlider;

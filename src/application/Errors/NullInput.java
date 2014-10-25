@@ -1,6 +1,6 @@
 package application.Errors;
 
-import static application.Controller.myResources;
+import static application.View.myResources;
 
 import application.Constants.ExceptionConstants;
 

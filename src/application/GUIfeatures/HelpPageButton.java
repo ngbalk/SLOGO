@@ -8,7 +8,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
-import static application.Controller.myResources;
+import static application.View.myResources;
 
 public class HelpPageButton extends AbstractGUIFeature implements
 		GUIButtonFeature {

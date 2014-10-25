@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import application.Actions.AbstractAction;
 import application.Constants.GUIconstants;
@@ -21,6 +22,7 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -32,12 +34,13 @@ public class View {
 	private Controller myController;
 	private Stage myStage;
 	private Scene myScene;
+	public static ResourceBundle myResources;
 
 	public View(Stage stage) throws IOException {
-		this.myModel = new Model();
-		
 		myStage = stage;
-		this.initializeStage();
+		Stage chooseLanguage = new Stage();
+		this.chooseLanguage(chooseLanguage);
+		//this.initializeStage();
 	}
 
 	/**
@@ -73,7 +76,14 @@ public class View {
 	 * 
 	 * @param stage
 	 */
-	private void initializeStage() {
+	private void initializeStage(String language) {
+		myResources = ResourceBundle.getBundle("resources.languages/" + language);
+		try {
+			this.myModel = new Model();
+		} catch (IOException e1) {
+			// TODO Fill in with some error
+			
+		}
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(application.Constants.GUIconstants.ROOT_LAYOUT_FXML_LOCATION));
 	 	Parent root;
 		try {
@@ -90,6 +100,28 @@ public class View {
         this.myStage.setTitle(GUIconstants.STAGE_TITLE);
         this.myStage.setScene(scene);
         this.myStage.show();
+	}
+	public void chooseLanguage(Stage stage){
+		Text message = new Text("Please Choose A Language");
+		message.setLayoutY(20);
+		TextField input = new TextField();
+		input.setLayoutY(50);
+		Button submit = new Button();
+		submit.setLayoutX(200);
+		submit.setLayoutY(50);
+		submit.setText("Submit");
+		submit.setOnAction(event -> submitLanguage(input, stage));
+		Group root = new Group();
+		root.getChildren().addAll(message, input, submit);
+		Scene scene = new Scene(root, 300, 100);
+		stage.setScene(scene);
+		stage.show();
+		
+	}
+	
+	public void submitLanguage(TextField input, Stage stage){
+		this.initializeStage(input.getText());
+		stage.close();
 	}
 	/**
 	 * Return the Model.

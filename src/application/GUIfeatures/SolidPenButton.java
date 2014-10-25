@@ -3,7 +3,7 @@ package application.GUIfeatures;
 import application.Constants.GUIconstants;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
-import static application.Controller.myResources;
+import static application.View.myResources;
 
 public class SolidPenButton extends AbstractGUIFeature implements
 		GUIButtonFeature {

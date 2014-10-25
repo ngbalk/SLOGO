@@ -3,7 +3,7 @@ package application.GUIfeatures;
 import javafx.scene.paint.Color;
 import application.View;
 import application.Constants.GUIconstants;
-import static application.Controller.myResources;
+import static application.View.myResources;
 
 public class PenColorPickerAndButton extends ColorPickerAndButton {
 	View myView;

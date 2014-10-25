@@ -1,5 +1,5 @@
 package application.Errors;
-import static application.Controller.myResources;
+import static application.View.myResources;
 
 public class InvalidLogoSyntax extends SLogoException {
 	public InvalidLogoSyntax() {

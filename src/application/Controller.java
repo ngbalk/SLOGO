@@ -12,7 +12,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 public class Controller implements Initializable {
-	public static final ResourceBundle myResources = ResourceBundle.getBundle(GUIconstants.DEFAULT_RESOURCE_FILE);
 	private View myView;
 	private Model myModel;
 	private List<Workspace> myWorkspaces;

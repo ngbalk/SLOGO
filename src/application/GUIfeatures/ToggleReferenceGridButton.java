@@ -1,6 +1,6 @@
 package application.GUIfeatures;
 
-import static application.Controller.myResources;
+import static application.View.myResources;
 import javafx.scene.control.Button;
 import application.Constants.GUIconstants;
 

@@ -5,7 +5,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
 import application.View;
 import application.Constants.GUIconstants;
-import static application.Controller.myResources;
+import static application.View.myResources;
 
 
 public class ChooseTurtleImageButton extends AbstractGUIFeature implements GUIButtonFeature {

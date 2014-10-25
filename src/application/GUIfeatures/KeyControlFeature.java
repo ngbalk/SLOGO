@@ -2,7 +2,7 @@ package application.GUIfeatures;
 
 import java.util.ArrayList;
 import java.util.List;
-import static application.Controller.myResources;
+import static application.View.myResources;
 import application.Actions.AbstractAction;
 import application.Actions.BackwardAction;
 import application.Actions.ForwardAction;

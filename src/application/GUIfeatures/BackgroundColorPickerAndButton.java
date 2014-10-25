@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
-import static application.Controller.myResources;
+import static application.View.myResources;
 
 public class BackgroundColorPickerAndButton extends ColorPickerAndButton {
 	public BackgroundColorPickerAndButton(){ 

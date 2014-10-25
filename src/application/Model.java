@@ -19,7 +19,7 @@ import application.slogonode.TurtleCommands.*;
 import javafx.collections.ObservableList;
 import javafx.geometry.Point2D;
 
-import static application.Controller.myResources;
+import static application.View.myResources;
 
 public class Model {
 

@@ -3,7 +3,7 @@ package application.GUIfeatures;
 import application.Constants.GUIconstants;
 import javafx.collections.ListChangeListener;
 import javafx.scene.control.TextArea;
-import static application.Controller.myResources;
+import static application.View.myResources;
 
 public class HistoryFeature extends AbstractGUIFeature {
 	private TextArea myText;

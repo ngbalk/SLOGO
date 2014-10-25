@@ -11,7 +11,7 @@ public final class GUIconstants {
 	public static final String STAGE_TITLE = "SLogo";
 	public static final String ROOT_LAYOUT_FXML_LOCATION = "RootLayout.fxml";
 	public static final String DEFUALT_TURTLE_IMAGE = "default_turtle_edited.png";
-	public static final String DEFAULT_RESOURCE_FILE = "resources.languages/French";
+	//public static final String DEFAULT_RESOURCE_FILE = "resources.languages/French";
 	public static final String BACKGROUND_COLOR_BUTTON_TITLE = "backgroundButtonText";
 	public static final String TURTLE_IMAGE_BUTTON_TITLE = "turtleImageButtonText";
 	public static final String ADD_WORKSPACE_BUTTON_TITLE = "addWorkspaceButtonTitle";

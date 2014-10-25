@@ -8,7 +8,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
-import static application.Controller.myResources;
+import static application.View.myResources;
 
 public class NewWorkspaceButton extends AbstractGUIFeature implements GUIButtonFeature {
 	private Button myButton;
