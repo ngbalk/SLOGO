@@ -11,5 +11,4 @@ public abstract class RotateNode extends TurtleCommandsNode {
 		super();
 		myCommand = "Rotate";
 	}
-	
 }
