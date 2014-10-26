@@ -14,8 +14,8 @@ public abstract class SLogoNode {
 	
 	protected double myValue;
 	protected String myType;
-	public List<SLogoNode> myChildren;
-	//public List<AbstractAction> myActions;
+	protected List<SLogoNode> myChildren;
+	protected List<AbstractAction> myActions;
 	
 	public SLogoNode() {
 		super();
