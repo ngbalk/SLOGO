@@ -15,8 +15,8 @@ public abstract class ControlStructuresNode extends SLogoNode{
 		return super.toString() + "Control Structure:" + myCommand;
 	}
 
-	@Override
-	public boolean needsMoreChildrenForEvaluation() {
-		return myChildren.size() < 2;
-	}
+//	@Override
+//	public boolean needsMoreChildrenForEvaluation() {
+//		return myChildren.size() < 2;
+//	}
 }

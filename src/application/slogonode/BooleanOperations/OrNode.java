@@ -14,11 +14,8 @@ public class OrNode extends BooleanOperations{
 	@Override
 	public List<AbstractAction> evaluate() {
 		double value = 0;
-		for (SLogoNode node : myChildren){
-			if (node.evaluate().get(0).getValue() == 1){
-				value = 1;
-				break; 
-			}
+		for (int i = 0; i < myChildren.get(0).getChildren().size() - 1; i ++){
+			
 		}
 		return createActionList(value);
 	}

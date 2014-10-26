@@ -28,10 +28,10 @@ public abstract class BooleanOperations extends SLogoNode{
 		return super.toString() + " Operation:" + myOperation;
 	}
 	
-	@Override
-	public boolean needsMoreChildrenForEvaluation() {
-		return (myChildren.size() < 2);
-	}
+//	@Override
+//	public boolean needsMoreChildrenForEvaluation() {
+//		return (myChildren.size() < 2);
+//	}
 	
 	public List<AbstractAction> createActionList(double value){
 		List<AbstractAction> actionList = new ArrayList<AbstractAction>();

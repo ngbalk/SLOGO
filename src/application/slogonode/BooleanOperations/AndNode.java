@@ -14,10 +14,9 @@ public class AndNode extends BooleanOperations {
 	@Override
 	public List<AbstractAction> evaluate() {
 		double value = 1;
-		for (SLogoNode node : myChildren){
-			if (node.evaluate().get(0).getValue() == 0){
-				value = 0; 
-				break; 
+		for (int i = 0; i < myChildren.get(0).getChildren().size()-1; i++){
+			if (myChildren.get(0).getChildren().get(i).evaluate().get(0).getValue() == 0.0 ){
+				return createActionList(0);
 			}
 		}
 		return createActionList(value);

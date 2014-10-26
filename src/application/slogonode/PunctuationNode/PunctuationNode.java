@@ -19,7 +19,9 @@ public abstract class PunctuationNode extends SLogoNode {
 	
 	@Override
 	public boolean needsMoreChildrenForEvaluation() {
-		return myChildren.get(myChildren.size()-1) instanceof PunctuationNode;
+		if(myChildren.size()>0)
+			return !(myChildren.get(myChildren.size()-1) instanceof PunctuationNode);
+		return true;
 	}
 	
 	@Override
