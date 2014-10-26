@@ -37,7 +37,15 @@ public class SLogoNodeFactory {
 				System.out.println("This isn't a number: " + nodeName);
 			}
 			// THE LINE BELOW THIS IS THE PROBLEM! the node class is created, but something happens after newInstance that fucks it up
-			Class classType = Class.forName("application.slogonode.TurtleCommands."+nodeName+"Node");
+			//List<String> listOfNodeTypes = new ArrayList<String>(Arrays.asList("BooleanOperations", "ControlStructures", "MathOperations", "TurtleCommands", "TurtleQueries"));
+			Class classType = Class.forName("application.slogonode."+".*$"+nodeName+"Node");
+//			for (String nodeType : listOfNodeTypes){
+//				System.out.println("Determinig node type");
+//				if (Class.forName("application.slogonode.*."+nodeName+"Node") != null){
+//					System.out.println("asdsad");
+//					classType = Class.forName("application.slogonode."+nodeType+"."+nodeName+"Node");
+//				}
+//			}
 			commandNode = (SLogoNode) classType.newInstance();
 		} catch (Exception e) {
 			System.out.println("\nERROR! THIS COMMAND DOES NOT EXIST: " + nodeName);
