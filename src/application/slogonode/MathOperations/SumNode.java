@@ -19,7 +19,6 @@ public class SumNode extends TwoChildMathOperationsNode {
 
 	@Override
 	public List<AbstractAction> evaluate() {
-		myValue = myChildren.get(0).evaluate().get(0).getValue();
 		for (int i = 0; i<myChildren.size(); i++){
 			if(myChildren.get(i) instanceof PunctuationNode)
 				continue;
