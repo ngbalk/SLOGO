@@ -92,10 +92,6 @@ public class Model {
 			SLogoNode root = nodeFactory.getSLogoNodeFromString(nextCommand);
 			listOfSLogoNodeTrees.add(root);
 			SLogoNode currentNode = root;
-//			if (nextCommand.substring(0).equals("[")){
-//				System.out.println("Hit begining of list of inputs");
-//				makeTreeGivenList(remainingInput, nodeFactory, currentNode, root);
-//			}
 			if (currentNode.needsMoreChildrenForEvaluation())
 				makeListOfSLogoNodeTreesHelper(root,currentNode,nodeFactory,remainingInput);
 			listOfSLogoNodeTrees.addAll(makeListOfSLogoNodeTrees(nodeFactory,remainingInput));
@@ -124,10 +120,6 @@ public class Model {
 		System.out.println(": " + nextCommand);
 		return nextCommand;
 	}
-
-	public void makeTreeGivenList(List<String> remainingInput, SLogoNodeFactory nodeFactory, SLogoNode currentNode, SLogoNode root){
-		
-	}
 	
 	/**
 	 * Similar to parseInput, but the input String is contained within a File.
@@ -154,21 +146,6 @@ public class Model {
 	}
 
 	/**
-	 * Pass in a workspace and store it in the Model
-	 * 
-	 * @param workspace
-	 */
-
-//	public void storeWorkspace(Workspace workspace) {
-//		for (Workspace wk : workspaces)
-//			if (wk.equals(workspace))
-//				return;
-//			else
-//				workspaces.add(workspace);
-//	}
-
-
-	/**
 	 * If a point on the Canvas is clicked, make the Drawer go to this point.
 	 * Pass in the start location, the end location, and the starting
 	 * orientation and a List of Actions will be returned to correctly complete
@@ -178,7 +155,6 @@ public class Model {
 	 */
 	public List<AbstractAction> handleManualDrawerClickEvent(Point2D start,
 			double orientation, Point2D end) {
-		List<AbstractAction> actionsList = new ArrayList<AbstractAction>();
 		double difX = end.getX() - start.getX();
 		double difY = end.getY() - start.getY();
 		double distToMove = Math.sqrt(Math.pow(difX, 2) + Math.pow(difY, 2));
