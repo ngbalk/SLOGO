@@ -6,15 +6,20 @@
 package application.slogonode.MathOperations;
 
 import application.slogonode.SLogoNode;
+import application.slogonode.PunctuationNode.*;
 
 public abstract class TwoChildMathOperationsNode extends SLogoNode {
 	
 	public TwoChildMathOperationsNode() {
 		super();
+		myMaxPossibleChildren = 2;
 	}
-		
+	
 	@Override
 	public boolean needsMoreChildrenForEvaluation() {
-		return (myChildren.size() < 2);
-	}	
+		if (myChildren.size() > 0)
+			if (myChildren.get(0) instanceof GroupStartNode)
+				return myChildren.get(myChildren.size()-1) instanceof GroupEndNode;
+		return (myChildren.size() < myMaxPossibleChildren);
+	}
 }

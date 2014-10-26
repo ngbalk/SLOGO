@@ -1,28 +1,26 @@
 /**
  *  @author Pranava Raparla
  *  Created: October 4th, 2014
- *  Modified: October 4th, 2014
+ *  Modified: October 26th, 2014
  */
 package application.slogonode.MathOperations;
 
 import java.util.List;
-
 import application.Actions.AbstractAction;
+import application.Actions.ConstantAction;
 
-public class RemainderNode extends MathOperations {
+public class RemainderNode extends MathOperationsNode {
 
 	public RemainderNode() {
-		myOperation = "REMAINDER";
+		super();
+		myMaxPossibleChildren = 2;
+		myType = "Remainder";
 	}
 
 	@Override
 	public List<AbstractAction> evaluate() {
-		double value = myChildren.get(0).evaluate().get(0).getValue() % myChildren.get(1).evaluate().get(0).getValue();
-		return createActionList(value);
-	}
-
-	@Override
-	public boolean needsMoreChildrenForEvaluation(){
-		return myChildren.size() < 2; 
+		myValue = myChildren.get(0).evaluate().get(0).getValue() % myChildren.get(1).evaluate().get(0).getValue();
+		myActions.add(new ConstantAction(myValue));
+		return myActions;
 	}
 }

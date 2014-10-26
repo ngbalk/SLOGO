@@ -2,7 +2,7 @@
  *  @author Pranava Raparla
  *  @author Monica Choe
  *  Created: October 4th, 2014
- *  Modified: October 23rd, 2014
+ *  Modified: October 26th, 2014
  */
 
 package application;
@@ -20,14 +20,20 @@ import javafx.geometry.Point2D;
 import static application.View.myResources;
 
 public class Model {
-	private List<Workspace> myWorkspaces =  new ArrayList<Workspace>();;
-	private Workspace myActiveWorkspace = new Workspace();
-
+	private List<Workspace> myWorkspaces;
+	private Workspace myActiveWorkspace;
 	public Map<String, String> myCommands;
+	public Map<String, String> myVariables;
+	
 	public Model() throws IOException {
-		System.out.println("Starting constructor");
+		System.out.println("Model Created");
+		myActiveWorkspace = new Workspace();
+		myWorkspaces =  new ArrayList<Workspace>();
+		myVariables = new HashMap<String, String>();
+		myVariables.put("slogo", "100");
+		System.out.println(myVariables);
 		PropertiesFactory factory = new PropertiesFactory();
-		System.out.println("Initialized Factory");
+		
 		try {
 			myCommands = factory.getCommandsMap(myResources);
 			System.out.println("Factory loaded");
@@ -45,80 +51,6 @@ public class Model {
 	public void setActiveWorkspace(Workspace workspace){
 		myActiveWorkspace = workspace;
 	}
-	
-	// TODO: deprecated, must delete
-	public void loadCommandsbyLanguage2(String fileName) {
-		Properties languageProperties = new Properties();
-		Scanner myScanner = null;
-		try {
-			System.out.println("Loading another language");
-			InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
-			languageProperties.load(inputStream);
-			myScanner = new Scanner(new File(fileName));
-			System.out.println(myScanner);
-			while (myScanner.hasNextLine()) {
-				String str = myScanner.nextLine();
-				System.out.println("Current string: " + str);
-				if (str.substring(0, 1).equalsIgnoreCase("#"))
-					continue;
-				else if (str.startsWith("\\s+"))
-					continue;
-				else {
-					System.out.println("Adding?");
-					String keyword = myScanner.next() + "Node";
-					String equalsSign = myScanner.next();
-					String commandReference1 = myScanner.next();
-					String commandReference2 = myScanner.next();
-					myCommands.put(commandReference1, keyword);
-					myCommands.put(commandReference2, keyword);
-				}
-			}
-			System.out.println("Done loading new language");
-		} catch (Exception e) {
-			System.out.println("Error occured in loading a new language");
-		} finally {
-			if (myScanner != null)
-				myScanner.close();
-		}
-	}
-
-	
-	// TODO: deprecated, must delete
-	public void loadCommandsbyLanguage3(String fileName) {
-		Properties languageProperties = new Properties();
-		Scanner myScanner = null;
-		try {
-			System.out.println("Loading another language");
-			InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
-			languageProperties.load(inputStream);
-			myScanner = new Scanner(new File(fileName));
-			System.out.println(myScanner);
-			while (myScanner.hasNextLine()) {
-				String str = myScanner.nextLine();
-				System.out.println("Current string: " + str);
-				if (str.substring(0, 1).equalsIgnoreCase("#"))
-					continue;
-				else if (str.startsWith("//s+"))
-					continue;
-				else {
-					System.out.println("Adding?");
-					String keyword = myScanner.next() + "Node";
-					String equalsSign = myScanner.next();
-					String commandReference1 = myScanner.next();
-					String commandReference2 = myScanner.next();
-					myCommands.put(commandReference1, keyword);
-					myCommands.put(commandReference2, keyword);
-				}
-			}
-			System.out.println("Done loading new language");
-		} catch (Exception e) {
-			System.out.println("Error occured in loading a new language");
-		} finally {
-			if (myScanner != null)
-				myScanner.close();
-		}
-	}
-
 	
 	/**
 	 * pass parseInput the input string, and parseInput will return a List of
@@ -156,8 +88,8 @@ public class Model {
 	public List<SLogoNode> makeListOfSLogoNodeTrees(SLogoNodeFactory nodeFactory, List<String> remainingInput) {
 		List<SLogoNode> listOfSLogoNodeTrees = new ArrayList<SLogoNode>();
 		if (remainingInput.size() > 0) {
-			String nextCommand = myCommands.get(remainingInput.remove(0));
-			SLogoNode root = nodeFactory.getSLogoNodeFromString(nextCommand,myResources);
+			String nextCommand = convertInputToCommandOrVariable(remainingInput.remove(0));
+			SLogoNode root = nodeFactory.getSLogoNodeFromString(nextCommand);
 			listOfSLogoNodeTrees.add(root);
 			SLogoNode currentNode = root;
 //			if (nextCommand.substring(0).equals("[")){
@@ -175,55 +107,28 @@ public class Model {
 			return;
 		while (currentNode.needsMoreChildrenForEvaluation() && remainingInput.size() > 0) {
 			SLogoNode nodeToBeAdded = null;
-			if(remainingInput.size() > 0)
-				nodeToBeAdded = nodeFactory.getSLogoNodeFromString(remainingInput.remove(0), myResources);
-			else break;
+			nodeToBeAdded = nodeFactory.getSLogoNodeFromString(convertInputToCommandOrVariable(remainingInput.remove(0)));
 			currentNode.addChild(nodeToBeAdded);
 			makeListOfSLogoNodeTreesHelper(root, nodeToBeAdded, nodeFactory, remainingInput);				
 		}
+	}
+	
+	public String convertInputToCommandOrVariable(String nextCommand) {
+		System.out.print("YOYOYO: " + nextCommand);
+		if(myCommands.containsKey(nextCommand))
+			nextCommand = myCommands.get(nextCommand);
+		else if(myVariables.containsKey(nextCommand))
+			nextCommand = myVariables.get(nextCommand);
+		else
+			System.out.println("Nope!"); //TODO: GOTO ERROR PAGE!!
+		System.out.println(": " + nextCommand);
+		return nextCommand;
 	}
 
 	public void makeTreeGivenList(List<String> remainingInput, SLogoNodeFactory nodeFactory, SLogoNode currentNode, SLogoNode root){
 		
 	}
 	
-	// TODO: deprecated, must delete
-//	public List<AbstractAction> parseInput2(String inputString) {
-//		List<AbstractAction> listOfActions = new ArrayList<AbstractAction>();
-//		SLogoNode root = null;
-//		String[] inputStringArray = inputString.split("\\s+");
-//		SLogoNodeFactory nodeFactory = new SLogoNodeFactory();
-//		
-//		System.out.println("Input String: " + inputString);
-//		System.out.println("Split input: " + inputStringArray);
-//		System.out.println("My Commands: " + myCommands);
-//		if(inputString.isEmpty())
-//			return listOfActions;
-//
-//		for(String str : inputStringArray) {
-//			System.out.println("\tSTR: " + str);
-//			String command = myCommands.get(str);
-//			SLogoNode node = null;
-//			if(command == null)
-//				node = nodeFactory.getSLogoNodeFromString(str);
-//			else
-//				node = nodeFactory.getSLogoNodeFromString(command);
-//			
-//			System.out.println("Node: " + node);
-//			if(root == null)
-//				root = node;
-//			else
-//				root.addChild(node);
-//			
-//			node.setActionList(listOfActions);
-//		}
-//		
-//		System.out.println("Root: " + root);
-//		int result = root.evaluate();
-//		System.out.println("Action List: " + listOfActions);
-//		return listOfActions;
-//	}
-
 	/**
 	 * Similar to parseInput, but the input String is contained within a File.
 	 * Parse accordingly, and and return a List of AbstractActions. We will have

@@ -14,6 +14,7 @@ import application.slogonode.SLogoNode;
 public class SetPaletteNode extends DisplayCommandsNode {
 	
 	public SetPaletteNode() {
+		super();
 		myType = "SetPalette";
 	}
 	

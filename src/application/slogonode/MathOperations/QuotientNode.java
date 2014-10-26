@@ -1,27 +1,31 @@
 /**
  *  @author Pranava Raparla
  *  Created: October 4th, 2014
- *  Modified: October 4th, 2014
+ *  Modified: October 26th, 2014
  */
 package application.slogonode.MathOperations;
 
-import java.util.List;
+import java.util.*;
 import application.Actions.AbstractAction;
+import application.Actions.ConstantAction;
+import application.slogonode.PunctuationNode.PunctuationNode;
 
-public class QuotientNode extends MathOperations {
+public class QuotientNode extends TwoChildMathOperationsNode {
 
 	public QuotientNode() {
-		myOperation = "QUOTIENT";
+		super();
+		myType = "Quotient";
 	}
 
 	@Override
 	public List<AbstractAction> evaluate() {
-		double value = myChildren.get(0).evaluate().get(0).getValue() / myChildren.get(1).evaluate().get(0).getValue();
-		return createActionList(value);
-	}
-	
-	@Override
-	public boolean needsMoreChildrenForEvaluation(){
-		return myChildren.size() < 2; 
+		myValue = myChildren.get(0).evaluate().get(0).getValue();
+		for (int i = 0; i<myChildren.size(); i++){
+			if(myChildren.get(i) instanceof PunctuationNode)
+				continue;
+			myValue /= myChildren.get(i).evaluate().get(0).getValue();
+		}
+		myActions.add(new ConstantAction(myValue));
+		return myActions;
 	}
 }

@@ -6,6 +6,11 @@
 
 package application.slogonode.DisplayCommands;
 
+import java.util.List;
+
+import application.Actions.AbstractAction;
+import application.Actions.SetPenSizeAction;
+
 public class SetPenSizeNode extends SetIndexNode {
 	
 	public SetPenSizeNode() {
@@ -14,7 +19,8 @@ public class SetPenSizeNode extends SetIndexNode {
 	
 	@Override
 	public List<AbstractAction> evaluate() {
-		myActions.add(new PenSizeAction(myChildren.get(0).evaluate().get(0).getValue()));
+		myValue = myChildren.get(0).evaluate().get(0).getValue();
+		myActions.add(new SetPenSizeAction(myValue));
 		return myActions;
 	}
 }

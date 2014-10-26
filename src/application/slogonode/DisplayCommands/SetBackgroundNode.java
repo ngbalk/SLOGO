@@ -9,16 +9,19 @@ package application.slogonode.DisplayCommands;
 import java.util.List;
 
 import application.Actions.AbstractAction;
+import application.Actions.SetBackgroundAction;
 
 public class SetBackgroundNode extends SetIndexNode {
 	
 	public SetBackgroundNode() {
+		super();
 		myType = "SetBackground";
 	}
 	
 	@Override
 	public List<AbstractAction> evaluate() {
-		myActions = super.evaluate();
+		myValue = myChildren.get(0).evaluate().get(0).getValue();
+		myActions.add(new SetBackgroundAction(myValue));
 		return myActions;
 	}
 }

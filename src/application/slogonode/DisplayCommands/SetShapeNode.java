@@ -1,25 +1,25 @@
 /**
  *  @author Pranava Raparla
  *  Created: October 24th, 2014
- *  Modified: October 24th, 2014
+ *  Modified: October 26th, 2014
  */
 
 package application.slogonode.DisplayCommands;
 
 import java.util.*;
-
 import application.Actions.AbstractAction;
-import application.slogonode.SLogoNode;
 
 public class SetShapeNode extends SetIndexNode {
 	
 	public SetShapeNode() {
-		myType = "SetShapeColor";
+		super();
+		myType = "SetShape";
 	}
 	
 	@Override
 	public List<AbstractAction> evaluate() {
-		// TODO: Implement this method!
-		return null;
+		myValue = myChildren.get(0).evaluate().get(0).getValue();
+		myActions.add(new SetShapeAction(myValue));
+		return myActions;
 	}
 }

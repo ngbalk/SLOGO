@@ -10,6 +10,7 @@ import java.util.List;
 import application.Actions.AbstractAction;
 import application.Actions.BackwardAction;
 import application.Actions.ForwardAction;
+import application.Actions.RotateAction;
 
 public class BackwardNode extends TurtleCommandsNode {
 	
@@ -20,7 +21,8 @@ public class BackwardNode extends TurtleCommandsNode {
 
 	@Override
 	public List<AbstractAction> evaluate() {
-		myActions.add(new ForwardAction(-1*myChildren.get(0).evaluate().get(0).getValue()));
+		myValue = myChildren.get(0).evaluate().get(0).getValue();
+		myActions.add(new RotateAction(myValue));
 		return myActions;
 	}
 }

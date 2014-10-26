@@ -1,30 +1,31 @@
 /**
  *  @author Pranava Raparla
  *  Created: October 3rd, 2014
- *  Modified: October 3rd, 2014
+ *  Modified: October 26th, 2014
  */
 package application.slogonode.MathOperations;
 
-import java.util.List;
+import java.util.*;
 import application.Actions.AbstractAction;
+import application.Actions.ConstantAction;
+import application.slogonode.PunctuationNode.PunctuationNode;
 
-public class SumNode extends MathOperations {
+public class SumNode extends TwoChildMathOperationsNode {
 
 	public SumNode() {
-		myOperation = "SUM";
+		super();
+		myType = "Sum";
 	}
 
 	@Override
 	public List<AbstractAction> evaluate() {
-		double value = myChildren.get(0).evaluate().get(0).getValue();
-		for (int i = 1; i<myChildren.size(); i++){
-			value += myChildren.get(i).evaluate().get(0).getValue();
+		myValue = myChildren.get(0).evaluate().get(0).getValue();
+		for (int i = 0; i<myChildren.size(); i++){
+			if(myChildren.get(i) instanceof PunctuationNode)
+				continue;
+			myValue += myChildren.get(i).evaluate().get(0).getValue();
 		}
-		return createActionList(value);
-	}
-
-	@Override
-	public boolean needsMoreChildrenForEvaluation(){
-		return (myChildren.size() < 2); 
+		myActions.add(new ConstantAction(myValue));
+		return myActions;
 	}
 }

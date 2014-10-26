@@ -5,15 +5,15 @@
  */
 package application.slogonode.PunctuationNode;
 
-public abstract class RightBracketNode extends BracketNode {
+public abstract class GroupNode extends PunctuationNode {
 	
-	public RightBracketNode() {
+	public GroupNode() {
 		super();
-		myType = "RightBracket";
+		myType = "Parentheses";
 	}
 	
 	@Override
 	public boolean needsMoreChildrenForEvaluation() {
-		return false;
+		return myChildren.get(myChildren.size()-1) instanceof GroupNode;
 	}
 }
