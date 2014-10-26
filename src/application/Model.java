@@ -30,7 +30,7 @@ public class Model {
 		myActiveWorkspace = new Workspace();
 		myWorkspaces =  new ArrayList<Workspace>();
 		myVariables = new HashMap<String, String>();
-		myVariables.put("slogo", "100");
+		myVariables.put(":slogo", "100");
 		System.out.println(myVariables);
 		PropertiesFactory factory = new PropertiesFactory();
 		
@@ -110,18 +110,12 @@ public class Model {
 	}
 	
 	public String convertInputToCommandOrVariable(String nextCommand) {
-		System.out.print("YOYOYO: " + nextCommand);
-		if(myCommands.containsKey(nextCommand)){
-			System.out.println("YAY! IT CONTAINS THE KEY!");
-			System.out.println("Previos: " + nextCommand);
+		if(myCommands.containsKey(nextCommand))
 			nextCommand = myCommands.get(nextCommand);
-			System.out.println("FINAL: " + nextCommand);
-		}
 		else if(myVariables.containsKey(nextCommand))
 			nextCommand = myVariables.get(nextCommand);
 		else
-			System.out.println("Nope!"); //TODO: GOTO ERROR PAGE!!
-		System.out.println(": " + nextCommand);
+			return nextCommand; //TODO: GOTO ERROR PAGE!!
 		return nextCommand;
 	}
 	
