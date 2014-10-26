@@ -5,7 +5,7 @@
  */
 package application.slogonode.PunctuationNode;
 
-public abstract class GroupStartNode extends GroupNode {
+public class GroupStartNode extends GroupNode {
 	
 	public GroupStartNode() {
 		super();

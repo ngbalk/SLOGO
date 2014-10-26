@@ -5,7 +5,7 @@
  */
 package application.slogonode.PunctuationNode;
 
-public abstract class ListEndNode extends ListNode {
+public class ListEndNode extends ListNode {
 	
 	public ListEndNode() {
 		super();

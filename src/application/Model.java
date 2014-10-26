@@ -111,8 +111,12 @@ public class Model {
 	
 	public String convertInputToCommandOrVariable(String nextCommand) {
 		System.out.print("YOYOYO: " + nextCommand);
-		if(myCommands.containsKey(nextCommand))
+		if(myCommands.containsKey(nextCommand)){
+			System.out.println("YAY! IT CONTAINS THE KEY!");
+			System.out.println("Previos: " + nextCommand);
 			nextCommand = myCommands.get(nextCommand);
+			System.out.println("FINAL: " + nextCommand);
+		}
 		else if(myVariables.containsKey(nextCommand))
 			nextCommand = myVariables.get(nextCommand);
 		else
