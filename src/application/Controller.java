@@ -12,10 +12,22 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+/**
+ * Controller handles all actions for GUI Features, parses the FXML, and
+ * transfers information between the Model and View.
+ * 
+ * @author Wesley Valentine
+ * @author Nick Balkisoon
+ *
+ */
 public class Controller implements Initializable {
 	private View myView;
 	private Model myModel;
 
+	/**
+	 * Each @FXML declaration defines a GenericGUIFeature object for FXML,
+	 * allowing the classes to be parsed using an FXMLLoader
+	 */
 	@FXML
 	private NewWorkspaceButton myNewWorkspaceButton = new NewWorkspaceButton();
 	@FXML
@@ -51,6 +63,11 @@ public class Controller implements Initializable {
 	@FXML
 	SLogoFileOpener myFileOpener = new SLogoFileOpener();
 
+	
+	/**
+	 * Generate all of the GUI Features and pass them this Controller, allowing
+	 * the Controller to handle all information to be passed through the GUI
+	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		try {

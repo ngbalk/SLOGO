@@ -128,6 +128,10 @@ public class SLogoCanvas {
 		myRectangle.setFill(color);
 	}
 
+	/**
+	 * set default color palette that is accessible by SLogo code
+	 * @return
+	 */
 	public List<Color> setDefaultColors() {
 		Color[] colors = new Color[] { Color.RED, Color.ORANGE, Color.YELLOW,
 				Color.GREEN, Color.BLUE, Color.INDIGO, Color.VIOLET,
