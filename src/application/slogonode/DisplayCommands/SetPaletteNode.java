@@ -3,7 +3,6 @@
  *  Created: October 24th, 2014
  *  Modified: October 26th, 2014
  */
-
 package application.slogonode.DisplayCommands;
 
 import java.util.*;
@@ -19,7 +18,11 @@ public class SetPaletteNode extends DisplayCommandsNode {
 	
 	@Override
 	public List<AbstractAction> evaluate() {
-		// TODO: Implement this method!
+		myValue = myChildren.get(0).evaluate().get(0).getValue();
+		double r = myChildren.get(1).evaluate().get(0).getValue();
+		double g = myChildren.get(2).evaluate().get(0).getValue();
+		double b = myChildren.get(3).evaluate().get(0).getValue();
+		myActions.add(new SetPaletteAction(myValue,r,g,b));
 		return myActions;
 	}
 }
