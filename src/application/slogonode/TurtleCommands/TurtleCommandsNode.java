@@ -9,16 +9,9 @@ import application.slogonode.SLogoNode;
 
 public abstract class TurtleCommandsNode extends SLogoNode {
 	
-	protected String myCommand;
-	
 	public TurtleCommandsNode() {
 		super();
 		myMaxPossibleChildren = 1;
 		myType = "TurtleCommands";
-	}
-	
-	@Override
-	public String toString() {
-		return super.toString() + " Turtle Command:" + myCommand;
 	}
 }

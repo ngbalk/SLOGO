@@ -14,7 +14,7 @@ public class ForwardNode extends TurtleCommandsNode {
 	
 	public ForwardNode() {
 		super();
-		myCommand = "MoveForward";
+		myType = "MoveForward";
 	}
 	
 	@Override
