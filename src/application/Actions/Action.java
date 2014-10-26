@@ -1,3 +1,9 @@
+/**
+ *  @author Pranava Raparla
+ *  Created: October 4th, 2014
+ *  Modified: October 26th, 2014
+ */
+
 package application.Actions;
 
 import application.SLogoCanvas;

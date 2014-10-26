@@ -20,5 +20,4 @@ public class SetHeadingAction extends Action {
 	public void update(Turtle turtle, SLogoCanvas canvas) {
 		turtle.setDirection(myValue);
 	}
-
 }

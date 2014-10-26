@@ -22,5 +22,4 @@ public class SetPositionAction extends Action {
 		turtle.setX(myPoint.getX());
 		turtle.setY(myPoint.getY());
 	}
-
 }
