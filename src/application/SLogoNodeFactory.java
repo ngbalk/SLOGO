@@ -36,20 +36,18 @@ public class SLogoNodeFactory {
 				ResourceBundle classBundle = ResourceBundle.getBundle(GUIconstants.RESOURCE_FILE_PREFIX+"ClassType");
 				PropertiesFactory fact = new PropertiesFactory();
 				map = fact.getCommandsMap(classBundle);
-				
+				Class classType = Class.forName(map.get(nodeName));
+				commandNode = (SLogoNode) classType.newInstance();
 			}
 //			ResourceBundle classBundle = ResourceBundle.getBundle(GUIconstants.RESOURCE_FILE_PREFIX+"ClassType");
 //			PropertiesFactory fact = new PropertiesFactory();
 //			Map<String, String> map = new HashMap<String, String>();
 //			map = fact.getCommandsMap(classBundle);
-			Class classType = Class.forName(map.get(nodeName));
-			commandNode = (SLogoNode) classType.newInstance();
 		} catch (Exception e) {
 			System.out.println("\nERROR! THIS COMMAND DOES NOT EXIST: " + nodeName);
 		} finally {
 			// TODO: SEND TO ERROR PAGE IF NULL!!!!
-			if (commandNode == null)
-				commandNode = new ForwardNode();
+			System.out.println("ERROR! THIS COMMAND DOES NOT EXIST");
 		}
 		System.out.println("\nReturning a node: " + nodeName + ", " + commandNode + "\n");
 		return commandNode;
