@@ -10,6 +10,7 @@ import java.util.*;
 
 import application.Actions.AbstractAction;
 import application.Actions.SetBackgroundAction;
+import application.Actions.SetPenColorAction;
 
 public class PenColorNode extends DisplayCommandsNode {
 	
@@ -20,7 +21,7 @@ public class PenColorNode extends DisplayCommandsNode {
 	
 	@Override
 	public List<AbstractAction> evaluate() {
-		myActions.add(new PenColorAction(myValue));
+		myActions.add(new SetPenColorAction(myValue));
 		return myActions;
 	}
 }

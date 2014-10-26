@@ -25,7 +25,7 @@ public class SLogoNodeFactory {
 			try {
 				commandNode = getConstantSLogoNode(nodeName);
 			} catch (Exception e) {
-				Class classType = Class.forName("application.slogonode.TurtleCommands." + nodeName + "Node");
+				Class classType = Class.forName("application.slogonode.DisplayCommands." + nodeName + "Node");
 				commandNode = (SLogoNode) classType.newInstance();
 			}
 		} catch (Exception e) {

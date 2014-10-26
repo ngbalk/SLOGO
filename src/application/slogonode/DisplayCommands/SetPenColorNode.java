@@ -10,6 +10,7 @@ import java.util.List;
 
 import application.Actions.AbstractAction;
 import application.Actions.SetBackgroundAction;
+import application.Actions.SetPenColorAction;
 
 public class SetPenColorNode extends SetIndexNode {
 	
