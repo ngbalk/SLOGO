@@ -10,7 +10,8 @@ public final class GUIconstants {
 	
 	public static final String STAGE_TITLE = "SLogo";
 	public static final String ROOT_LAYOUT_FXML_LOCATION = "RootLayout.fxml";
-	public static final String DEFUALT_TURTLE_IMAGE = "default_turtle_edited.png";
+	public static final String DEFAULT_TURTLE_IMAGE = "final_turtle.png";
+	public static final String HIGHLIGHTED_TURTLE_IMAGE = "highlighted_turtle.png";
 	//public static final String DEFAULT_RESOURCE_FILE = "resources.languages/French";
 	public static final String BACKGROUND_COLOR_BUTTON_TITLE = "backgroundButtonText";
 	public static final String TURTLE_IMAGE_BUTTON_TITLE = "turtleImageButtonText";
@@ -28,6 +29,7 @@ public final class GUIconstants {
 	public static final String EMPTY_STRING = "";
 	public static final String NEW_LINE = "\n";
 	public static final String SHOW_TURTLE_BUTTON_TITLE = "showTurtleButtonTitle";
+	public static final String ADD_TURTLE_TITLE = "addTurtleTitle";
 	
 	public static final int DEFAULT_TURTLE_X_LOCATION = 300;
 	public static final int DEFAULT_TURTLE_Y_LOCATION = 300;

@@ -3,6 +3,9 @@ package application;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import application.Workspace;
+
+import application.Constants.GUIconstants;
 
 public class TurtleCollection implements Iterator<Turtle> {
 	private List<Turtle> myTurtles;
@@ -23,8 +26,11 @@ public class TurtleCollection implements Iterator<Turtle> {
 	public void updateMouseClick(Turtle turtle) {
 		if (myTurtles.contains(turtle)){
 			myTurtles.remove(turtle);
+			turtle.setImage(GUIconstants.DEFAULT_TURTLE_IMAGE);
+			//IMAGE ISNT UPDATING TRY TO FIX THIS
 		}else{
 			myTurtles.add(turtle);
+			turtle.setImage(GUIconstants.HIGHLIGHTED_TURTLE_IMAGE);
 		}
 	}
 

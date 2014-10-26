@@ -16,7 +16,7 @@
 
 <BorderPane id="background" prefWidth="1000.0" prefHeight="1000.0" xmlns:fx="http://javafx.com/fxml" fx:controller="application.Controller">
     <top>
-        <NewWorkspaceButton fx:id="myNewWorkspaceButton" style="-fx-base: Blue" styleClass="first"/>         
+        <NewWorkspaceButton fx:id="myNewWorkspaceButton" style="-fx-base: Blue" styleClass="first"/>        
     </top>
     <center>
         <Pane prefWidth="600.0">
@@ -30,6 +30,7 @@
                 <BackgroundColorPickerAndButton fx:id="myBackgroundColorPickerAndButton"/>
                 <PenColorPickerAndButton fx:id="myPenColorPickerAndButton"/>
                 <ToggleReferenceGridButton fx:id="myToggleReferenceGrid"/>
+                <AddTurtleToWorkspaceButton fx:id="myAddTurtleButton"/> 
                 <SolidPenButton fx:id="mySolidPenButton"/>
                 <DashPenButton fx:id="myDashPenButton"/>
                 <DotPenButton fx:id="myDotPenButton"/>
