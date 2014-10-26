@@ -9,9 +9,13 @@ package application.slogonode.DisplayCommands;
 import java.util.*;
 
 import application.Actions.AbstractAction;
-import application.slogonode.SLogoNode;
 
-public abstract class SetColorNode extends DisplayCommandsNode {
+public abstract class SetIndexNode extends DisplayCommandsNode {
+	
+	public SetIndexNode() {
+		super();
+		myMaxPossibleChildren = 1;
+	}
 	
 	@Override
 	public List<AbstractAction> evaluate() {

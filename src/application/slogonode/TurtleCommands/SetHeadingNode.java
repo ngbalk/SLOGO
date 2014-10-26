@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import application.Actions.AbstractAction;
-import application.Actions.PenAction;
+import application.Actions.PenUpDownAction;
 import application.Actions.SetHeadingAction;
 import application.slogonode.SLogoNode;
 

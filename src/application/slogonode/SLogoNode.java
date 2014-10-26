@@ -15,12 +15,14 @@ public abstract class SLogoNode {
 	protected double myValue;
 	protected String myType;
 	protected List<SLogoNode> myChildren;
+	protected int myMaxPossibleChildren;
 	protected List<AbstractAction> myActions;
 	
 	public SLogoNode() {
 		super();
 		myChildren = new ArrayList<SLogoNode>();
-		//myActions = new ArrayList<AbstractAction>();
+		myMaxPossibleChildren = 0;
+		myActions = new ArrayList<AbstractAction>();
 	}
 	
 	public SLogoNode(List<AbstractAction> actions) {
@@ -43,7 +45,9 @@ public abstract class SLogoNode {
 	 * 
 	 * @return
 	 */
-	public abstract boolean needsMoreChildrenForEvaluation();
+	public boolean needsMoreChildrenForEvaluation() {
+		return myChildren.size() < myMaxPossibleChildren;
+	}
 	
 	/**
 	 * 

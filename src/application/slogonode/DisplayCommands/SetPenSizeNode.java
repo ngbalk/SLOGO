@@ -1,17 +1,12 @@
 /**
  *  @author Pranava Raparla
  *  Created: October 24th, 2014
- *  Modified: October 24th, 2014
+ *  Modified: October 26th, 2014
  */
 
 package application.slogonode.DisplayCommands;
 
-import java.util.*;
-
-import application.Actions.AbstractAction;
-import application.slogonode.SLogoNode;
-
-public class SetPenSizeNode extends DisplayCommandsNode {
+public class SetPenSizeNode extends SetIndexNode {
 	
 	public SetPenSizeNode() {
 		myType = "SetSizeColor";
@@ -19,7 +14,7 @@ public class SetPenSizeNode extends DisplayCommandsNode {
 	
 	@Override
 	public List<AbstractAction> evaluate() {
-		// TODO: Implement this method!
-		return null;
+		myActions.add(new PenSizeAction(myChildren.get(0).evaluate().get(0).getValue()));
+		return myActions;
 	}
 }

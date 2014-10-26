@@ -14,6 +14,7 @@ import application.slogonode.SLogoNode;
 public abstract class DisplayCommandsNode extends SLogoNode {
 	
 	public DisplayCommandsNode() {
+		super();
 		myType = "DisplayCommands";
 	}
 	

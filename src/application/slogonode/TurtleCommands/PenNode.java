@@ -9,7 +9,7 @@ package application.slogonode.TurtleCommands;
 import java.util.*;
 
 import application.Actions.AbstractAction;
-import application.Actions.PenAction;
+import application.Actions.PenUpDownAction;
 
 public class PenNode extends TurtleCommandsNode {
 		
@@ -21,7 +21,7 @@ public class PenNode extends TurtleCommandsNode {
 	@Override
 	public List<AbstractAction> evaluate() {
 		List<AbstractAction> actionList = new ArrayList<AbstractAction>();
-		AbstractAction penAction = new PenAction(myValue);
+		AbstractAction penAction = new PenUpDownAction(myValue);
 		actionList.add(penAction);
 		return actionList;
 	}
