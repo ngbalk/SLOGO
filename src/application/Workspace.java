@@ -19,8 +19,6 @@ public class Workspace {
 		myCurrentTurtles = new TurtleCollection();
 		myCurrentTurtles.add(new Turtle(GUIconstants.DEFAULT_TURTLE_X_LOCATION,
 				GUIconstants.DEFAULT_TURTLE_Y_LOCATION));
-		myCurrentTurtles.add(new Turtle(GUIconstants.DEFAULT_TURTLE_X_LOCATION + 20,
-				GUIconstants.DEFAULT_TURTLE_Y_LOCATION + 20));
 		for (Turtle turtle : myCurrentTurtles.getTurtles()) {
 			turtle.setImage(GUIconstants.HIGHLIGHTED_TURTLE_IMAGE);
 		}

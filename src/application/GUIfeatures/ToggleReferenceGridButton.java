@@ -4,7 +4,7 @@ import static application.View.myResources;
 import javafx.scene.control.Button;
 import application.Constants.GUIconstants;
 
-public class ToggleReferenceGridButton extends AbstractGUIFeature implements GUIButtonFeature {
+public class ToggleReferenceGridButton extends GenericGUIFeature implements GUIButtonFeature {
 	Button myButton;
 	
 	public ToggleReferenceGridButton(){

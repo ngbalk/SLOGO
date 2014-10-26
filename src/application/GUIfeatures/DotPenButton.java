@@ -7,7 +7,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
 import static application.View.myResources;
 
-public class DotPenButton extends AbstractGUIFeature implements
+public class DotPenButton extends GenericGUIFeature implements
 		GUIButtonFeature {
 	private Button myButton;
 

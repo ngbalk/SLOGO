@@ -2,7 +2,6 @@ package test;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import javafx.geometry.Point2D;
-import application.SingleTurtle;
 
 public class AbstractDrawerTest {
 

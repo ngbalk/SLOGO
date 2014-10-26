@@ -19,7 +19,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 
-public class KeyControlFeature extends AbstractGUIFeature implements GUIButtonFeature {
+public class KeyControlFeature extends GenericGUIFeature implements GUIButtonFeature {
 	private HBox myContainer;
 	private Button myButton;
 	public KeyControlFeature(){
