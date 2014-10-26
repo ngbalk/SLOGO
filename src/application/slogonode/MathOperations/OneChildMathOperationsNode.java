@@ -11,10 +11,6 @@ public abstract class OneChildMathOperationsNode extends SLogoNode {
 	
 	public OneChildMathOperationsNode() {
 		super();
+		myMaxPossibleChildren = 1;
 	}
-		
-	@Override
-	public boolean needsMoreChildrenForEvaluation() {
-		return (myChildren.size() < 1);
-	}	
 }

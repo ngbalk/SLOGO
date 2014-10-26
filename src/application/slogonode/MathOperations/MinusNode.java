@@ -1,23 +1,26 @@
 /**
  *  @author Pranava Raparla
  *  Created: October 4th, 2014
- *  Modified: October 4th, 2014
+ *  Modified: October 26th, 2014
  */
 package application.slogonode.MathOperations;
 
-import java.util.List;
-import application.Actions.AbstractAction;
+import java.util.*;
 
-public class MinusNode extends MathOperations {
+import application.Actions.AbstractAction;
+import application.Actions.ConstantAction;
+
+public class MinusNode extends TwoChildMathOperationsNode {
 
 	public MinusNode() {
-		myOperation = "MINUS";
+		super();
+		myType = "Minus";
 	}
 
 	@Override
 	public List<AbstractAction> evaluate() {
-		double value = -1 * myChildren.get(0).evaluate().get(0).getValue();
-		return createActionList(value);
+		myValue = -1 * myChildren.get(0).evaluate().get(0).getValue();
+		myActions.add(new ConstantAction(myValue));
+		return myActions;
 	}
-
 }

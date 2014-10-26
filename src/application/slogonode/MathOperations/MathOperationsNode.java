@@ -4,10 +4,11 @@
  *  Modified: October 26th, 2014
  */
 package application.slogonode.MathOperations;
+import application.slogonode.SLogoNode;
 
-public abstract class MathOperations extends SLogoNode {
+public abstract class MathOperationsNode extends SLogoNode {
 	
-	public MathOperations() {
+	public MathOperationsNode() {
 		super();
 		myMaxPossibleChildren = 1;
 		myType = "MathOperation";

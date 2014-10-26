@@ -1,23 +1,25 @@
 /**
  *  @author Pranava Raparla
  *  Created: October 4th, 2014
- *  Modified: October 4th, 2014
+ *  Modified: October 26th, 2014
  */
 package application.slogonode.MathOperations;
 
-import java.util.List;
+import java.util.*;
 import application.Actions.AbstractAction;
+import application.Actions.ConstantAction;
 
-public class LogNode extends MathOperations {
+public class LogNode extends OneChildMathOperationsNode {
 
 	public LogNode() {
-		myOperation = "LOG";
+		super();
+		myType = "Log";
 	}
 
 	@Override
 	public List<AbstractAction> evaluate() {
-		double value = Math.log(myChildren.get(0).evaluate().get(0).getValue());
-		return createActionList(value);
+		myValue = Math.log(myChildren.get(0).evaluate().get(0).getValue());
+		myActions.add(new ConstantAction(myValue));
+		return myActions;
 	}
-
 }

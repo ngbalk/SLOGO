@@ -5,18 +5,21 @@
  */
 package application.slogonode.MathOperations;
 
-import java.util.List;
+import java.util.*;
 import application.Actions.AbstractAction;
+import application.Actions.ConstantAction;
 
-public class SinNode extends MathOperations {
+public class SinNode extends MathOperationsNode {
 
 	public SinNode() {
+		super();
 		myType = "Sin";
 	}
 
 	@Override
 	public List<AbstractAction> evaluate() {
-		double value = Math.sin(myChildren.get(0).evaluate().get(0).getValue());
-		return createActionList(value);
+		myValue = Math.sin(myChildren.get(0).evaluate().get(0).getValue());
+		myActions.add(new ConstantAction(myValue));
+		return myActions;
 	}
 }

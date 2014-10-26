@@ -1,22 +1,25 @@
 /**
  *  @author Pranava Raparla
  *  Created: October 4th, 2014
- *  Modified: October 4th, 2014
+ *  Modified: October 26th, 2014
  */
 package application.slogonode.MathOperations;
 
-import java.util.List;
+import java.util.*;
 import application.Actions.AbstractAction;
+import application.Actions.ConstantAction;
 
-public class TanNode extends MathOperations {
+public class TanNode extends MathOperationsNode {
 
 	public TanNode() {
+		super();
 		myType = "Tan";
 	}
 
 	@Override
 	public List<AbstractAction> evaluate() {
-		double value = Math.tan(myChildren.get(0).evaluate().get(0).getValue());
-		return createActionList(value);
+		myValue = Math.tan(myChildren.get(0).evaluate().get(0).getValue());
+		myActions.add(new ConstantAction(myValue));
+		return myActions;
 	}
 }
