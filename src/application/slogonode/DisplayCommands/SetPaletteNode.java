@@ -6,7 +6,9 @@
 package application.slogonode.DisplayCommands;
 
 import java.util.*;
+
 import application.Actions.AbstractAction;
+import application.Actions.SetPaletteAction;
 
 public class SetPaletteNode extends DisplayCommandsNode {
 	
