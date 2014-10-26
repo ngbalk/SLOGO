@@ -19,6 +19,7 @@ public abstract class MoveNode extends TurtleCommandsNode {
 	
 	@Override
 	public List<AbstractAction> evaluate() {
+		super.evaluate();
 		myActions.add(new MoveAction(myValue));
 		return myActions;
 	}

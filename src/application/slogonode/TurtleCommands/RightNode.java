@@ -19,6 +19,7 @@ public class RightNode extends RotateNode {
 
 	@Override
 	public List<AbstractAction> evaluate() {
+		super.evaluate();
 		myValue = myChildren.get(0).evaluate().get(0).getValue();
 		myActions.add(new RotateAction(-myValue));
 		return myActions;

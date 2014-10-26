@@ -24,6 +24,8 @@ public abstract class PunctuationNode extends SLogoNode {
 	
 	@Override
 	public List<AbstractAction> evaluate() {
+		for(int i=0; i<myChildren.size(); i++)
+			myActions.addAll(myChildren.get(0).evaluate());
 		return myActions;
-	}	
+	}
 }

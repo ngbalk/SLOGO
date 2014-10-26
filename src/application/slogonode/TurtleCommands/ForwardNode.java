@@ -20,6 +20,7 @@ public class ForwardNode extends TurtleCommandsNode {
 	
 	@Override
 	public List<AbstractAction> evaluate() {
+		super.evaluate();
 		myValue = myChildren.get(0).evaluate().get(0).getValue();
 		myActions.add(new ForwardAction(myValue));
 		return myActions;
