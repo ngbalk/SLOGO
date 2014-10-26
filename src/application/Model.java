@@ -175,4 +175,8 @@ public class Model {
 			
 		return null;
 	}
+	
+	public void main(String[] args){
+		
+	}
 }

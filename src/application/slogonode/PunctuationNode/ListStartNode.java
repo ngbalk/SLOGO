@@ -14,6 +14,9 @@ public class ListStartNode extends ListNode {
 	
 	@Override
 	public boolean needsMoreChildrenForEvaluation() {
+		if (myChildren.size()==0 || myChildren == null){
+			return true;
+		}
 		return myChildren.get(myChildren.size()-1) instanceof ListEndNode;
 	}
 }
