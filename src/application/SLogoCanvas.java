@@ -1,5 +1,9 @@
 package application;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import application.Constants.GUIconstants;
 import javafx.geometry.Insets;
 import javafx.scene.canvas.Canvas;
@@ -17,6 +21,8 @@ public class SLogoCanvas {
 	private Rectangle myRectangle;
 	private GridPane myReferenceGrid;
 	private boolean gridLinesVisible = false;
+	private List<Color> myColors;
+	private int myActiveColorIndex;
 
 	public SLogoCanvas(double x, double y) {
 		myCanvas = new Canvas(x, y);
@@ -26,6 +32,7 @@ public class SLogoCanvas {
 		myPane.getChildren().add(myRectangle);
 		myPane.getChildren().add(myCanvas);
 		myReferenceGrid = setDefaultReferenceGrid();
+		myColors = setDefaultColors();
 	}
 
 	public void toggleGridLines() {
@@ -36,6 +43,15 @@ public class SLogoCanvas {
 			myPane.getChildren().add(myReferenceGrid);
 			gridLinesVisible = true;
 		}
+	}
+	public void addColor(int index, Color color){
+		myColors.add(index, color);
+	}
+	public Color getColor(){
+		return myColors.get(myActiveColorIndex);
+	}
+	public void setColor(int index){
+		myActiveColorIndex = index;
 	}
 
 	/**
@@ -95,6 +111,17 @@ public class SLogoCanvas {
 	 */
 	public void setBackgroundColor(Color color) {
 		myRectangle.setFill(color);
+	}
+
+	public List<Color> setDefaultColors() {
+		Color[] colors = new Color[] { Color.RED, Color.ORANGE, Color.YELLOW,
+				Color.GREEN, Color.BLUE, Color.INDIGO, Color.VIOLET,
+				Color.BLACK, Color.WHITE };
+		List<Color> list = new ArrayList<Color>();
+		for (Color c : colors){
+			list.add(c);
+		}
+		return list;
 	}
 
 }

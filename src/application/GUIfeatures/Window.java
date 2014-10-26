@@ -1,11 +1,7 @@
 package application.GUIfeatures;
 
-import application.Constants.GUIconstants;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 public class Window {
