@@ -6,7 +6,7 @@ import static application.View.myResources;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 
-public class ShowAndHideTurtleButton extends AbstractGUIFeature implements
+public class ShowAndHideTurtleButton extends GenericGUIFeature implements
 		GUIButtonFeature {
 	private Button myButton;
 

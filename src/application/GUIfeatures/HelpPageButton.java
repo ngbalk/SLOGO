@@ -10,7 +10,7 @@ import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import static application.View.myResources;
 
-public class HelpPageButton extends AbstractGUIFeature implements
+public class HelpPageButton extends GenericGUIFeature implements
 		GUIButtonFeature {
 
 	private Stage myStage;

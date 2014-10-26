@@ -15,11 +15,11 @@ import javafx.scene.shape.Rectangle;
 
 
 public class SLogoCanvas{
-	Canvas myCanvas;
-	Pane myPane;
-	Rectangle myRectangle;
-	GridPane myReferenceGrid;
-	boolean gridLinesVisible = false;
+	private Canvas myCanvas;
+	private Pane myPane;
+	private Rectangle myRectangle;
+	private GridPane myReferenceGrid;
+	private boolean gridLinesVisible = false;
 	
 
 	public SLogoCanvas(double x, double y) {

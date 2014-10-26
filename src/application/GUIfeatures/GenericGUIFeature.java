@@ -4,7 +4,7 @@ import application.Controller;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 
-public abstract class AbstractGUIFeature extends Group{
+public class GenericGUIFeature extends Group{
 	
 	protected Controller myController;
 	

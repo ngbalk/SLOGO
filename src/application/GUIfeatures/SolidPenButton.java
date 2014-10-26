@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import static application.View.myResources;
 
-public class SolidPenButton extends AbstractGUIFeature implements
+public class SolidPenButton extends GenericGUIFeature implements
 		GUIButtonFeature {
 
 	private Button myButton;

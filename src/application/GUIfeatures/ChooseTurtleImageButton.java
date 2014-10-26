@@ -8,7 +8,7 @@ import application.View;
 import application.Constants.GUIconstants;
 import static application.View.myResources;
 
-public class ChooseTurtleImageButton extends AbstractGUIFeature implements
+public class ChooseTurtleImageButton extends GenericGUIFeature implements
 		GUIButtonFeature {
 	private HBox myContainer;
 	private TextArea myInputText;

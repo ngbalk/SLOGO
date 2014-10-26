@@ -5,7 +5,7 @@ import javafx.collections.ListChangeListener;
 import javafx.scene.control.TextArea;
 import static application.View.myResources;
 
-public class HistoryFeature extends AbstractGUIFeature {
+public class HistoryFeature extends GenericGUIFeature {
 	private TextArea myText;
 
 	public HistoryFeature() {

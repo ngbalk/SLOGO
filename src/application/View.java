@@ -1,36 +1,31 @@
 package application;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.ResourceBundle;
-
 import application.Actions.AbstractAction;
 import application.Constants.GUIconstants;
 import application.GUIfeatures.*;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * The View handles parsing the FXML to create the visual representation of the
+ * program. Information is passed between the View and Model through the
+ * Controller.
+ * 
+ * @author Wesley Valentine
+ * @author Nick Balkisoon
+ *
+ */
 
 public class View {
-	private Model myModel;
 	private Controller myController;
 	private Stage myStage;
 	private Scene myScene;
@@ -38,9 +33,7 @@ public class View {
 
 	public View(Stage stage) throws IOException {
 		myStage = stage;
-		Stage chooseLanguage = new Stage();
-		this.chooseLanguage(chooseLanguage);
-		//this.initializeStage();
+		this.chooseLanguage();
 	}
 
 	/**
@@ -66,77 +59,87 @@ public class View {
 	 * @param actionChain
 	 */
 	public void updateTurtle(List<AbstractAction> actionChain) {
-		System.out.println("### Updating Turtle. Workspace: "
-				+ myController.getActiveWorkspace());
 		myController.getActiveWorkspace().updateTurtle(actionChain);
 	}
 
 	/**
-	 * Load in the FXML and build a controller which will handle our GUIFeatures.
+	 * Load in the FXML and build a controller which will handle our
+	 * GUIFeatures.
 	 * 
-	 * @param stage
+	 * @param String
+	 *            language represents the text received from the
+	 *            chooseLanguage() method to be loaded into a ResourceBundle
 	 */
 	private void initializeStage(String language) {
-		myResources = ResourceBundle.getBundle("resources.languages/" + language);
-		try {
-			this.myModel = new Model();
-		} catch (IOException e1) {
-			// TODO Fill in with some error
-			
-		}
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(application.Constants.GUIconstants.ROOT_LAYOUT_FXML_LOCATION));
-	 	Parent root;
+		myResources = ResourceBundle
+				.getBundle(GUIconstants.RESOURCE_FILE_PREFIX + language);
+
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
+				application.Constants.GUIconstants.ROOT_LAYOUT_FXML_LOCATION));
+		Parent root;
 		try {
 			root = fxmlLoader.load();
 			myController = (Controller) fxmlLoader.getController();
 			myController.setView(this);
-			myController.setModel(this.myModel);
 		} catch (IOException e) {
-			System.out.println("Could not load FXML file" + "\n" + e.getMessage());
+			// TODO make error message 'could not read fxml file'
 			return;
 		}
-		Scene scene = new Scene(root, application.Constants.GUIconstants.STAGE_HEIGHT, application.Constants.GUIconstants.STAGE_WIDTH);
-        this.myScene = scene;
-        this.myStage.setTitle(GUIconstants.STAGE_TITLE);
-        this.myStage.setScene(scene);
-        this.myStage.show();
+		this.myScene = new Scene(root,
+				application.Constants.GUIconstants.STAGE_HEIGHT,
+				application.Constants.GUIconstants.STAGE_WIDTH);
+		this.myStage.setTitle(GUIconstants.STAGE_TITLE);
+		this.myStage.setScene(myScene);
+		this.myStage.show();
 	}
-	public void chooseLanguage(Stage stage){
-		Text message = new Text("Please Choose A Language");
-		message.setLayoutY(20);
+
+	/**
+	 * Display a stage prior to starting the actual program, prompting the user
+	 * to input a String representing a language properties file. The chosen
+	 * properties file is loaded into a ResourceBundle.
+	 * 
+	 */
+	private void chooseLanguage() {
+		Stage stage = new Stage();
+		Text message = new Text(GUIconstants.LANGUAGE_PROMPT_TEXT);
+		message.setLayoutY(GUIconstants.LANGUAGE_PROMPT_MESSAGE_Y_LOCATION);
 		TextField input = new TextField();
-		input.setLayoutY(50);
+		input.setLayoutY(GUIconstants.LANGUAGE_PROMPT_INPUT_Y_LOCATION);
 		Button submit = new Button();
-		submit.setLayoutX(200);
-		submit.setLayoutY(50);
-		submit.setText("Submit");
+		submit.setLayoutX(GUIconstants.LANGUAGE_PROMPT_SUBMIT_X_LOCATION);
+		submit.setLayoutY(GUIconstants.LANGUAGE_PROMPT_SUBMIT_Y_LOCATION);
+		submit.setText(GUIconstants.LANGUAGE_PROMPT_BUTTON_TEXT);
 		submit.setOnAction(event -> submitLanguage(input, stage));
 		Group root = new Group();
 		root.getChildren().addAll(message, input, submit);
-		Scene scene = new Scene(root, 300, 100);
+		Scene scene = new Scene(root, GUIconstants.LANGUAGE_PROMPT_SCENE_WIDTH,
+				GUIconstants.LANGUAGE_PROMPT_SCENE_HEIGHT);
 		stage.setScene(scene);
 		stage.show();
-		
+
 	}
-	
-	public void submitLanguage(TextField input, Stage stage){
+
+	/**
+	 * Activated by the Submit button in the prompt for choosing a language.
+	 * Passes the String on to be loaded and closes the prompt's window.
+	 * 
+	 * @param input
+	 *            text input representing a language properties file
+	 * @param stage
+	 *            stage of the prompt to be closed
+	 */
+	private void submitLanguage(TextField input, Stage stage) {
 		this.initializeStage(input.getText());
 		stage.close();
 	}
-	/**
-	 * Return the Model.
-	 * @return
-	 */
-	public Model getModel(){
-		return myModel;
-	}
+
 	/**
 	 * Return the current Scene.
+	 * 
 	 * @return
 	 */
-	public Scene getScene(){
+	public Scene getScene() {
 		return myScene;
 	}
 
-	
 }

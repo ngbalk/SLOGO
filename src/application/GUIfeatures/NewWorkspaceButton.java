@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import static application.View.myResources;
 
-public class NewWorkspaceButton extends AbstractGUIFeature implements GUIButtonFeature {
+public class NewWorkspaceButton extends GenericGUIFeature implements GUIButtonFeature {
 	private Button myButton;
 	
 

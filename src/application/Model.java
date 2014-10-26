@@ -15,14 +15,13 @@ import application.Constants.GUIconstants;
 import application.slogonode.SLogoNode;
 import application.slogonode.Number.*;
 import application.slogonode.TurtleCommands.*;
-
 import javafx.collections.ObservableList;
 import javafx.geometry.Point2D;
-
 import static application.View.myResources;
 
 public class Model {
-
+	private List<Workspace> myWorkspaces =  new ArrayList<Workspace>();;
+	private Workspace myActiveWorkspace = new Workspace();
 
 	public Map<String, String> myCommands;
 	public Model() throws IOException {
@@ -36,6 +35,15 @@ public class Model {
 		} catch (Exception e) {
 			System.out.println("An Error occured in the loading of the properties File!");
 		}
+	}
+	public List<Workspace> getWorkspaces(){
+		return myWorkspaces;
+	}
+	public Workspace getActiveWorkspace(){
+		return myActiveWorkspace;
+	}
+	public void setActiveWorkspace(Workspace workspace){
+		myActiveWorkspace = workspace;
 	}
 	
 	// TODO: deprecated, must delete

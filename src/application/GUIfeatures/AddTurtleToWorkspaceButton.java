@@ -5,7 +5,7 @@ import application.Turtle;
 import application.Constants.GUIconstants;
 import javafx.scene.control.Button;
 
-public class AddTurtleToWorkspaceButton extends AbstractGUIFeature implements
+public class AddTurtleToWorkspaceButton extends GenericGUIFeature implements
 		GUIButtonFeature {
 	private Button myButton;
 

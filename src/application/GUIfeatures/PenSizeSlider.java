@@ -10,7 +10,7 @@ import application.View;
 import application.Constants.GUIconstants;
 import static application.View.myResources;
 
-public class PenSizeSlider extends AbstractGUIFeature {
+public class PenSizeSlider extends GenericGUIFeature {
 	Slider mySlider;
 	HBox myContainer;
 	Label myLabel;
