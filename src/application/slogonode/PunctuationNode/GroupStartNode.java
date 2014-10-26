@@ -14,6 +14,8 @@ public class GroupStartNode extends GroupNode {
 	
 	@Override
 	public boolean needsMoreChildrenForEvaluation() {
-		return myChildren.get(myChildren.size()-1) instanceof GroupEndNode;
+		if(myChildren.size()>0)
+			return !(myChildren.get(myChildren.size()-1) instanceof GroupEndNode);
+		return true;
 	}
 }
