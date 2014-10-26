@@ -11,7 +11,7 @@ import java.util.*;
 import application.Actions.AbstractAction;
 import application.slogonode.SLogoNode;
 
-public class SetShapeNode extends DisplayCommandsNode {
+public class SetShapeNode extends SetIndexNode {
 	
 	public SetShapeNode() {
 		myType = "SetShapeColor";

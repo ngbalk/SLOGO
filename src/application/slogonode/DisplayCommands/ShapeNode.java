@@ -14,6 +14,7 @@ import application.slogonode.SLogoNode;
 public class ShapeNode extends DisplayCommandsNode {
 	
 	public ShapeNode() {
+		super();
 		myType = "Shape";
 	}
 	

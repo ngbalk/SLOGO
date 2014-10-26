@@ -1,7 +1,7 @@
 /**
  *  @author Pranava Raparla
  *  Created: October 24th, 2014
- *  Modified: October 24th, 2014
+ *  Modified: October 26th, 2014
  */
 package application.slogonode.TurtleCommands;
 
@@ -13,18 +13,14 @@ import application.Actions.HomeAction;
 public class HomeNode extends TurtleCommandsNode {
 	
 	public HomeNode() {
+		super();
+		myMaxPossibleChildren = 0;
 		myType = "Home";
 	}
 	
 	@Override
-	public boolean needsMoreChildrenForEvaluation() {
-		return false;
-	}
-
-	@Override
 	public List<AbstractAction> evaluate() {
-		List<AbstractAction> actionList = new ArrayList<AbstractAction>();
-		actionList.add(new HomeAction());
-		return actionList;
+		myActions.add(new HomeAction());
+		return myActions;
 	}
 }

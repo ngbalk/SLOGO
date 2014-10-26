@@ -9,13 +9,13 @@ package application.Actions;
 import application.SLogoCanvas;
 import application.Turtle;
 
-public class PenAction extends Action {
+public class PenUpDownAction extends Action {
 
 	/**
 	 * 
 	 * @param status is 0 for down, 1 for up
 	 */
-	public PenAction (double status){
+	public PenUpDownAction (double status){
 		myValue = status;
 		myName = "PenUpDown";
 	}
