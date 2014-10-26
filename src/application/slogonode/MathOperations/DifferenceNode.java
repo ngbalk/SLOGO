@@ -6,9 +6,11 @@
 package application.slogonode.MathOperations;
 
 import java.util.*;
+
 import application.Actions.AbstractAction;
 import application.Actions.ConstantAction;
-import application.slogonode.PunctuationNode.PunctuationNode;
+import application.slogonode.SLogoNode;
+import application.slogonode.PunctuationNode.*;
 
 public class DifferenceNode extends TwoChildMathOperationsNode {
 
@@ -19,10 +21,13 @@ public class DifferenceNode extends TwoChildMathOperationsNode {
 
 	@Override
 	public List<AbstractAction> evaluate() {
-		for (int i = 0; i<myChildren.size(); i++){
-			if(myChildren.get(i) instanceof PunctuationNode)
-				continue;
-			myValue -= myChildren.get(i).evaluate().get(0).getValue();
+		List<SLogoNode> childrenOfInterest = myChildren;
+		if(myChildren.get(0) instanceof GroupStartNode)
+			childrenOfInterest = myChildren.get(0).getChildren();
+		for (int i = 0; i<childrenOfInterest.size(); i++) {
+			if(childrenOfInterest.get(i) instanceof GroupEndNode)
+				break;
+			myValue -= childrenOfInterest.get(i).evaluate().get(0).getValue();
 		}
 		myActions.add(new ConstantAction(myValue));
 		return myActions;
