@@ -1,7 +1,7 @@
 /**
  *  @author Pranava Raparla
  *  Created: October 4th, 2014
- *  Modified: October 4th, 2014
+ *  Modified: October 26th, 2014
  */
 package application.slogonode.MathOperations;
 
@@ -11,7 +11,7 @@ import application.Actions.AbstractAction;
 public class SinNode extends MathOperations {
 
 	public SinNode() {
-		myOperation = "SIN";
+		myType = "Sin";
 	}
 
 	@Override

@@ -12,6 +12,7 @@ import application.Actions.AbstractAction;
 public class SetShapeNode extends SetIndexNode {
 	
 	public SetShapeNode() {
+		super();
 		myType = "SetShape";
 	}
 	

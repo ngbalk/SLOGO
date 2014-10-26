@@ -14,6 +14,7 @@ import application.Actions.SetBackgroundAction;
 public class SetBackgroundNode extends SetIndexNode {
 	
 	public SetBackgroundNode() {
+		super();
 		myType = "SetBackground";
 	}
 	

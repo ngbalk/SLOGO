@@ -6,6 +6,7 @@
 package application.slogonode.MathOperations;
 
 import application.slogonode.SLogoNode;
+import application.slogonode.PunctuationNode.*;
 
 public abstract class TwoChildMathOperationsNode extends SLogoNode {
 	
@@ -15,6 +16,9 @@ public abstract class TwoChildMathOperationsNode extends SLogoNode {
 		
 	@Override
 	public boolean needsMoreChildrenForEvaluation() {
+		if (myChildren.size() > 0)
+			if (myChildren.get(0) instanceof GroupStartNode)
+				return myChildren.get(myChildren.size()-1) instanceof GroupEndNode;
 		return (myChildren.size() < 2);
 	}	
 }

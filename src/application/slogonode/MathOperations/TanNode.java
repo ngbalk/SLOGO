@@ -11,7 +11,7 @@ import application.Actions.AbstractAction;
 public class TanNode extends MathOperations {
 
 	public TanNode() {
-		myOperation = "TAN";
+		myType = "Tan";
 	}
 
 	@Override

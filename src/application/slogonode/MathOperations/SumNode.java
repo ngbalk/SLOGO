@@ -8,10 +8,10 @@ package application.slogonode.MathOperations;
 import java.util.List;
 import application.Actions.AbstractAction;
 
-public class SumNode extends MathOperations {
+public class SumNode extends TwoChildMathOperationsNode {
 
 	public SumNode() {
-		myOperation = "SUM";
+		myType = "SUM";
 	}
 
 	@Override
@@ -23,8 +23,4 @@ public class SumNode extends MathOperations {
 		return createActionList(value);
 	}
 
-	@Override
-	public boolean needsMoreChildrenForEvaluation(){
-		return (myChildren.size() < 2); 
-	}
 }

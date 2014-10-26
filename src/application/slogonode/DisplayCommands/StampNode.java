@@ -14,6 +14,7 @@ import application.slogonode.SLogoNode;
 public class StampNode extends DisplayCommandsNode {
 	
 	public StampNode() {
+		super();
 		myType = "Stamp";
 	}
 	

@@ -14,6 +14,7 @@ import application.slogonode.SLogoNode;
 public class ClearStampsNode extends DisplayCommandsNode {
 	
 	public ClearStampsNode() {
+		super();
 		myType = "ClearStamps";
 	}
 	

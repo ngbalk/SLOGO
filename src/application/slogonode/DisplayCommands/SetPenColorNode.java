@@ -14,6 +14,7 @@ import application.Actions.SetBackgroundAction;
 public class SetPenColorNode extends SetIndexNode {
 	
 	public SetPenColorNode() {
+		super();
 		myType = "SetPenColor";
 	}
 	

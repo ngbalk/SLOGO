@@ -14,6 +14,7 @@ import application.Actions.SetBackgroundAction;
 public class PenColorNode extends DisplayCommandsNode {
 	
 	public PenColorNode() {
+		super();
 		myType = "PenColor";
 	}
 	
