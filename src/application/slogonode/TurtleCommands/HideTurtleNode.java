@@ -1,7 +1,7 @@
 /**
  *  @author Pranava Raparla
  *  Created: October 24th, 2014
- *  Modified: October 24th, 2014
+ *  Modified: October 26th, 2014
  */
 
 package application.slogonode.TurtleCommands;
@@ -12,6 +12,7 @@ import application.Actions.AbstractAction;
 public class HideTurtleNode extends DisplayTurtleNode {
 	
 	public HideTurtleNode() {
+		super();
 		myType = "ShowTurtle";
 	}
 	
@@ -20,5 +21,4 @@ public class HideTurtleNode extends DisplayTurtleNode {
 		myValue = 0;
 		return super.evaluate();
 	}
-
 }

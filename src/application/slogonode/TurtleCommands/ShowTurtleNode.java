@@ -12,6 +12,7 @@ import application.Actions.AbstractAction;
 public class ShowTurtleNode extends DisplayTurtleNode {
 	
 	public ShowTurtleNode() {
+		super();
 		myType = "ShowTurtle";
 	}
 	
@@ -20,5 +21,4 @@ public class ShowTurtleNode extends DisplayTurtleNode {
 		myValue = 1;
 		return super.evaluate();
 	}
-
 }

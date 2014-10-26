@@ -6,9 +6,19 @@
 
 package application.slogonode.DisplayCommands;
 
-public class SetBackgroundNode extends SetIndexNode  {
+import java.util.List;
+
+import application.Actions.AbstractAction;
+
+public class SetBackgroundNode extends SetIndexNode {
 	
 	public SetBackgroundNode() {
 		myType = "SetBackground";
+	}
+	
+	@Override
+	public List<AbstractAction> evaluate() {
+		myActions = super.evaluate();
+		return myActions;
 	}
 }

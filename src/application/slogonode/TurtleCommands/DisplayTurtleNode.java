@@ -1,7 +1,7 @@
 /**
  *  @author Pranava Raparla
  *  Created: October 24th, 2014
- *  Modified: October 24th, 2014
+ *  Modified: October 26th, 2014
  */
 package application.slogonode.TurtleCommands;
 
@@ -12,17 +12,15 @@ import application.Actions.DisplayTurtleAction;
 
 public class DisplayTurtleNode extends TurtleCommandsNode {
 		
-	@Override
-	public boolean needsMoreChildrenForEvaluation() {
-		return false;
+	public DisplayTurtleNode() {
+		super();
+		myMaxPossibleChildren = 0;
+		myType = "DisplayTurtle";
 	}
 
 	@Override
 	public List<AbstractAction> evaluate() {
-		List<AbstractAction> actionList = new ArrayList<AbstractAction>();
-		AbstractAction action = new DisplayTurtleAction(myValue);
-		actionList.add(action);
-		return actionList;
+		myActions.add(new DisplayTurtleAction(myValue));
+		return myActions;
 	}
-
 }
