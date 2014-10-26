@@ -9,6 +9,7 @@ import java.util.*;
 
 import application.Actions.AbstractAction;
 import application.Actions.ForwardAction;
+import application.Actions.RotateAction;
 
 public class ForwardNode extends TurtleCommandsNode {
 	
@@ -19,7 +20,8 @@ public class ForwardNode extends TurtleCommandsNode {
 	
 	@Override
 	public List<AbstractAction> evaluate() {
-		myActions.add(new ForwardAction(myChildren.get(0).evaluate().get(0).getValue()));
+		myValue = myChildren.get(0).evaluate().get(0).getValue();
+		myActions.add(new ForwardAction(myValue));
 		return myActions;
 	}
 }

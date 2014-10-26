@@ -2,7 +2,7 @@
  *  @author Pranava Raparla
  *  @author Monica Choe
  *  Created: October 9th, 2014
- *  Modified: October 11th, 2014
+ *  Modified: October 26th, 2014
  */
 package application;
 
@@ -18,32 +18,32 @@ public class SLogoNodeFactory {
 	 * @param nodeName
 	 * @return
 	 */
-
-	public SLogoNode getSLogoNodeFromString(String nodeName,
-			ResourceBundle myResources) {
+	public SLogoNode getSLogoNodeFromString(String nodeName) {
 		System.out.println("\nReached the factory!\n");
 		SLogoNode commandNode = null;
 		try {
 			try {
-				double constantValue = Double.parseDouble(nodeName);
-				commandNode = new ConstantNode(constantValue);
+				commandNode = getConstantSLogoNode(nodeName);
 			} catch (Exception e) {
-				System.out.println("This isn't a number: " + nodeName);
+				Class classType = Class.forName("application.slogonode.TurtleCommands." + nodeName + "Node");
+				commandNode = (SLogoNode) classType.newInstance();
 			}
-			Class classType = Class
-					.forName("application.slogonode.TurtleCommands." + nodeName
-							+ "Node");
-
-			commandNode = (SLogoNode) classType.newInstance();
 		} catch (Exception e) {
-			System.out.println("\nERROR! THIS COMMAND DOES NOT EXIST: "
-					+ nodeName);
+			System.out.println("\nERROR! THIS COMMAND DOES NOT EXIST: " + nodeName);
 		} finally {
+			// TODO: SEND TO ERROR PAGE IF NULL!!!!
 			if (commandNode == null)
 				commandNode = new ForwardNode();
 		}
-		System.out.println("\nReturning a node: " + nodeName + ", "
-				+ commandNode + "\n");
+		System.out.println("\nReturning a node: " + nodeName + ", " + commandNode + "\n");
 		return commandNode;
+	}
+	/**
+	 * 
+	 * @param nodeValue
+	 * @return
+	 */
+	public SLogoNode getConstantSLogoNode(String nodeValue) {
+		return (SLogoNode) new ConstantNode(Double.parseDouble(nodeValue));
 	}
 }

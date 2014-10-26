@@ -30,6 +30,8 @@ public class Model {
 		myActiveWorkspace = new Workspace();
 		myWorkspaces =  new ArrayList<Workspace>();
 		myVariables = new HashMap<String, String>();
+		myVariables.put("slogo", "100");
+		System.out.println(myVariables);
 		PropertiesFactory factory = new PropertiesFactory();
 		
 		try {
@@ -160,8 +162,8 @@ public class Model {
 	public List<SLogoNode> makeListOfSLogoNodeTrees(SLogoNodeFactory nodeFactory, List<String> remainingInput) {
 		List<SLogoNode> listOfSLogoNodeTrees = new ArrayList<SLogoNode>();
 		if (remainingInput.size() > 0) {
-			String nextCommand = myCommands.get(remainingInput.remove(0));
-			SLogoNode root = nodeFactory.getSLogoNodeFromString(nextCommand,myResources);
+			String nextCommand = convertInputToCommandOrVariable(remainingInput.remove(0));
+			SLogoNode root = nodeFactory.getSLogoNodeFromString(nextCommand);
 			listOfSLogoNodeTrees.add(root);
 			SLogoNode currentNode = root;
 			if (nextCommand.substring(0).equals("[")){
@@ -179,12 +181,22 @@ public class Model {
 			return;
 		while (currentNode.needsMoreChildrenForEvaluation() && remainingInput.size() > 0) {
 			SLogoNode nodeToBeAdded = null;
-			if(remainingInput.size() > 0)
-				nodeToBeAdded = nodeFactory.getSLogoNodeFromString(remainingInput.remove(0), myResources);
-			else break;
+			nodeToBeAdded = nodeFactory.getSLogoNodeFromString(convertInputToCommandOrVariable(remainingInput.remove(0)));
 			currentNode.addChild(nodeToBeAdded);
 			makeListOfSLogoNodeTreesHelper(root, nodeToBeAdded, nodeFactory, remainingInput);				
 		}
+	}
+	
+	public String convertInputToCommandOrVariable(String nextCommand) {
+		System.out.print("YOYOYO: " + nextCommand);
+		if(myCommands.containsKey(nextCommand))
+			nextCommand = myCommands.get(nextCommand);
+		else if(myVariables.containsKey(nextCommand))
+			nextCommand = myVariables.get(nextCommand);
+		else
+			System.out.println("Nope!"); //TODO: GOTO ERROR PAGE!!
+		System.out.println(": " + nextCommand);
+		return nextCommand;
 	}
 
 	public void makeTreeGivenList(List<String> remainingInput, SLogoNodeFactory nodeFactory, SLogoNode currentNode, SLogoNode root){
