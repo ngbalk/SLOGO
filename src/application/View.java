@@ -3,8 +3,10 @@ package application;
 import java.io.IOException;
 import java.util.List;
 import java.util.ResourceBundle;
+
 import application.Actions.AbstractAction;
 import application.Constants.GUIconstants;
+import application.Errors.FXMLException;
 import application.GUIfeatures.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -81,8 +83,8 @@ public class View {
 			root = fxmlLoader.load();
 			myController = (Controller) fxmlLoader.getController();
 			myController.setView(this);
-		} catch (IOException e) {
-			// TODO make error message 'could not read fxml file'
+		} catch (IOException exception) {
+			displayError(exception);
 			return;
 		}
 		this.myScene = new Scene(root,

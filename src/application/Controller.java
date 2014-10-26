@@ -48,14 +48,15 @@ public class Controller implements Initializable {
 	private HelpPageButton myHelpPage = new HelpPageButton();
 	@FXML
 	private AddTurtleToWorkspaceButton myAddTurtleButton = new AddTurtleToWorkspaceButton();
+	@FXML
+	SLogoFileOpener myFileOpener = new SLogoFileOpener();
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		try {
 			myModel = new Model();
 		} catch (IOException e) {
-			return;
-			// todo fill in with error
+			myView.displayError(e);
 		}
 		GenericGUIFeature[] features = new GenericGUIFeature[] {
 				myNewWorkspaceButton, myWorkspaceTabs,
@@ -64,7 +65,7 @@ public class Controller implements Initializable {
 				myTurtleImageButtonAndField, myToggleReferenceGrid,
 				myKeyControlFeature, myDashPenButton, myDotPenButton,
 				mySolidPenButton, myShowAndHideTurtleButton, myHelpPage,
-				myAddTurtleButton };
+				myAddTurtleButton, myFileOpener };
 
 		for (GenericGUIFeature feature : features) {
 			feature.setController(this);
