@@ -164,6 +164,10 @@ public class Model {
 			SLogoNode root = nodeFactory.getSLogoNodeFromString(nextCommand,myResources);
 			listOfSLogoNodeTrees.add(root);
 			SLogoNode currentNode = root;
+			if (nextCommand.substring(0).equals("[")){
+				System.out.println("Hit begining of list of inputs");
+				makeTreeGivenList(remainingInput, nodeFactory, currentNode, root);
+			}
 			if (currentNode.needsMoreChildrenForEvaluation())
 				makeListOfSLogoNodeTreesHelper(root,currentNode,nodeFactory,remainingInput);
 			listOfSLogoNodeTrees.addAll(makeListOfSLogoNodeTrees(nodeFactory,remainingInput));
@@ -183,6 +187,9 @@ public class Model {
 		}
 	}
 
+	public void makeTreeGivenList(List<String> remainingInput, SLogoNodeFactory nodeFactory, SLogoNode currentNode, SLogoNode root){
+		
+	}
 	
 	// TODO: deprecated, must delete
 //	public List<AbstractAction> parseInput2(String inputString) {

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import application.Actions.AbstractAction;
-import application.slogonode.SLogoNode;
 
 public class ForNode extends ControlStructuresNode{
 	
@@ -16,12 +15,18 @@ public class ForNode extends ControlStructuresNode{
 	@Override
 	public List<AbstractAction> evaluate(){
 		List<AbstractAction> actionList = new ArrayList<AbstractAction>();
-		SLogoNode iterations = myChildren.get(0);
-		SLogoNode child = myChildren.get(1);
-		
-		for (int i = 0; i<iterations.evaluate().get(0).getValue(); i++){
-			actionList.add(child.evaluate().get(0));
+		double start = myChildren.get(0).evaluate().get(0).getValue();
+		double end = myChildren.get(1).evaluate().get(0).getValue();
+		double step = myChildren.get(2).evaluate().get(0).getValue();
+		AbstractAction action = myChildren.get(3).evaluate().get(0);
+		for (double i = start; i<end; i+=step){
+			actionList.add(action);
 		}
 		return actionList;
+	}
+	
+	@Override
+	public boolean needsMoreChildrenForEvaluation(){
+		return myChildren.size()<4; 
 	}
 }
