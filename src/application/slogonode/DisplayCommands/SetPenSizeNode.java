@@ -9,6 +9,7 @@ package application.slogonode.DisplayCommands;
 import java.util.List;
 
 import application.Actions.AbstractAction;
+import application.Actions.SetPenSizeAction;
 
 public class SetPenSizeNode extends SetIndexNode {
 	

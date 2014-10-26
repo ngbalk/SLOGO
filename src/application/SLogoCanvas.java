@@ -22,7 +22,6 @@ public class SLogoCanvas {
 	private GridPane myReferenceGrid;
 	private boolean gridLinesVisible = false;
 	private List<Color> myColors;
-	private int myActiveColorIndex;
 
 	public SLogoCanvas(double x, double y) {
 		myCanvas = new Canvas(x, y);
@@ -47,11 +46,8 @@ public class SLogoCanvas {
 	public void addColor(int index, Color color){
 		myColors.add(index, color);
 	}
-	public Color getColor(){
-		return myColors.get(myActiveColorIndex);
-	}
-	public void setColor(int index){
-		myActiveColorIndex = index;
+	public List<Color> getColors(){
+		return myColors;
 	}
 
 	/**

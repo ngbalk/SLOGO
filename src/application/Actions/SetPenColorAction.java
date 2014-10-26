@@ -4,16 +4,16 @@ import javafx.scene.control.ColorPicker;
 import application.SLogoCanvas;
 import application.Turtle;
 
-public class SetBackgroundAction extends Action {
+public class SetPenColorAction extends Action {
 
-	public SetBackgroundAction(double index) {
+	public SetPenColorAction(double index) {
 		myValue = index;
-		myName = "SetBackground";
+		myName = "SetPenColor";
 	}
 
 	@Override
 	public void update(Turtle turtle, SLogoCanvas canvas) {
-		canvas.setBackgroundColor(canvas.getColors().get((int) myValue));
+		turtle.getPen().setPenColor(canvas.getColors().get((int) myValue));
 	}
 
 }
