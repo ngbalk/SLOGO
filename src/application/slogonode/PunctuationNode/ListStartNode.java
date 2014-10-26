@@ -5,15 +5,15 @@
  */
 package application.slogonode.PunctuationNode;
 
-public abstract class LeftParenthesesNode extends ParenthesesNode {
+public abstract class ListStartNode extends ListNode {
 	
-	public LeftParenthesesNode() {
+	public ListStartNode() {
 		super();
-		myType = "LeftParentheses";
+		myType = "LeftBracket";
 	}
 	
 	@Override
 	public boolean needsMoreChildrenForEvaluation() {
-		return myChildren.get(myChildren.size()-1) instanceof RightParenthesesNode;
+		return myChildren.get(myChildren.size()-1) instanceof ListEndNode;
 	}
 }
