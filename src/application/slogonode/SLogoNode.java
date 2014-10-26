@@ -26,14 +26,9 @@ public abstract class SLogoNode {
 	}
 	
 	public SLogoNode(List<AbstractAction> actions) {
-		//myActions = actions;
+		this();
+		myActions = actions;
 	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	//public abstract double evaluate();
 	
 	/**
 	 * 
