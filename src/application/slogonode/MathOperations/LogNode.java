@@ -9,7 +9,7 @@ import java.util.*;
 import application.Actions.AbstractAction;
 import application.Actions.ConstantAction;
 
-public class LogNode extends OneChildMathOperationsNode {
+public class LogNode extends MathOperationsNode {
 
 	public LogNode() {
 		super();

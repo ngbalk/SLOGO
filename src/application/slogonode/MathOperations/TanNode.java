@@ -9,7 +9,7 @@ import java.util.*;
 import application.Actions.AbstractAction;
 import application.Actions.ConstantAction;
 
-public class TanNode extends MathOperationsNode {
+public class TanNode extends OneChildMathOperationsNode {
 
 	public TanNode() {
 		super();

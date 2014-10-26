@@ -6,8 +6,7 @@
 
 package application.slogonode.DisplayCommands;
 
-import java.util.List;
-
+import java.util.*;
 import application.Actions.AbstractAction;
 import application.Actions.SetBackgroundAction;
 

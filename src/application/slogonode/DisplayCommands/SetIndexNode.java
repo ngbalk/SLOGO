@@ -7,7 +7,6 @@
 package application.slogonode.DisplayCommands;
 
 import java.util.*;
-
 import application.Actions.AbstractAction;
 
 public abstract class SetIndexNode extends DisplayCommandsNode {
