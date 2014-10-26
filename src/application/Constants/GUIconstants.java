@@ -8,6 +8,9 @@ public final class GUIconstants {
 	public static final int SUBMIT_TEXT_WIDTH = 200;
 	public static final int SUBMIT_TEXT_HEIGHT = 20;
 	public static final int TURTLE_IMAGE_START_ROTATION = 90;
+	public static final int DEFAULT_PEN_SIZE = 1;
+	public static final int REFERENCE_GRID_GAP = 10;
+	public static final int REFERENCE_GRID_SIZE = 60;
 	
 	public static final String STAGE_TITLE = "SLogo";
 	public static final String ROOT_LAYOUT_FXML_LOCATION = "RootLayout.fxml";
@@ -41,9 +44,11 @@ public final class GUIconstants {
 	public static final int LANGUAGE_PROMPT_SCENE_WIDTH = 300;
 	public static final String LANGUAGE_PROMPT_BUTTON_TEXT = "Submit";
 
-
-
-
+	public static final int TURTLE_DASH_MOVE_DISTANCE = 30;
+	public static final int TURTLE_DOT_MOVE_DISTANCE = 5;
+	public static final int TURTLE_SOLID_MOVE_DISTANCE = 1;
+	public static final int UNIT_CIRCLE_DEGREES = 360;
+	public static final int TURTLE_IMAGE_CORRECTION_VALUE = 90;
 	
 	public static final int DEFAULT_TURTLE_X_LOCATION = 300;
 	public static final int DEFAULT_TURTLE_Y_LOCATION = 300;
