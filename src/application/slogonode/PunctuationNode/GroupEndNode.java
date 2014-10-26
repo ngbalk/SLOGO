@@ -5,9 +5,9 @@
  */
 package application.slogonode.PunctuationNode;
 
-public abstract class GropuEndNode extends GroupNode {
+public abstract class GroupEndNode extends GroupNode {
 	
-	public GropuEndNode() {
+	public GroupEndNode() {
 		super();
 		myType = "RightParentheses";
 	}

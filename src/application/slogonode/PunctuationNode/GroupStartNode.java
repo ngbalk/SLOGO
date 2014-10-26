@@ -14,6 +14,6 @@ public abstract class GroupStartNode extends GroupNode {
 	
 	@Override
 	public boolean needsMoreChildrenForEvaluation() {
-		return myChildren.get(myChildren.size()-1) instanceof GropuEndNode;
+		return myChildren.get(myChildren.size()-1) instanceof GroupEndNode;
 	}
 }
