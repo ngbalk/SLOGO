@@ -14,7 +14,7 @@ public abstract class MoveNode extends TurtleCommandsNode {
 	
 	public MoveNode() {
 		super();
-		myCommand = "Move";
+		myType = "Move";
 	}
 	
 	@Override

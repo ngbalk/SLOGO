@@ -15,7 +15,7 @@ public class BackwardNode extends TurtleCommandsNode {
 	
 	public BackwardNode() {
 		super();
-		myCommand = "MoveBackward";
+		myType = "MoveBackward";
 	}
 
 	@Override

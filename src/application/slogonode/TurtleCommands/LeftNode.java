@@ -14,7 +14,7 @@ public class LeftNode extends RotateNode {
 	
 	public LeftNode() {
 		super();
-		myCommand = "RotateLeft";
+		myType = "RotateLeft";
 	}
 
 	@Override
