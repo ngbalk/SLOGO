@@ -7,6 +7,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Line;
 
+/**
+ * 
+ * @author Wesley Valentine
+ * @author Nick Balkisoon
+ *
+ */
 public class Turtle {
 
 	protected double myXLocation;
@@ -23,7 +29,7 @@ public class Turtle {
 		myImage = new ImageView();
 		this.myImage.setX(x);
 		this.myImage.setY(y);
-		myImage.setRotate(90);
+		myImage.setRotate(GUIconstants.TURTLE_IMAGE_START_ROTATION);
 	}
 
 	/**

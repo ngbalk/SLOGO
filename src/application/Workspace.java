@@ -8,6 +8,15 @@ import javafx.collections.ObservableList;
 import application.Constants.GUIconstants;
 import javafx.scene.Group;
 
+/**
+ * Workspace will act as the container for all visual components, including
+ * turtles, background, and history. Allows user to easily switch between
+ * workspaces.
+ * 
+ * @author Wesley Valentine
+ * @author Nick Balkisoon
+ *
+ */
 public class Workspace {
 
 	private TurtleCollection myCurrentTurtles;
@@ -29,14 +38,14 @@ public class Workspace {
 	}
 
 	/**
-	 * pass the Workspace the List<Action> of Actions, and the Workspace will
-	 * handle applying these Actions to the member Turtle.Tshese Actions need to
-	 * take in a Turtle as a parameter and must know how to call
+	 * pass the Workspace the List<AbstractAction> of Actions, and the Workspace
+	 * will handle applying these Actions to all currently active Turtles.These
+	 * Actions need to take in a Turtle as a parameter and must know how to call
 	 * Turtle.move(double distance) and Turtle.rotate(double degrees);
 	 * 
 	 * @param actionChain
 	 *            a List<Action> of Actions which will be applied in succession
-	 *            to our current Turtle.
+	 *            to our current Turtles.
 	 */
 	public void updateTurtle(List<AbstractAction> actionChain) {
 		for (AbstractAction action : actionChain) {
@@ -70,18 +79,39 @@ public class Workspace {
 		myRoot.getChildren().clear();
 	}
 
+	/**
+	 * Returns this workspace's SLogoCanvas for changes to background, reference
+	 * grid
+	 * 
+	 * @return
+	 */
 	public SLogoCanvas getCanvas() {
 		return myCanvas;
 	}
 
+	/**
+	 * Returns collection of currently active turtles
+	 * 
+	 * @return
+	 */
 	public TurtleCollection getCurrentTurtles() {
 		return myCurrentTurtles;
 	}
 
+	/**
+	 * Returns an observable list of previously parsed commands
+	 * 
+	 * @return
+	 */
 	public ObservableList<String> getHistory() {
 		return myHistory;
 	}
 
+	/**
+	 * Returns Group to allow visual updates in the workspace
+	 * 
+	 * @return
+	 */
 	public Group getRoot() {
 		return myRoot;
 	}
