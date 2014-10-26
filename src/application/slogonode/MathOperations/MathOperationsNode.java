@@ -4,6 +4,7 @@
  *  Modified: October 26th, 2014
  */
 package application.slogonode.MathOperations;
+
 import application.slogonode.SLogoNode;
 
 public abstract class MathOperationsNode extends SLogoNode {
