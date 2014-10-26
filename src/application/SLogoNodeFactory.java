@@ -25,7 +25,6 @@ public class SLogoNodeFactory {
 	 * @return
 	 */
 	public SLogoNode getSLogoNodeFromString(String nodeName) {
-		System.out.println("\nReached the factory!\n");
 		SLogoNode commandNode = null;
 		Map<String, String> pathNamesMap= new HashMap<String, String>();
 		try {
@@ -40,18 +39,12 @@ public class SLogoNodeFactory {
 				commandNode = (SLogoNode) classType.newInstance();
 
 			}
-//			ResourceBundle classBundle = ResourceBundle.getBundle(GUIconstants.RESOURCE_FILE_PREFIX+"ClassType");
-//			PropertiesFactory fact = new PropertiesFactory();
-//			Map<String, String> map = new HashMap<String, String>();
-//			map = fact.getCommandsMap(classBundle);
-
 		} catch (Exception e) {
 			System.out.println("\nERROR! THIS COMMAND DOES NOT EXIST: " + nodeName);
 		} finally {
 			// TODO: SEND TO ERROR PAGE IF NULL!!!!
 			//System.out.println("ERROR! THIS COMMAND DOES NOT EXIST");
 		}
-		System.out.println("\nReturning a node: " + nodeName + ", " + commandNode + "\n");
 		return commandNode;
 	}
 	/**
