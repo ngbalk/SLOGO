@@ -1,4 +1,4 @@
-apackage application.Actions;
+package application.Actions;
 
 import javafx.geometry.Point2D;
 import application.SLogoCanvas;
