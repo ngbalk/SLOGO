@@ -19,7 +19,7 @@ public abstract class SetIndexNode extends DisplayCommandsNode {
 	
 	@Override
 	public List<AbstractAction> evaluate() {
-		myActions.addAll(myChildren.get(0).evaluate());
+		myValue = myChildren.get(0).evaluate().get(0).getValue();
 		return myActions;
 	}
 }
